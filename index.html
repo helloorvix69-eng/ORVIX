@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORVIX Technology – AI solutions for business</title>
+<meta name="description" content="ORVIX Technology builds AI products, automation and software for businesses. Founder and CEO: Ayush Kumar.">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F4FF;--surface:#FFFFFF;--ink:#17123A;--muted:#5E5A80;--line:#E1DCF5;
+  --accent:#6D4AFF;--accent2:#0BA5C9;--on-accent:#FFFFFF;--mint:#0F9D78;
+  --glow:rgba(109,74,255,.18);
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+:root[data-theme="dark"]{
+  --bg:#070A18;--surface:#0E1330;--ink:#EEF0FF;--muted:#9AA3C7;--line:#222A57;
+  --accent:#8B6CFF;--accent2:#22D3EE;--on-accent:#070A18;--mint:#5FE0BB;
+  --glow:rgba(139,108,255,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:22px;padding-right:22px}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:20}
+
+header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font:800 22px var(--display);letter-spacing:.04em;text-decoration:none;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;align-items:center;gap:20px;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.icon-btn{border:1px solid var(--line);background:var(--surface);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
+#menuBtn{display:none}
+@media(max-width:720px){
+  #menuBtn{display:block}
+  nav{position:absolute;top:62px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:16px 22px;gap:14px;display:none}
+  nav.open{display:flex}
+}
+
+.hero{padding-top:56px;padding-bottom:44px;display:grid;gap:28px;grid-template-columns:1.15fr .85fr;align-items:center;position:relative}
+.hero::before{content:"";position:absolute;right:-10%;top:10%;width:420px;height:420px;background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none;z-index:-1}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:36px}}
+h1{font:800 clamp(38px,7.5vw,70px)/1.02 var(--display);letter-spacing:-.03em;margin:0 0 18px}
+#typed{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.caret{display:inline-block;width:3px;height:.9em;background:var(--accent2);margin-left:3px;vertical-align:-.1em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{font-size:19px;color:var(--muted);max-width:48ch;margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--line);background:transparent;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));border-color:transparent;color:var(--on-accent);box-shadow:0 8px 24px var(--glow)}
+.orbit{width:100%;max-width:380px;margin:0 auto;display:block}
+.orbit .ring{fill:none;stroke:var(--line);stroke-width:1.5}
+.orbit .core{fill:url(#g)}
+.orbit .dot{fill:var(--accent2)}
+.orbit .dot2{fill:var(--accent)}
+.spin{transform-origin:200px 200px;animation:spin 28s linear infinite}
+.spin.r{animation-duration:46s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.spin,.caret{animation:none}html{scroll-behavior:auto}}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;padding-top:8px;padding-bottom:48px}
+.stat b{display:block;font:800 clamp(32px,6vw,46px)/1 var(--display);background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--muted);font-size:15px}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(28px,5vw,40px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 30px;max-width:56ch}
+
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.svc>div{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.svc h3{font:700 20px var(--display);margin:0 0 6px}
+.svc p{margin:0;color:var(--muted)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;cursor:pointer;font-weight:500}
+.chip[aria-pressed="true"]{background:linear-gradient(90deg,var(--accent),var(--accent2));border-color:transparent;color:var(--on-accent)}
+.work{display:grid;gap:16px}
+.proj{display:grid;grid-template-columns:180px 1fr;gap:22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;align-items:center}
+.proj[hidden]{display:none}
+@media(max-width:620px){.proj{grid-template-columns:1fr}}
+.thumb{aspect-ratio:4/3;border-radius:12px;display:grid;place-items:center;font:800 30px var(--display);color:#fff}
+.t1{background:linear-gradient(135deg,#6D4AFF,#22D3EE)}
+.t2{background:linear-gradient(135deg,#0E9F82,#5FE0BB);color:#06281F}
+.t3{background:linear-gradient(135deg,#1E2A6B,#6D4AFF)}
+.t4{background:linear-gradient(135deg,#C026D3,#6D4AFF)}
+.proj h3{font:700 21px var(--display);margin:0 0 6px}
+.proj p{margin:0 0 10px;color:var(--muted)}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:14px;font-weight:500}
+
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:18px;max-width:640px;overflow:hidden}
+.chat-head{padding:12px 18px;border-bottom:1px solid var(--line);font-weight:600;display:flex;align-items:center;gap:8px}
+.chat-head i{width:9px;height:9px;border-radius:50%;background:var(--mint);display:inline-block}
+#log{height:280px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:9px 14px;border-radius:16px;font-size:16px}
+.msg.bot{background:var(--bg);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:linear-gradient(90deg,var(--accent),var(--accent2));color:var(--on-accent);align-self:flex-end;border-bottom-right-radius:4px}
+.quick{display:flex;gap:8px;flex-wrap:wrap;padding:0 16px 12px}
+.quick button{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:14px}
+.chat form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.chat input{flex:1;border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:10px 16px;min-width:0}
+
+.people{display:flex;gap:22px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;flex-wrap:wrap}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--on-accent);display:grid;place-items:center;font:800 34px var(--display);flex:none}
+.people h3{font:700 24px var(--display);margin:0}
+.role{color:var(--mint);font-weight:600;margin:2px 0 8px}
+.people p{margin:0;color:var(--muted);max-width:52ch}
+
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600;font-size:18px}
+details p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+@media(max-width:760px){.cgrid{grid-template-columns:1fr}}
+form.contact{display:grid;gap:12px}
+label{font-weight:500;font-size:15px;display:grid;gap:4px}
+.contact input,.contact textarea{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:11px 14px;width:100%}
+.contact textarea{min-height:120px;resize:vertical}
+.err{color:#F0524A;font-size:14px;min-height:18px}
+#thanks{color:var(--mint);font-weight:600}
+footer{border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#toTop{position:fixed;right:18px;bottom:18px;opacity:0;pointer-events:none;transition:opacity .2s}
+#toTop.show{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">ORVIX</a>
+    <nav id="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#demo">AI demo</a>
+      <a href="#team">Leadership</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:8px">
+      <button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme">🌙</button>
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <h1>AI that <span id="typed"></span><span class="caret"></span></h1>
+      <p class="lead">ORVIX Technology builds AI products, automation and software for businesses. Founded and led by Ayush Kumar.</p>
+      <div class="btns">
+        <a class="btn primary" href="#demo">Try the AI demo</a>
+        <a class="btn" href="#contact">Start a project</a>
+      </div>
+    </div>
+    <svg class="orbit" viewBox="0 0 400 400" role="img" aria-label="Orbit illustration">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8B6CFF"/><stop offset="1" stop-color="#22D3EE"/></linearGradient></defs>
+      <circle class="ring" cx="200" cy="200" r="70"/><circle class="ring" cx="200" cy="200" r="120"/><circle class="ring" cx="200" cy="200" r="170"/>
+      <circle class="core" cx="200" cy="200" r="30"/>
+      <g class="spin"><circle class="dot" cx="270" cy="200" r="10"/><circle class="dot2" cx="200" cy="30" r="8"/></g>
+      <g class="spin r"><circle class="dot2" cx="80" cy="200" r="9"/><circle class="dot" cx="200" cy="370" r="12"/></g>
+    </svg>
+  </div>
+
+  <div class="wrap stats">
+    <div class="stat"><b data-count="25">0</b><span>Projects delivered</span></div>
+    <div class="stat"><b data-count="15">0</b><span>Happy clients</span></div>
+    <div class="stat"><b data-count="5">0</b><span>AI products</span></div>
+    <div class="stat"><b data-count="24">0</b><span>Hours a day, 7 days support</span></div>
+  </div>
+
+  <section id="services"><div class="wrap">
+    <h2>What we build</h2>
+    <p class="sub">Practical AI that saves time and money, from idea to launch.</p>
+    <div class="svc">
+      <div><h3>AI chatbots and assistants</h3><p>Customer support and sales assistants that answer in seconds, day and night.</p></div>
+      <div><h3>Process automation</h3><p>Remove repetitive work: reports, data entry, emails and approvals.</p></div>
+      <div><h3>Custom AI software</h3><p>Web and mobile apps with AI built in, designed around your business.</p></div>
+      <div><h3>Data and insights</h3><p>Dashboards and models that turn your data into clear decisions.</p></div>
+    </div>
+  </div></section>
+
+  <section id="work"><div class="wrap">
+    <h2>Selected work</h2>
+    <p class="sub">Sample projects. Replace them with your real ones.</p>
+    <div class="filters" id="filters">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="chatbot" aria-pressed="false">Chatbots</button>
+      <button class="chip" data-f="automation" aria-pressed="false">Automation</button>
+      <button class="chip" data-f="software" aria-pressed="false">Software</button>
+    </div>
+    <div class="work">
+      <article class="proj" data-cat="chatbot"><div class="thumb t1" aria-hidden="true">AI</div><div><h3>Support assistant</h3><p>An AI helper that handles common customer questions and hands over to staff when needed.</p><span class="tag">Chatbot</span></div></article>
+      <article class="proj" data-cat="automation"><div class="thumb t2" aria-hidden="true">Auto</div><div><h3>Invoice automation</h3><p>Reads invoices, extracts details and posts them to accounting without manual typing.</p><span class="tag">Automation</span></div></article>
+      <article class="proj" data-cat="software"><div class="thumb t3" aria-hidden="true">App</div><div><h3>Sales insights dashboard</h3><p>One live screen for sales, stock and team results, with AI-written summaries.</p><span class="tag">Software</span></div></article>
+      <article class="proj" data-cat="chatbot"><div class="thumb t4" aria-hidden="true">Chat</div><div><h3>WhatsApp booking bot</h3><p>Customers book appointments by chatting, and reminders go out automatically.</p><span class="tag">Chatbot</span></div></article>
+    </div>
+  </div></section>
+
+  <section id="demo"><div class="wrap">
+    <h2>Talk to ORVIX AI</h2>
+    <p class="sub">A small demo of the kind of assistant we build. It runs in your browser with simple rules; a real version would use a full AI model.</p>
+    <div class="chat">
+      <div class="chat-head"><i></i>ORVIX assistant</div>
+      <div id="log" aria-live="polite"></div>
+      <div class="quick" id="quick">
+        <button type="button">What do you do?</button>
+        <button type="button">Who is the founder?</button>
+        <button type="button">How do I contact you?</button>
+      </div>
+      <form id="chatForm">
+        <input id="chatIn" placeholder="Type your question" aria-label="Your question" autocomplete="off">
+        <button class="btn primary" type="submit">Send</button>
+      </form>
+    </div>
+  </div></section>
+
+  <section id="team"><div class="wrap">
+    <h2>Leadership</h2>
+    <p class="sub">ORVIX is founder-led, so you work directly with the person making decisions.</p>
+    <div class="people">
+      <div class="avatar" aria-hidden="true">AK</div>
+      <div>
+        <h3>Ayush Kumar</h3>
+        <div class="role">Founder and CEO</div>
+        <p>Ayush started ORVIX Technology to make AI simple and useful for every business. He leads strategy, clients and delivery.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section id="faq"><div class="wrap">
+    <h2>Questions we hear often</h2>
+    <details><summary>How long does a project take?</summary><p>Small projects take 2 to 4 weeks. Larger AI products take 2 to 3 months. We give you a clear timeline after the first call.</p></details>
+    <details><summary>Do I need my own data?</summary><p>Not always. We can start with your documents, website or sales records, and show you what is possible before you commit.</p></details>
+    <details><summary>Do you provide support after launch?</summary><p>Yes. We monitor, fix and improve what we build, with monthly support plans.</p></details>
+    <details><summary>How do I get a price?</summary><p>Send us a short message below. We reply with a free estimate within one working day.</p></details>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <h2>Let’s build something</h2>
+    <p class="sub">Tell us about your idea. We reply within one working day.</p>
+    <div class="cgrid">
+      <form class="contact" id="cform" novalidate>
+        <label>Name<input id="cn" autocomplete="name"><span class="err" id="en"></span></label>
+        <label>Email<input id="ce" type="email" autocomplete="email"><span class="err" id="ee"></span></label>
+        <label>Message<textarea id="cm"></textarea><span class="err" id="em"></span></label>
+        <button class="btn primary" type="submit">Send message</button>
+        <div id="thanks" role="status"></div>
+      </form>
+      <div>
+        <p><b>Email</b><br><a href="mailto:hello@orvix.com">hello@orvix.com</a></p>
+        <p><b>Founder and CEO</b><br>Ayush Kumar</p>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> ORVIX Technology. All rights reserved.</span><span>Founder and CEO: Ayush Kumar</span></div></footer>
+<button class="icon-btn" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+const EMAIL = "hello@orvix.com";   // apna asli email yahan daalo
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+$("#yr").textContent = new Date().getFullYear();
+
+const root = document.documentElement;
+function setTheme(t){
+  root.dataset.theme = t;
+  $("#themeBtn").textContent = t === "dark" ? "☀️" : "🌙";
+  try{ localStorage.setItem("orvix-theme", t); }catch(e){}
+}
+let saved = null;
+try{ saved = localStorage.getItem("orvix-theme"); }catch(e){}
+setTheme(saved || "dark");
+$("#themeBtn").onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+
+$("#menuBtn").onclick = () => {
+  const open = $("#nav").classList.toggle("open");
+  $("#menuBtn").setAttribute("aria-expanded", open);
+};
+$$("#nav a").forEach(a => a.onclick = () => $("#nav").classList.remove("open"));
+
+const words = ["automates your work.", "answers your customers.", "reads your data.", "grows your business."];
+let wi = 0, ci = 0, del = false;
+const typed = $("#typed");
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function tick(){
+  const w = words[wi];
+  if(still){ typed.textContent = w; return; }
+  typed.textContent = w.slice(0, ci);
+  if(!del && ci === w.length){ del = true; return setTimeout(tick, 1600); }
+  if(del && ci === 0){ del = false; wi = (wi + 1) % words.length; }
+  ci += del ? -1 : 1;
+  setTimeout(tick, del ? 30 : 65);
+}
+tick();
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return;
+  const el = e.target, end = +el.dataset.count; let n = 0;
+  const step = Math.max(1, Math.ceil(end / 40));
+  const t = setInterval(() => { n = Math.min(end, n + step); el.textContent = n + (end >= 10 && end !== 24 ? "+" : ""); if(n === end) clearInterval(t); }, 35);
+  io.unobserve(el);
+}), {threshold:.6});
+$$("[data-count]").forEach(el => io.observe(el));
+
+$$(".chip").forEach(c => c.onclick = () => {
+  $$(".chip").forEach(x => x.setAttribute("aria-pressed", x === c));
+  $$(".proj").forEach(p => p.hidden = !(c.dataset.f === "all" || p.dataset.cat === c.dataset.f));
+});
+
+const log = $("#log");
+function add(text, who){
+  const d = document.createElement("div");
+  d.className = "msg " + who; d.textContent = text;
+  log.appendChild(d); log.scrollTop = log.scrollHeight;
+}
+function reply(q){
+  q = q.toLowerCase();
+  if(/founder|ceo|ayush|owner|who/.test(q)) return "ORVIX was founded by Ayush Kumar, who is also the CEO.";
+  if(/contact|email|mail|reach|call/.test(q)) return "Write to " + EMAIL + " or use the contact form below. We reply within one working day.";
+  if(/price|cost|charge|budget|quote/.test(q)) return "Pricing depends on the project. Send us a short message and we will share a free estimate.";
+  if(/chatbot|bot|assistant/.test(q)) return "Yes, we build AI chatbots for websites, WhatsApp and apps that answer customers in seconds.";
+  if(/automat|workflow|report/.test(q)) return "We automate repetitive work such as reports, data entry, invoices and emails.";
+  if(/what|service|do you|offer|build/.test(q)) return "We build AI chatbots, process automation, custom AI software and data dashboards.";
+  if(/hi|hello|hey|namaste/.test(q)) return "Hello! Ask me about our services, our founder or how to contact us.";
+  return "I am a small demo, so I may not know that. Please use the contact form and the team will answer you.";
+}
+add("Hi, I’m the ORVIX assistant. How can I help?", "bot");
+function ask(q){
+  q = q.trim(); if(!q) return;
+  add(q, "me");
+  setTimeout(() => add(reply(q), "bot"), 450);
+}
+$("#chatForm").onsubmit = e => { e.preventDefault(); ask($("#chatIn").value); $("#chatIn").value = ""; };
+$$("#quick button").forEach(b => b.onclick = () => ask(b.textContent));
+
+$("#cform").onsubmit = e => {
+  e.preventDefault();
+  const n = $("#cn").value.trim(), m = $("#ce").value.trim(), t = $("#cm").value.trim();
+  const okM = /^\S+@\S+\.\S+$/.test(m);
+  $("#en").textContent = n ? "" : "Please enter your name.";
+  $("#ee").textContent = okM ? "" : "Please enter a valid email.";
+  $("#em").textContent = t.length >= 10 ? "" : "Please write at least 10 characters.";
+  if(!n || !okM || t.length < 10) return;
+  const body = encodeURIComponent(t + "\n\nFrom: " + n + " (" + m + ")");
+  location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Project enquiry from " + n) + "&body=" + body;
+  $("#thanks").textContent = "Thanks! Your email app should open now.";
+};
+
+addEventListener("scroll", () => {
+  const h = document.documentElement;
+  $("#progress").style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + "%";
+  $("#toTop").classList.toggle("show", h.scrollTop > 600);
+}, {passive:true});
+$("#toTop").onclick = () => scrollTo({top:0, behavior:"smooth"});
+</script>
+</body>
+</html>
