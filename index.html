@@ -33,21 +33,19 @@ button,input,textarea{font:inherit;color:inherit}
 header{position:sticky;top:0;z-index:10;background:var(--navy);border-bottom:1px solid var(--navy-line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
 .logo{font:800 22px var(--display);letter-spacing:.06em;text-decoration:none;color:#fff}
-nav{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:500}
+nav{display:flex;align-items:center;gap:16px;font-size:15px;font-weight:500}
 nav a{text-decoration:none;color:var(--navy-muted)}
 nav a:hover{color:#fff}
 .icon-btn{border:1px solid var(--navy-line);background:transparent;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1}
 #toTop{position:fixed;right:18px;bottom:18px;opacity:0;pointer-events:none;transition:opacity .2s;background:var(--navy);border-color:var(--navy)}
 #toTop.show{opacity:1;pointer-events:auto}
 #menuBtn{display:none}
-@media(max-width:860px){
+@media(max-width:940px){
   #menuBtn{display:block}
   nav{position:absolute;top:62px;left:0;right:0;background:var(--navy);border-bottom:1px solid var(--navy-line);flex-direction:column;align-items:flex-start;padding:16px 22px;gap:14px;display:none}
   nav.open{display:flex}
 }
 
-/* HERO with technology photo */
-/* Apni photo lagani ho to GitHub par hero.jpg upload karo aur neeche url(...) ko url("hero.jpg") kar do */
 .herobg{position:relative;color:#fff;background:#0B1B3A url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=70") center/cover no-repeat}
 .herobg::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,27,58,.93),rgba(11,27,58,.78) 55%,rgba(11,27,58,.55))}
 .hero{position:relative;padding-top:64px;padding-bottom:56px;display:grid;gap:28px;grid-template-columns:1.15fr .85fr;align-items:center}
@@ -96,6 +94,21 @@ h2{font:700 clamp(28px,5vw,40px)/1.1 var(--display);letter-spacing:-.02em;margin
 .card h3{font:700 20px var(--display);margin:0 0 6px}
 .card p{margin:0;color:var(--muted)}
 .ico{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:20px;margin-bottom:12px}
+.also{margin-top:18px;color:var(--muted);font-size:15px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+@media(max-width:800px){.split{grid-template-columns:1fr}}
+.ticks{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.ticks li::before{content:"✓ ";color:var(--mint);font-weight:700}
+.phone{max-width:300px;width:100%;margin:0 auto;background:var(--navy);border-radius:34px;padding:10px;box-shadow:0 24px 50px var(--glow)}
+.screen{background:var(--surface);border-radius:26px;overflow:hidden}
+.ph-head{background:var(--accent);color:var(--on-accent);padding:12px 14px;font-weight:600;font-size:15px;display:flex;gap:8px;align-items:center}
+.ph-head i{width:9px;height:9px;border-radius:50%;background:#4ADE80;display:inline-block}
+.ph-body{padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--bg);min-height:330px}
+.b{max-width:86%;padding:8px 12px;border-radius:14px;font-size:14px;line-height:1.4}
+.b.u{align-self:flex-end;background:var(--navy);color:#fff;border-bottom-right-radius:4px}
+.b.a{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:4px}
+.cap{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
 
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 16px;cursor:pointer;font-weight:500}
@@ -167,7 +180,7 @@ label{font-weight:500;font-size:15px;display:grid;gap:4px}
 .contact textarea{min-height:120px;resize:vertical}
 .err{color:#DC2626;font-size:14px;min-height:18px}
 #thanks{color:var(--mint);font-weight:600}
-.info p{margin:0 0 16px}
+.info p{margin:0 0 16px;overflow-wrap:anywhere}
 .info a{color:var(--accent);font-weight:600}
 footer{background:var(--navy);color:var(--navy-muted);padding:26px 0 34px;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -185,6 +198,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       <a href="#process">Process</a>
       <a href="#trust">Why us</a>
       <a href="#demo">AI demo</a>
+      <a href="#team">Leadership</a>
       <a href="#contact">Contact</a>
     </nav>
     <div style="display:flex;gap:8px">
@@ -223,23 +237,48 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
   <div class="band">
     <div class="wrap stats">
-      <div class="stat"><b data-count="25">0</b><span>Projects delivered</span></div>
-      <div class="stat"><b data-count="15">0</b><span>Happy clients</span></div>
-      <div class="stat"><b data-count="5">0</b><span>AI products</span></div>
-      <div class="stat"><b data-count="24">0</b><span>Hours a day, 7 days support</span></div>
+      <div class="stat"><b data-count="25" data-suffix="+">25+</b><span>Projects delivered</span></div>
+      <div class="stat"><b data-count="15" data-suffix="+">15+</b><span>Happy clients</span></div>
+      <div class="stat"><b data-count="5" data-suffix="">5</b><span>AI products</span></div>
+      <div class="stat"><b>24/7</b><span>Support after launch</span></div>
     </div>
   </div>
 
   <section id="services"><div class="wrap">
     <h2>What we build</h2>
-    <p class="sub">Practical AI that saves time and money, from idea to launch.</p>
+    <p class="sub">Three things we do best, from first idea to launch.</p>
     <div class="cards">
       <div class="card"><div class="ico">💬</div><h3>AI chatbots</h3><p>Support and sales assistants for your website and WhatsApp that answer in seconds, day and night.</p></div>
       <div class="card"><div class="ico">⚙️</div><h3>Process automation</h3><p>Remove repetitive work: reports, data entry, emails, invoices and approvals.</p></div>
       <div class="card"><div class="ico">🧩</div><h3>Custom AI software</h3><p>Web and mobile apps with AI built in, designed around how your business works.</p></div>
-      <div class="card"><div class="ico">📊</div><h3>Data and insights</h3><p>Dashboards and models that turn your data into clear daily decisions.</p></div>
-      <div class="card"><div class="ico">🌐</div><h3>Websites and branding</h3><p>Fast, good-looking websites and identity that make people remember you.</p></div>
-      <div class="card"><div class="ico">🎓</div><h3>AI training</h3><p>Hands-on sessions that teach your team to use AI tools in daily work.</p></div>
+    </div>
+    <p class="also">Also available: dashboards, websites and AI training for your team.</p>
+  </div></section>
+
+  <section id="inaction"><div class="wrap split">
+    <div>
+      <h2>See it in action</h2>
+      <p class="sub">Here is how an ORVIX chatbot handles a booking on WhatsApp, with no staff involved.</p>
+      <ul class="ticks">
+        <li>Replies in seconds, any time of day</li>
+        <li>Understands Hindi, English and Hinglish</li>
+        <li>Hands over to your team when needed</li>
+      </ul>
+      <a class="btn primary" href="#demo">Try the live assistant</a>
+    </div>
+    <div>
+      <div class="phone" role="img" aria-label="Mockup of a chatbot handling a table booking">
+        <div class="screen">
+          <div class="ph-head"><i></i>Your business assistant</div>
+          <div class="ph-body">
+            <div class="b u">Hi, do you have a table for 4 tomorrow at 8?</div>
+            <div class="b a">Yes! Tomorrow 8:00 PM for 4 people is open. Shall I book it under your name?</div>
+            <div class="b u">Yes, Rahul</div>
+            <div class="b a">Done ✅ Your booking is confirmed. I will send a reminder 2 hours before.</div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">Sample conversation for illustration</p>
     </div>
   </div></section>
 
@@ -342,36 +381,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
         <div id="thanks" role="status"></div>
       </form>
       <div class="info">
-        <p><b>Email</b><br><a id="mailLink" href="#"></a></p>
-        <p><b>Website</b><br><a id="siteLink" href="#"></a></p>
-        <p id="waRow" hidden><b>WhatsApp</b><br><a id="waLink" href="#">Chat with us</a></p>
+        <p><b>Email</b><br><a href="mailto:hello@orvix.com">hello@orvix.com</a></p>
+        <p><b>Website</b><br><a href="https://helloorvix69-eng.github.io/ORVIX-3.0/">helloorvix69-eng.github.io/ORVIX-3.0</a></p>
         <p><b>Founder and CEO</b><br>Ayush Kumar</p>
       </div>
     </div>
   </div></section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr"></span> ORVIX Technology · <span id="domainFoot"></span></span><span>Founder and CEO: Ayush Kumar</span></div></footer>
+<footer><div class="wrap"><span>© 2026 ORVIX Technology. All rights reserved.</span><span>Founder and CEO: Ayush Kumar</span></div></footer>
 <button class="icon-btn" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
 const EMAIL = "hello@orvix.com";
-const DOMAIN = "orvix.com";
-const WHATSAPP = "";
 const WORKER_URL = "https://orvix-ai.hello-orvix-69.workers.dev";
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
-
-$("#yr").textContent = new Date().getFullYear();
-$("#mailLink").textContent = EMAIL;
-$("#mailLink").href = "mailto:" + EMAIL;
-$("#siteLink").textContent = DOMAIN;
-$("#siteLink").href = "https://" + DOMAIN;
-$("#domainFoot").textContent = DOMAIN;
-if(WHATSAPP){
-  $("#waRow").hidden = false;
-  $("#waLink").href = "https://wa.me/" + WHATSAPP.replace(/\D/g, "");
-}
 
 const root = document.documentElement;
 function setTheme(t){
@@ -405,14 +430,21 @@ function tick(){
 }
 tick();
 
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if(!e.isIntersecting) return;
-  const el = e.target, end = +el.dataset.count; let n = 0;
-  const step = Math.max(1, Math.ceil(end / 40));
-  const t = setInterval(() => { n = Math.min(end, n + step); el.textContent = n + (end >= 10 && end !== 24 ? "+" : ""); if(n === end) clearInterval(t); }, 35);
-  io.unobserve(el);
-}), {threshold:.6});
-$$("[data-count]").forEach(el => io.observe(el));
+if("IntersectionObserver" in window && !still){
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target, end = +el.dataset.count, suf = el.dataset.suffix || "";
+    let n = 0;
+    const step = Math.max(1, Math.ceil(end / 40));
+    const t = setInterval(() => {
+      n = Math.min(end, n + step);
+      el.textContent = n + suf;
+      if(n === end) clearInterval(t);
+    }, 35);
+    io.unobserve(el);
+  }), {threshold:.6});
+  $$("[data-count]").forEach(el => io.observe(el));
+}
 
 $$(".chip").forEach(c => c.onclick = () => {
   $$(".chip").forEach(x => x.setAttribute("aria-pressed", x === c));
