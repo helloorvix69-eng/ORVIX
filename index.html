@@ -1,744 +1,879 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ORVIX Technology – AI Solutions for Business</title>
-<meta name="description" content="ORVIX Technology builds AI chatbots, business automation and modern websites. Founder and CEO: Ayush Kumar.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORVIX Technology | Premium AI Solutions</title>
+<meta name="description" content="ORVIX Technology builds AI chatbots, automation and modern websites for businesses.">
 
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#080D1B;
---surface:#111A2D;
---ink:#EEF3FF;
---muted:#A5B2CA;
---line:#26334D;
---navy:#060B17;
---navy-ink:#F4F7FF;
---navy-muted:#A5B5D3;
---navy-line:#243451;
---navy-accent:#79A9FF;
---accent:#4D83FF;
---on-accent:#FFFFFF;
---accent-soft:#192B4B;
---mint:#43E0BD;
---glow:rgba(64,120,255,.20);
---display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
---body:"Instrument Sans",system-ui,sans-serif;
+:root {
+  --bg:#080D1B;
+  --surface:#101A30;
+  --surface2:#131F39;
+  --ink:#F3F5FF;
+  --muted:#A7B3CC;
+  --line:rgba(157,174,220,.17);
+  --accent:#3987FF;
+  --violet:#925CFF;
+  --cyan:#36D9F5;
+  --mint:#52E6C2;
+  --glow:rgba(57,135,255,.22);
+  --display:"Bricolage Grotesque",sans-serif;
+  --body:"Instrument Sans",sans-serif;
 }
 
-:root[data-theme="light"]{
---bg:#F3F6FF;
---surface:#FFFFFF;
---ink:#111B35;
---muted:#61708C;
---line:#DCE4F3;
---navy:#0B1530;
---navy-ink:#F4F7FF;
---navy-muted:#B4C2DE;
---navy-line:#263858;
---navy-accent:#8DB8FF;
---accent:#426BFF;
---on-accent:#FFFFFF;
---accent-soft:#E7EDFF;
---mint:#13B995;
---glow:rgba(66,107,255,.20);
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-
-body{
-margin:0;
-background:
-radial-gradient(ellipse at 8% 8%,rgba(54,112,255,.15),transparent 35%),
-radial-gradient(ellipse at 90% 35%,rgba(139,75,255,.12),transparent 38%),
-var(--bg);
-color:var(--ink);
-font:400 17px/1.6 var(--body);
--webkit-font-smoothing:antialiased;
-overflow-x:hidden;
-transition:background .3s,color .3s;
+html {
+  scroll-behavior:smooth;
+  scroll-padding-top:80px;
 }
 
-:root[data-theme="light"] body{
-background:
-radial-gradient(ellipse at 8% 8%,rgba(54,112,255,.10),transparent 35%),
-radial-gradient(ellipse at 90% 35%,rgba(139,75,255,.07),transparent 38%),
-var(--bg);
+body {
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  line-height:1.65;
+  overflow-x:hidden;
 }
 
-a{color:inherit}
-button,input,textarea{font:inherit;color:inherit}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1040px;margin:0 auto;padding-left:22px;padding-right:22px}
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 12% 8%,rgba(146,92,255,.10),transparent 34%),
+    radial-gradient(ellipse at 88% 32%,rgba(54,217,245,.07),transparent 32%);
+}
 
-#progress{
-position:fixed;top:0;left:0;height:3px;width:0;
-background:linear-gradient(90deg,#3987FF,#925CFF,#36D9F5);
-z-index:20
+a {color:inherit;text-decoration:none}
+button,input,textarea {font:inherit}
+
+.wrap {
+  max-width:1120px;
+  margin:auto;
+  padding:0 24px;
+}
+
+#progress {
+  position:fixed;
+  top:0;
+  left:0;
+  height:3px;
+  width:0;
+  background:linear-gradient(90deg,var(--accent),var(--violet),var(--cyan));
+  z-index:100;
 }
 
 /* NAVIGATION */
 
-header{
-position:sticky;top:0;z-index:10;
-background:rgba(6,11,23,.94);
-backdrop-filter:blur(16px);
-border-bottom:1px solid #243451;
+header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(8,13,27,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
 }
 
-header .wrap{
-display:flex;align-items:center;
-justify-content:space-between;height:62px
+header .wrap {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:72px;
 }
 
-.logo{
-font:800 22px var(--display);
-letter-spacing:.06em;text-decoration:none;color:#fff
+.logo {
+  font:800 27px var(--display);
+  letter-spacing:3px;
+  color:white;
 }
 
-nav{
-display:flex;align-items:center;gap:14px;
-font-size:14px;font-weight:500
+nav {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:14px;
+  font-weight:600;
 }
 
-nav a{text-decoration:none;color:#A5B5D3}
-nav a:hover{color:#fff}
-
-.icon-btn{
-border:1px solid #263858;
-background:rgba(255,255,255,.05);
-color:#fff;width:40px;height:40px;
-border-radius:50%;cursor:pointer;font-size:18px
+nav a {
+  color:#B8C4E1;
+  transition:.2s;
 }
 
-#toTop{
-position:fixed;right:18px;bottom:18px;
-opacity:0;pointer-events:none;transition:opacity .2s;
-background:var(--navy);border-color:var(--navy)
+nav a:hover {color:white}
+
+.icon-btn {
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.06);
+  color:white;
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  cursor:pointer;
 }
 
-#toTop.show{opacity:1;pointer-events:auto}
-#menuBtn{display:none}
+#menuBtn {display:none}
 
-@media(max-width:940px){
-#menuBtn{display:block}
-nav{
-position:absolute;top:62px;left:0;right:0;
-background:var(--navy);
-border-bottom:1px solid var(--navy-line);
-flex-direction:column;align-items:flex-start;
-padding:16px 22px;gap:14px;display:none
-}
-nav.open{display:flex}
-}
+@media(max-width:960px) {
+  #menuBtn {display:block}
 
-/* HERO SECTION */
+  nav {
+    position:absolute;
+    top:72px;
+    left:0;
+    right:0;
+    background:#0B1124;
+    border-bottom:1px solid var(--line);
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px 25px;
+    display:none;
+  }
 
-.herobg{
-position:relative;
-color:#fff;
-background:
-linear-gradient(110deg,rgba(5,12,31,.96),rgba(12,27,65,.83),rgba(45,35,105,.68)),
-url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=85")
-center/cover no-repeat;
+  nav.open {display:flex}
 }
 
-.herobg::before{
-content:"";position:absolute;inset:0;
-background:
-radial-gradient(circle at 75% 40%,rgba(71,112,255,.27),transparent 45%),
-linear-gradient(180deg,transparent,rgba(5,10,25,.18));
+/* HERO */
+
+.herobg {
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 70% 35%,rgba(146,92,255,.32),transparent 36%),
+    radial-gradient(ellipse at 83% 70%,rgba(54,217,245,.18),transparent 30%),
+    linear-gradient(115deg,#080D1B,#10102B 55%,#111A38);
 }
 
-.hero{
-position:relative;padding-top:64px;padding-bottom:56px;
-display:grid;gap:28px;
-grid-template-columns:1.15fr .85fr;
-align-items:center
+.herobg::after {
+  content:"";
+  position:absolute;
+  top:0;
+  right:-10%;
+  width:65%;
+  height:100%;
+  background:url("https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1400&q=85") center/cover;
+  opacity:.35;
+  mix-blend-mode:screen;
+  mask-image:linear-gradient(90deg,transparent,black 40%,transparent);
+  pointer-events:none;
 }
 
-@media(max-width:800px){
-.hero{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px}
-.orbit{display:none}
+.hero {
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:40px;
+  align-items:center;
+  min-height:540px;
+  padding-top:75px;
+  padding-bottom:75px;
+  color:white;
 }
 
-.pill{
-display:inline-flex;align-items:center;gap:8px;
-border:1px solid rgba(255,255,255,.28);
-background:rgba(255,255,255,.1);
-color:#fff;border-radius:999px;
-padding:5px 14px;font-size:14px;font-weight:500;
-margin-bottom:18px
+.pill {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px;
+  border:1px solid rgba(160,151,255,.4);
+  background:rgba(146,92,255,.13);
+  color:#DCD5FF;
+  border-radius:30px;
+  margin-bottom:20px;
+  font-size:14px;
 }
 
-.pill i{
-width:8px;height:8px;border-radius:50%;
-background:#4ADE80;display:inline-block
+.pill i {
+  width:8px;
+  height:8px;
+  background:var(--mint);
+  border-radius:50%;
+  box-shadow:0 0 14px var(--mint);
 }
 
-h1{
-font:800 clamp(38px,7.5vw,68px)/1.03 var(--display);
-letter-spacing:-.03em;margin:0 0 18px;color:#fff
+h1 {
+  font:800 clamp(42px,7vw,72px)/1.05 var(--display);
+  letter-spacing:-2px;
+  margin-bottom:20px;
 }
 
-#typed{
-color:#8EB5FF;
-text-shadow:0 0 25px rgba(75,140,255,.35)
+#typed {
+  background:linear-gradient(90deg,#69A9FF,#B38AFF,#55E5F5);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
-.caret{
-display:inline-block;width:3px;height:.9em;
-background:#8EB5FF;margin-left:3px;
-vertical-align:-.1em;animation:blink 1s steps(1) infinite
+.lead {
+  font-size:19px;
+  color:#C2CBE0;
+  max-width:550px;
+  margin-bottom:28px;
 }
 
-@keyframes blink{50%{opacity:0}}
-
-.lead{
-font-size:19px;color:rgba(255,255,255,.84);
-max-width:50ch;margin:0 0 24px
+.btns {
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
 }
 
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-
-.btn{
-display:inline-block;padding:13px 22px;
-border-radius:999px;font-weight:600;
-text-decoration:none;border:1.5px solid var(--ink);
-background:transparent;cursor:pointer
+.btn {
+  display:inline-block;
+  padding:13px 23px;
+  border-radius:13px;
+  border:1px solid rgba(180,195,235,.35);
+  background:rgba(255,255,255,.05);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
 }
 
-.btn.primary{
-background:linear-gradient(110deg,#347DFF,#7956EB);
-border-color:transparent;color:#fff;
-box-shadow:0 8px 25px rgba(66,107,255,.28)
+.btn:hover {transform:translateY(-3px)}
+
+.btn.primary {
+  background:linear-gradient(110deg,#3987FF,#665DFF 60%,#925CFF);
+  border:0;
+  box-shadow:0 9px 28px rgba(89,104,255,.28);
 }
 
-.herobg .btn{border-color:rgba(255,255,255,.65);color:#fff}
-.herobg .btn.primary{border-color:transparent;color:#fff}
-
-.chips{
-display:flex;gap:8px 16px;flex-wrap:wrap;
-color:rgba(255,255,255,.85);
-font-size:14px;font-weight:500
+.chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  font-size:14px;
+  color:#D5DDF0;
 }
 
-.chips span::before{
-content:"✓ ";color:#4ADE80;font-weight:700
+.chips span::before {
+  content:"✓ ";
+  color:var(--mint);
 }
 
-.orbit{width:100%;max-width:340px;margin:0 auto;display:block}
-.orbit .ring{fill:none;stroke:rgba(255,255,255,.2);stroke-width:1.5}
-.orbit .core{fill:#699BFF}
-.orbit .dot{fill:#699BFF}
-.orbit .dot2{fill:#fff}
-.spin{transform-origin:200px 200px;animation:spin 28s linear infinite}
-.spin.r{animation-duration:46s;animation-direction:reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-@media(prefers-reduced-motion:reduce){
-.spin,.caret{animation:none}
-html{scroll-behavior:auto}
+.orbit {
+  width:100%;
+  max-width:365px;
+  margin:auto;
+  filter:drop-shadow(0 0 35px rgba(146,92,255,.22));
 }
 
-/* TECHNOLOGY */
-
-.tech{padding-top:34px;padding-bottom:36px}
-.tech p{
-margin:0 0 10px;color:var(--muted);
-font-size:14px;font-weight:600;
-text-transform:uppercase;letter-spacing:.08em
+.ring {
+  fill:none;
+  stroke:rgba(174,190,255,.28);
+  stroke-width:1.5;
 }
 
-.tech div{display:flex;gap:8px;flex-wrap:wrap}
+.core {fill:url(#coreGrad)}
+.dot {fill:var(--cyan)}
+.dot2 {fill:#BBA5FF}
 
-.tech span{
-border:1px solid var(--line);background:var(--surface);
-border-radius:999px;padding:5px 14px;font-size:14px;font-weight:500
+.spin {
+  transform-origin:200px 200px;
+  animation:spin 28s linear infinite;
+}
+
+.spin.r {
+  animation-duration:46s;
+  animation-direction:reverse;
+}
+
+@keyframes spin {
+  to {transform:rotate(360deg)}
+}
+
+@media(max-width:800px) {
+  .hero {
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding-top:60px;
+    padding-bottom:65px;
+  }
+  .orbit {display:none}
+  .herobg::after {width:100%;opacity:.2}
+}
+
+/* TECHNOLOGIES */
+
+.tech {padding-top:32px;padding-bottom:35px}
+
+.tech p {
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+
+.tech div {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.tech span {
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:7px 15px;
+  font-size:14px;
+  color:var(--muted);
 }
 
 /* STATS */
 
-.band{background:var(--navy);color:var(--navy-ink)}
-.stats{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:18px;padding-top:34px;padding-bottom:34px
+.band {
+  background:linear-gradient(105deg,#10152D,#17173B 55%,#102A43);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-.stat b{
-display:block;font:800 clamp(32px,6vw,46px)/1 var(--display);
-color:#fff
+.stats {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  padding-top:36px;
+  padding-bottom:36px;
 }
 
-.stat span{color:var(--navy-muted);font-size:15px}
+.stat b {
+  display:block;
+  font:800 44px var(--display);
+  background:linear-gradient(90deg,#78B8FF,#B99AFF,#5CE5F3);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.stat span {color:#B7C4E0}
 
 /* GENERAL SECTIONS */
 
-section{padding:60px 0;border-top:1px solid var(--line)}
-.band+section{border-top:0}
-
-h2{
-font:700 clamp(28px,5vw,40px)/1.1 var(--display);
-letter-spacing:-.02em;margin:0 0 10px
+section {
+  padding:76px 0;
+  border-top:1px solid var(--line);
 }
 
-.sub{color:var(--muted);margin:0 0 30px;max-width:58ch}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:18px
+h2 {
+  font:700 clamp(29px,5vw,42px)/1.1 var(--display);
+  margin-bottom:13px;
 }
 
-.card{
-background:var(--surface);border:1px solid var(--line);
-border-radius:18px;padding:20px;
-transition:transform .25s,box-shadow .25s
+.sub {
+  color:var(--muted);
+  margin-bottom:32px;
+  max-width:650px;
 }
 
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 16px 35px var(--glow)
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
 }
 
-.card h3{font:700 20px var(--display);margin:0 0 6px}
-.card p{margin:0;color:var(--muted)}
-
-.ico{
-width:42px;height:42px;border-radius:12px;
-background:var(--accent-soft);color:var(--accent);
-display:grid;place-items:center;font-size:20px;margin-bottom:12px
+.card {
+  background:linear-gradient(145deg,#141F39,#0D1529);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
+  transition:.25s;
 }
 
-.also{margin-top:18px;color:var(--muted);font-size:15px}
-
-/* DEMO PREVIEW */
-
-.split{
-display:grid;grid-template-columns:1fr 1fr;
-gap:36px;align-items:center
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 18px 42px var(--glow);
+  border-color:rgba(146,92,255,.45);
 }
 
-@media(max-width:800px){.split{grid-template-columns:1fr}}
-
-.ticks{
-list-style:none;padding:0;margin:0 0 22px;
-display:grid;gap:10px
+.card h3 {
+  font:700 21px var(--display);
+  margin-bottom:8px;
 }
 
-.ticks li::before{content:"✓ ";color:var(--mint);font-weight:700}
+.card p {color:var(--muted)}
 
-.phone{
-max-width:300px;width:100%;margin:0 auto;
-background:var(--navy);border-radius:34px;padding:10px;
-box-shadow:0 24px 50px var(--glow);
-border:1px solid rgba(110,168,255,.35);
-transition:transform .3s,box-shadow .3s
+.ico {
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(57,135,255,.22),rgba(146,92,255,.25));
+  margin-bottom:15px;
 }
 
-.phone:hover{transform:translateY(-6px);box-shadow:0 30px 65px var(--glow)}
+.also {color:var(--muted);margin-top:20px}
 
-.screen{background:var(--surface);border-radius:26px;overflow:hidden}
+/* SHOWCASE */
 
-.ph-head{
-background:var(--accent);color:#fff;
-padding:12px 14px;font-weight:600;font-size:15px;
-display:flex;gap:8px;align-items:center
+.split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
 }
 
-.ph-head i{
-width:9px;height:9px;border-radius:50%;
-background:#4ADE80;display:inline-block
+.ticks {
+  list-style:none;
+  margin-bottom:25px;
 }
 
-.ph-body{
-padding:12px;display:flex;flex-direction:column;
-gap:8px;background:radial-gradient(circle at top right,var(--accent-soft),transparent 60%),var(--bg);
-min-height:330px
+.ticks li {margin:10px 0}
+
+.ticks li::before {
+  content:"✓ ";
+  color:var(--mint);
 }
 
-.b{
-max-width:86%;padding:8px 12px;
-border-radius:14px;font-size:14px;line-height:1.4
+.phone {
+  max-width:310px;
+  margin:auto;
+  padding:10px;
+  border-radius:34px;
+  background:linear-gradient(145deg,#18264A,#0A1022);
+  border:1px solid rgba(110,168,255,.35);
+  box-shadow:0 24px 55px rgba(72,86,200,.22);
 }
 
-.b.u{
-align-self:flex-end;background:var(--navy);
-color:#fff;border-bottom-right-radius:4px
+.screen {
+  background:var(--surface);
+  border-radius:26px;
+  overflow:hidden;
 }
 
-.b.a{
-align-self:flex-start;background:var(--surface);
-border:1px solid var(--line);
-border-bottom-left-radius:4px;
-box-shadow:0 3px 12px rgba(0,0,0,.04)
+.ph-head {
+  background:linear-gradient(100deg,var(--accent),var(--violet));
+  padding:12px;
+  color:white;
+  font-weight:700;
 }
 
-.cap{text-align:center;color:var(--muted);font-size:13px;margin-top:12px}
+.ph-body {
+  padding:13px;
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  min-height:330px;
+  background:var(--bg);
+}
+
+.b {
+  max-width:86%;
+  padding:9px 12px;
+  border-radius:14px;
+  font-size:14px;
+}
+
+.b.u {
+  align-self:flex-end;
+  background:linear-gradient(120deg,#2458B9,#5142A6);
+  color:white;
+}
+
+.b.a {
+  align-self:flex-start;
+  background:var(--surface2);
+  border:1px solid var(--line);
+}
+
+.cap {
+  text-align:center;
+  color:var(--muted);
+  margin-top:12px;
+  font-size:13px;
+}
 
 /* PORTFOLIO */
 
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-
-.chip{
-border:1px solid var(--line);background:var(--surface);
-border-radius:999px;padding:6px 16px;cursor:pointer;font-weight:500
+.filters {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
 }
 
-.chip[aria-pressed="true"]{
-background:var(--navy);border-color:var(--navy);color:#fff
+.chip {
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:30px;
+  padding:8px 16px;
+  color:var(--muted);
+  cursor:pointer;
 }
 
-.work{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:18px
+.chip[aria-pressed="true"] {
+  background:linear-gradient(100deg,#245FC4,#6649C7);
+  color:white;
 }
 
-.proj{
-background:var(--surface);border:1px solid var(--line);
-border-radius:18px;overflow:hidden;
-display:flex;flex-direction:column;
-transition:transform .25s,box-shadow .25s
+.work {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
 }
 
-.proj:hover{transform:translateY(-5px);box-shadow:0 16px 35px var(--glow)}
-.proj[hidden]{display:none}
-
-.thumb{
-height:120px;display:grid;place-items:center;
-font:800 30px var(--display);color:#fff;letter-spacing:.02em
+.proj {
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:19px;
+  overflow:hidden;
+  transition:.25s;
 }
 
-.t1{background:linear-gradient(135deg,#0B1B3A,#426BFF)}
-.t2{background:linear-gradient(135deg,#101A30,#334155)}
-.t3{background:linear-gradient(135deg,#1E3A8A,#2563EB)}
-.t4{background:linear-gradient(135deg,#134E4A,#0F9D78)}
-.t5{background:linear-gradient(135deg,#1E293B,#475569)}
-.t6{background:linear-gradient(135deg,#312E81,#7956EB)}
+.proj:hover {transform:translateY(-4px)}
+.proj[hidden] {display:none}
 
-.pbody{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.pbody h3{font:700 21px var(--display);margin:0}
-.pbody p{margin:0;color:var(--muted)}
-.result{font-weight:600;color:var(--mint);font-size:15px}
-
-.tag{
-display:inline-block;border:1px solid var(--line);
-border-radius:999px;padding:2px 12px;
-font-size:13px;font-weight:500;margin-right:6px
+.thumb {
+  height:140px;
+  display:grid;
+  place-items:center;
+  font:800 32px var(--display);
+  color:white;
 }
 
-.note{color:var(--muted);font-size:14px;margin-top:18px}
+.t1 {background:linear-gradient(135deg,#101A48,#402B86,#126A9C)}
+.t2 {background:linear-gradient(135deg,#0C1B36,#1D4775,#34256C)}
+.t3 {background:linear-gradient(135deg,#162A70,#315ED0,#633B9C)}
+.t4 {background:linear-gradient(135deg,#0C3D4A,#116F79,#262B69)}
+.t5 {background:linear-gradient(135deg,#14264A,#304A81,#493A88)}
+.t6 {background:linear-gradient(135deg,#241C57,#5143A2,#125A80)}
+
+.pbody {padding:19px}
+.pbody h3 {font:700 21px var(--display);margin-bottom:8px}
+.pbody p {color:var(--muted)}
+.result {color:var(--mint);font-size:14px;font-weight:600;margin:10px 0}
+.tag {
+  display:inline-block;
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:3px 12px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+.note {color:var(--muted);font-size:14px;margin-top:18px}
 
 /* PROCESS */
 
-.steps{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;counter-reset:s
+.steps {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+  counter-reset:step;
 }
 
-.step{
-padding:20px;border:1px solid var(--line);
-border-radius:18px;background:var(--surface)
+.step {
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:19px;
+  padding:23px;
 }
 
-.step::before{
-counter-increment:s;content:"0" counter(s);
-font:800 30px var(--display);
-display:block;margin-bottom:6px;color:var(--accent)
+.step::before {
+  counter-increment:step;
+  content:"0" counter(step);
+  display:block;
+  color:var(--violet);
+  font:800 32px var(--display);
+  margin-bottom:7px;
 }
 
-.step h3{font:700 19px var(--display);margin:0 0 4px}
-.step p{margin:0;color:var(--muted);font-size:16px}
+.step h3 {font:700 20px var(--display);margin-bottom:5px}
+.step p {color:var(--muted)}
 
-/* DARK SECTIONS */
+/* WHY ORVIX */
 
-section.navy{
-background:var(--navy);
-color:var(--navy-ink);border-top:0
+.navy {
+  background:
+    radial-gradient(ellipse at 85% 10%,rgba(146,92,255,.14),transparent 35%),
+    linear-gradient(135deg,#0B1125,#11152D 65%,#0B2334);
+  color:#F3F5FF;
 }
 
-section.navy .sub,section.navy .note{color:var(--navy-muted)}
+.navy .sub {color:#A7B3CC}
+.navy .card {background:rgba(255,255,255,.045)}
+.navy .card p {color:#A7B3CC}
 
-section.navy .card,section.navy .review{
-background:rgba(255,255,255,.05);
-border-color:var(--navy-line)
+.reviews {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+  margin-top:22px;
 }
 
-section.navy .card p{color:var(--navy-muted)}
-section.navy .ico{background:var(--accent);color:#fff}
-
-.reviews{
-display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:18px;margin-top:22px
+.review {
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:19px;
+  background:rgba(255,255,255,.045);
 }
 
-.review{border:1px solid var(--line);border-radius:16px;padding:20px}
-.review p{margin:0 0 12px}
-.review b{display:block}
-.review span{color:var(--navy-muted);font-size:14px}
-.stars{color:#F5B301;letter-spacing:2px;margin-bottom:8px}
+.stars {color:#F5C45B;letter-spacing:2px;margin-bottom:8px}
+.review span {color:#A7B3CC;font-size:14px}
 
-/* ORVIX AI ASSISTANT - ENLARGED */
+/* LARGE AI CHAT */
 
-#demo{
-background:
-radial-gradient(ellipse at 50% 35%,rgba(65,112,255,.12),transparent 65%);
+#demo {
+  background:radial-gradient(ellipse at 50% 35%,rgba(86,74,180,.11),transparent 55%);
 }
 
-#demo .wrap{
-max-width:1120px;
+#demo .wrap {max-width:1160px}
+
+.chat {
+  width:100%;
+  max-width:1080px;
+  margin:auto;
+  background:linear-gradient(145deg,#101A30,#0D172C);
+  border:1px solid rgba(133,151,220,.25);
+  border-radius:23px;
+  overflow:hidden;
+  box-shadow:0 22px 65px rgba(0,0,0,.2),0 0 45px rgba(91,104,255,.08);
 }
 
-.chat{
-background:var(--surface);
-border:1px solid var(--line);
-border-radius:24px;
-max-width:960px;
-width:100%;
-margin:30px auto 0;
-overflow:hidden;
-box-shadow:0 25px 80px rgba(25,55,120,.17);
+.chat-head {
+  padding:18px 23px;
+  border-bottom:1px solid var(--line);
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.chat-head{
-padding:20px 26px;
-border-bottom:1px solid var(--line);
-font-weight:700;
-font-size:20px;
-display:flex;
-align-items:center;
-gap:12px;
-background:linear-gradient(110deg,#111E3D,#172C55,#30245E);
-color:#fff;
+.chat-head i {
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--mint);
+  box-shadow:0 0 13px var(--mint);
 }
 
-.chat-head i{
-width:11px;height:11px;
-border-radius:50%;background:#43E0BD;
-display:inline-block;
-box-shadow:0 0 13px #43E0BD;
+#log {
+  height:460px;
+  min-height:360px;
+  max-height:65vh;
+  overflow-y:auto;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  scrollbar-color:#475B91 transparent;
 }
 
-#log{
-height:480px;
-overflow-y:auto;
-padding:26px;
-display:flex;
-flex-direction:column;
-gap:16px;
-background:
-radial-gradient(circle at top right,rgba(76,120,255,.08),transparent 55%),
-var(--surface);
-scroll-behavior:smooth;
+.msg {
+  max-width:min(78%,760px);
+  padding:13px 17px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  font-size:16px;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+  line-height:1.55;
 }
 
-.msg{
-max-width:82%;
-padding:14px 19px;
-border-radius:18px;
-font-size:17px;
-line-height:1.65;
-white-space:pre-wrap;
-overflow-wrap:anywhere;
+.msg.bot {
+  background:rgba(255,255,255,.055);
+  align-self:flex-start;
+  border-bottom-left-radius:5px;
 }
 
-.msg.bot{
-background:var(--accent-soft);
-color:var(--ink);
-align-self:flex-start;
-border:1px solid var(--line);
-border-bottom-left-radius:5px;
+.msg.me {
+  background:linear-gradient(115deg,#245FC4,#6549B9);
+  color:white;
+  align-self:flex-end;
+  border-color:transparent;
+  border-bottom-right-radius:5px;
 }
 
-.msg.me{
-background:linear-gradient(120deg,#2865E9,#7654E9);
-color:#fff;
-align-self:flex-end;
-border-bottom-right-radius:5px;
+.msg.wait {color:var(--muted);font-style:italic}
+
+.quick {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  padding:0 22px 17px;
 }
 
-.msg.wait{color:var(--muted);font-style:italic}
-
-.quick{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-padding:14px 22px 18px;
-background:var(--surface);
+.quick button {
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.045);
+  border-radius:30px;
+  padding:8px 14px;
+  color:var(--muted);
+  cursor:pointer;
 }
 
-.quick button{
-border:1px solid var(--line);
-background:var(--bg);
-color:var(--ink);
-border-radius:12px;
-padding:9px 16px;
-cursor:pointer;
-font-size:14px;
-transition:.2s;
+.quick button:hover {
+  border-color:var(--violet);
+  color:white;
 }
 
-.quick button:hover{
-background:var(--accent-soft);
-border-color:var(--accent);
+.chat form {
+  display:flex;
+  gap:11px;
+  padding:17px;
+  border-top:1px solid var(--line);
 }
 
-.chat form{
-display:flex;
-gap:12px;
-padding:18px 22px;
-border-top:1px solid var(--line);
-background:var(--surface);
+.chat input {
+  flex:1;
+  min-width:0;
+  border:1px solid var(--line);
+  background:#080D1B;
+  border-radius:14px;
+  padding:14px 17px;
+  color:white;
 }
 
-.chat input{
-flex:1;
-border:1px solid var(--line);
-background:var(--bg);
-border-radius:14px;
-padding:14px 20px;
-min-width:0;
-min-height:54px;
-font-size:17px;
-outline:none;
+.chat button:disabled {opacity:.6;cursor:wait}
+
+/* FOUNDER */
+
+.people {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  flex-wrap:wrap;
+  padding:25px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--surface);
 }
 
-.chat input:focus{border-color:var(--accent)}
-
-.chat form .btn{
-border-radius:14px;
-padding:12px 25px;
+.avatar {
+  width:100px;
+  height:100px;
+  display:grid;
+  place-items:center;
+  border-radius:28px;
+  background:linear-gradient(135deg,#347BEE,#925CFF);
+  color:white;
+  font:800 34px var(--display);
 }
 
-.chat button:disabled{opacity:.6;cursor:wait}
-
-/* LEADERSHIP */
-
-.people{
-display:flex;gap:22px;align-items:center;
-background:var(--surface);border:1px solid var(--line);
-border-radius:18px;padding:24px;flex-wrap:wrap
-}
-
-.avatar{
-width:96px;height:96px;border-radius:50%;
-background:linear-gradient(135deg,#347DFF,#7956EB);
-color:#fff;display:grid;place-items:center;
-font:800 34px var(--display);flex:none
-}
-
-.people h3{font:700 24px var(--display);margin:0}
-.role{color:var(--accent);font-weight:600;margin:2px 0 8px}
-.people p{margin:0;color:var(--muted);max-width:52ch}
+.people h3 {font:700 24px var(--display)}
+.role {color:var(--accent);font-weight:700}
+.people p {color:var(--muted);max-width:550px}
 
 /* FAQ */
 
-details{border-bottom:1px solid var(--line);padding:14px 0}
-summary{cursor:pointer;font-weight:600;font-size:18px}
-details p{margin:8px 0 0;color:var(--muted);max-width:62ch}
+details {
+  border-bottom:1px solid var(--line);
+  padding:17px 0;
+}
+
+summary {
+  cursor:pointer;
+  font-size:18px;
+  font-weight:600;
+}
+
+details p {
+  margin-top:9px;
+  color:var(--muted);
+}
 
 /* CONTACT */
 
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
-@media(max-width:760px){.cgrid{grid-template-columns:1fr}}
-
-form.contact{display:grid;gap:12px}
-
-label{
-font-weight:500;font-size:15px;
-display:grid;gap:4px
+.cgrid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
 }
 
-.contact input,.contact textarea{
-border:1px solid var(--line);
-background:var(--surface);
-border-radius:12px;padding:11px 14px;width:100%
+.contact {
+  display:grid;
+  gap:13px;
 }
 
-.contact textarea{min-height:120px;resize:vertical}
-.err{color:#DC2626;font-size:14px;min-height:18px}
-#thanks{color:var(--mint);font-weight:600}
-
-.info p{margin:0 0 16px;overflow-wrap:anywhere}
-.info a{color:var(--accent);font-weight:600}
-
-/* FOOTER */
-
-footer{
-background:var(--navy);color:var(--navy-muted);
-padding:26px 0 34px;font-size:14px
+.contact label {
+  display:grid;
+  gap:6px;
+  font-weight:600;
 }
 
-footer .wrap{
-display:flex;justify-content:space-between;
-gap:12px;flex-wrap:wrap
+.contact input,.contact textarea {
+  width:100%;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--surface);
+  color:var(--ink);
 }
 
-/* MOBILE */
+.contact textarea {min-height:120px;resize:vertical}
 
-@media(max-width:600px){
+.err {color:#FF7777;font-size:13px;min-height:16px}
+#thanks {color:var(--mint);font-weight:600}
+.info p {margin-bottom:17px}
+.info a {color:#72A9FF;font-weight:600}
 
-.wrap{padding-left:18px;padding-right:18px}
-
-.hero{padding-top:38px;padding-bottom:38px}
-
-section{padding:48px 0}
-
-.chat{
-border-radius:18px;
-margin-top:20px;
+footer {
+  background:#070B17;
+  color:#A7B3CC;
+  padding:30px 0;
+  border-top:1px solid var(--line);
+  font-size:14px;
 }
 
-.chat-head{
-padding:17px 18px;
-font-size:18px;
+footer .wrap {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
-#log{
-height:390px;
-padding:16px;
-gap:12px;
+#toTop {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  opacity:0;
+  pointer-events:none;
+  z-index:30;
+  background:var(--surface);
+  color:white;
 }
 
-.msg{
-max-width:92%;
-font-size:15px;
-padding:11px 14px;
+#toTop.show {opacity:1;pointer-events:auto}
+
+@media(max-width:760px) {
+  .split,.cgrid {grid-template-columns:1fr}
 }
 
-.quick{padding:12px;gap:8px}
-
-.quick button{
-font-size:13px;
-padding:8px 11px;
+@media(max-width:600px) {
+  .wrap {padding-left:18px;padding-right:18px}
+  section {padding:58px 0}
+  .hero {padding-top:55px;padding-bottom:55px}
+  .lead {font-size:17px}
+  .chat {border-radius:17px}
+  #log {height:390px;min-height:320px;padding:15px}
+  .msg {max-width:92%;font-size:15px;padding:10px 13px}
+  .chat-head {padding:14px 16px}
+  .quick {padding:0 14px 13px}
+  .chat form {padding:12px;gap:8px}
+  .chat input {padding:12px 13px}
+  .chat form .btn {padding:11px 15px}
 }
 
-.chat form{
-padding:12px;
-gap:7px;
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
 }
-
-.chat input{
-min-height:48px;
-padding:10px 12px;
-font-size:15px;
-}
-
-.chat form .btn{
-padding:10px 15px;
-}
-
-.work{grid-template-columns:1fr}
-
-.people{padding:18px}
-
-footer .wrap{flex-direction:column}
-}
-
 </style>
 </head>
 
@@ -747,627 +882,710 @@ footer .wrap{flex-direction:column}
 <div id="progress"></div>
 
 <header>
-<div class="wrap">
-<a class="logo" href="#top">ORVIX</a>
+  <div class="wrap">
+    <a class="logo" href="#top">ORVIX</a>
 
-<nav id="nav" aria-label="Main">
-<a href="#services">Services</a>
-<a href="#work">Portfolio</a>
-<a href="#process">Process</a>
-<a href="#trust">Why us</a>
-<a href="#demo">AI demo</a>
-<a href="#team">Leadership</a>
-<a href="#contact">Contact</a>
-</nav>
+    <nav id="nav">
+      <a href="#services">Services</a>
+      <a href="#work">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#trust">Why us</a>
+      <a href="#demo">AI demo</a>
+      <a href="#team">Leadership</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<div style="display:flex;gap:8px">
-<button class="icon-btn" id="themeBtn" aria-label="Switch light or dark theme">☀️</button>
-<button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
-</div>
-</div>
+    <button class="icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  </div>
 </header>
 
 <main id="top">
 
+<!-- HERO -->
+
 <div class="herobg">
-<div class="wrap hero">
-<div>
-<div class="pill"><i></i>Taking new projects</div>
+  <div class="wrap hero">
 
-<h1>AI that <span id="typed"></span><span class="caret"></span></h1>
+    <div>
+      <div class="pill"><i></i> Taking new projects</div>
 
-<p class="lead">ORVIX Technology builds AI chatbots, automation and modern websites that save your team time and help your business grow.</p>
+      <h1>
+        AI that <span id="typed"></span>
+      </h1>
 
-<div class="btns">
-<a class="btn primary" href="#contact">Get a free estimate</a>
-<a class="btn" href="#work">See our work</a>
+      <p class="lead">
+        ORVIX Technology builds AI chatbots, automation and modern websites that save your team time and help your business grow.
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="#contact">Get a free estimate</a>
+        <a class="btn" href="#work">See our work</a>
+      </div>
+
+      <div class="chips">
+        <span>Reply within 1 day</span>
+        <span>Founder-led team</span>
+        <span>Support after launch</span>
+      </div>
+    </div>
+
+    <svg class="orbit" viewBox="0 0 400 400">
+      <defs>
+        <linearGradient id="coreGrad">
+          <stop stop-color="#36D9F5"/>
+          <stop offset="1" stop-color="#925CFF"/>
+        </linearGradient>
+      </defs>
+
+      <circle class="ring" cx="200" cy="200" r="70"/>
+      <circle class="ring" cx="200" cy="200" r="120"/>
+      <circle class="ring" cx="200" cy="200" r="170"/>
+      <circle class="core" cx="200" cy="200" r="30"/>
+
+      <g class="spin">
+        <circle class="dot" cx="270" cy="200" r="10"/>
+        <circle class="dot2" cx="200" cy="30" r="8"/>
+      </g>
+
+      <g class="spin r">
+        <circle class="dot2" cx="80" cy="200" r="9"/>
+        <circle class="dot" cx="200" cy="370" r="12"/>
+      </g>
+    </svg>
+
+  </div>
 </div>
 
-<div class="chips">
-<span>Reply within 1 day</span>
-<span>Founder-led team</span>
-<span>Support after launch</span>
-</div>
-</div>
-
-<svg class="orbit" viewBox="0 0 400 400" role="img" aria-label="Orbit illustration">
-<circle class="ring" cx="200" cy="200" r="70"/>
-<circle class="ring" cx="200" cy="200" r="120"/>
-<circle class="ring" cx="200" cy="200" r="170"/>
-<circle class="core" cx="200" cy="200" r="30"/>
-<g class="spin">
-<circle class="dot" cx="270" cy="200" r="10"/>
-<circle class="dot2" cx="200" cy="30" r="8"/>
-</g>
-<g class="spin r">
-<circle class="dot2" cx="80" cy="200" r="9"/>
-<circle class="dot" cx="200" cy="370" r="12"/>
-</g>
-</svg>
-
-</div>
-</div>
+<!-- TECHNOLOGIES -->
 
 <div class="wrap tech">
-<p>Technologies we work with</p>
-<div>
-<span>Python</span>
-<span>JavaScript</span>
-<span>React</span>
-<span>Node.js</span>
-<span>Cloud</span>
-<span>WhatsApp API</span>
-<span>Gemini and Claude AI</span>
+  <p>Technologies we work with</p>
+  <div>
+    <span>Python</span>
+    <span>JavaScript</span>
+    <span>React</span>
+    <span>Node.js</span>
+    <span>Cloud</span>
+    <span>WhatsApp API</span>
+    <span>AI Tools</span>
+  </div>
 </div>
-</div>
+
+<!-- STATS -->
 
 <div class="band">
-<div class="wrap stats">
-<div class="stat"><b>25+</b><span>Projects delivered</span></div>
-<div class="stat"><b>15+</b><span>Happy clients</span></div>
-<div class="stat"><b>5</b><span>AI products</span></div>
-<div class="stat"><b>24/7</b><span>Support after launch</span></div>
+  <div class="wrap stats">
+    <div class="stat"><b>25+</b><span>Projects delivered</span></div>
+    <div class="stat"><b>15+</b><span>Happy clients</span></div>
+    <div class="stat"><b>5</b><span>AI products</span></div>
+    <div class="stat"><b>24/7</b><span>Support after launch</span></div>
+  </div>
 </div>
-</div>
+
+<!-- SERVICES -->
 
 <section id="services">
-<div class="wrap">
-<h2>What we build</h2>
-<p class="sub">Focused technology solutions designed to help businesses grow.</p>
+  <div class="wrap">
+    <h2>What we build</h2>
+    <p class="sub">Focused technology solutions designed to help businesses grow.</p>
 
-<div class="cards">
-<div class="card">
-<div class="ico">💬</div>
-<h3>AI Chatbots</h3>
-<p>Intelligent AI assistants for websites and WhatsApp that answer customer questions, handle enquiries and provide 24/7 support.</p>
-</div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">💬</div>
+        <h3>AI Chatbots</h3>
+        <p>Intelligent AI assistants for websites and WhatsApp that answer customer questions and handle enquiries.</p>
+      </div>
 
-<div class="card">
-<div class="ico">⚙️</div>
-<h3>Business Automation</h3>
-<p>Automate repetitive business tasks, customer communication, reports and daily workflows to save time.</p>
-</div>
+      <div class="card">
+        <div class="ico">⚙️</div>
+        <h3>Business Automation</h3>
+        <p>Automate repetitive business tasks, customer communication and daily workflows.</p>
+      </div>
 
-<div class="card">
-<div class="ico">🌐</div>
-<h3>Business Websites</h3>
-<p>Modern, responsive and professional websites designed to build trust and turn visitors into customers.</p>
-</div>
-</div>
-
-<p class="also">Our focus: AI-powered customer experiences, automation and modern digital solutions.</p>
-</div>
+      <div class="card">
+        <div class="ico">🌐</div>
+        <h3>Business Websites</h3>
+        <p>Modern, responsive and professional websites designed to build trust and attract customers.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- SHOWCASE -->
 
 <section id="inaction">
-<div class="wrap split">
-<div>
-<h2>See it in action</h2>
-<p class="sub">Here is how an ORVIX chatbot handles a booking on WhatsApp, with no staff involved.</p>
+  <div class="wrap split">
 
-<ul class="ticks">
-<li>Replies in seconds, any time of day</li>
-<li>Understands Hindi, English and Hinglish</li>
-<li>Hands over to your team when needed</li>
-</ul>
+    <div>
+      <h2>See it in action</h2>
+      <p class="sub">Here is how an ORVIX chatbot handles a booking on WhatsApp.</p>
 
-<a class="btn primary" href="#demo">Try the live assistant</a>
-</div>
+      <ul class="ticks">
+        <li>Replies in seconds</li>
+        <li>Understands Hindi and English</li>
+        <li>Can hand over to your team</li>
+      </ul>
 
-<div>
-<div class="phone" role="img" aria-label="Mockup of a chatbot handling a table booking">
-<div class="screen">
-<div class="ph-head"><i></i>ORVIX Business Assistant</div>
-<div class="ph-body">
-<div class="b u">Hi, do you have a table for 4 tomorrow at 8?</div>
-<div class="b a">Hello! Yes, we have availability for 4 people at 8 PM. Would you like to book?</div>
-<div class="b u">Yes, please book it under Rahul.</div>
-<div class="b a">Perfect! Your sample booking is confirmed. Thank you for choosing us! ✅</div>
-<div class="b a">Our assistant is available 24/7 to help your customers.</div>
-</div>
-</div>
-</div>
-<p class="cap">Illustrative chatbot product preview</p>
-</div>
-</div>
+      <a class="btn primary" href="#demo">Try the AI assistant</a>
+    </div>
+
+    <div>
+      <div class="phone">
+        <div class="screen">
+          <div class="ph-head">● ORVIX Business Assistant</div>
+
+          <div class="ph-body">
+            <div class="b u">Hi, do you have a table for 4 tomorrow?</div>
+            <div class="b a">Hello! Yes, we have availability. Would you like to book?</div>
+            <div class="b u">Yes, please book it.</div>
+            <div class="b a">Perfect! Your sample booking is confirmed. ✅</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="cap">Illustrative chatbot preview</p>
+    </div>
+
+  </div>
 </section>
+
+<!-- PORTFOLIO -->
 
 <section id="work">
-<div class="wrap">
-<h2>Selected work</h2>
-<p class="sub">A look at the kind of solutions ORVIX can build.</p>
+  <div class="wrap">
 
-<div class="filters" id="filters">
-<button class="chip" data-f="all" aria-pressed="true">All</button>
-<button class="chip" data-f="chatbot" aria-pressed="false">Chatbots</button>
-<button class="chip" data-f="automation" aria-pressed="false">Automation</button>
-<button class="chip" data-f="software" aria-pressed="false">Software</button>
-<button class="chip" data-f="web" aria-pressed="false">Websites</button>
-</div>
+    <h2>Selected work</h2>
+    <p class="sub">A look at the kind of solutions ORVIX can build.</p>
 
-<div class="work">
+    <div class="filters">
+      <button class="chip" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" data-f="chatbot" aria-pressed="false">Chatbots</button>
+      <button class="chip" data-f="automation" aria-pressed="false">Automation</button>
+      <button class="chip" data-f="software" aria-pressed="false">Software</button>
+      <button class="chip" data-f="web" aria-pressed="false">Websites</button>
+    </div>
 
-<article class="proj" data-cat="chatbot">
-<div class="thumb t1">AI Chat</div>
-<div class="pbody">
-<h3>Support assistant</h3>
-<p>Answers common customer questions and hands over to staff when needed.</p>
-<div class="result">Example capability: automated support</div>
-<div><span class="tag">Chatbot</span><span class="tag">AI</span></div>
-</div>
-</article>
+    <div class="work">
 
-<article class="proj" data-cat="automation">
-<div class="thumb t2">Auto</div>
-<div class="pbody">
-<h3>Invoice automation</h3>
-<p>Reads invoices, extracts details and helps reduce manual data entry.</p>
-<div class="result">Example capability: workflow automation</div>
-<div><span class="tag">Automation</span><span class="tag">OCR</span></div>
-</div>
-</article>
+      <article class="proj" data-cat="chatbot">
+        <div class="thumb t1">AI Chat</div>
+        <div class="pbody">
+          <h3>Support assistant</h3>
+          <p>Answers common customer questions and helps automate support.</p>
+          <div class="result">Example capability: automated support</div>
+          <span class="tag">Chatbot</span>
+        </div>
+      </article>
 
-<article class="proj" data-cat="software">
-<div class="thumb t3">Dash</div>
-<div class="pbody">
-<h3>Business dashboard</h3>
-<p>A clear screen for sales, stock and team results with useful summaries.</p>
-<div class="result">Example capability: business insights</div>
-<div><span class="tag">Software</span><span class="tag">Data</span></div>
-</div>
-</article>
+      <article class="proj" data-cat="automation">
+        <div class="thumb t2">Auto</div>
+        <div class="pbody">
+          <h3>Invoice automation</h3>
+          <p>Extracts invoice details and reduces manual data entry.</p>
+          <div class="result">Example capability: automation</div>
+          <span class="tag">Automation</span>
+        </div>
+      </article>
 
-<article class="proj" data-cat="chatbot">
-<div class="thumb t4">Chat</div>
-<div class="pbody">
-<h3>WhatsApp booking bot</h3>
-<p>Customers can enquire and request appointments through chat.</p>
-<div class="result">Example capability: automated enquiries</div>
-<div><span class="tag">Chatbot</span><span class="tag">WhatsApp</span></div>
-</div>
-</article>
+      <article class="proj" data-cat="software">
+        <div class="thumb t3">Dash</div>
+        <div class="pbody">
+          <h3>Business dashboard</h3>
+          <p>A clear screen for sales, stock and team results.</p>
+          <div class="result">Example capability: business insights</div>
+          <span class="tag">Software</span>
+        </div>
+      </article>
 
-<article class="proj" data-cat="web">
-<div class="thumb t5">Web</div>
-<div class="pbody">
-<h3>Business website</h3>
-<p>A fast mobile-first website with enquiry forms and search-friendly pages.</p>
-<div class="result">Example capability: online presence</div>
-<div><span class="tag">Website</span><span class="tag">SEO</span></div>
-</div>
-</article>
+      <article class="proj" data-cat="chatbot">
+        <div class="thumb t4">Chat</div>
+        <div class="pbody">
+          <h3>WhatsApp booking bot</h3>
+          <p>Customers can enquire and request appointments through chat.</p>
+          <div class="result">Example capability: automated enquiries</div>
+          <span class="tag">Chatbot</span>
+        </div>
+      </article>
 
-<article class="proj" data-cat="software">
-<div class="thumb t6">App</div>
-<div class="pbody">
-<h3>Staff management app</h3>
-<p>Attendance, tasks and team management in one simple interface.</p>
-<div class="result">Example capability: business software</div>
-<div><span class="tag">Mobile app</span><span class="tag">Software</span></div>
-</div>
-</article>
+      <article class="proj" data-cat="web">
+        <div class="thumb t5">Web</div>
+        <div class="pbody">
+          <h3>Business website</h3>
+          <p>A fast mobile-first website with enquiry forms.</p>
+          <div class="result">Example capability: online presence</div>
+          <span class="tag">Website</span>
+        </div>
+      </article>
 
-</div>
+      <article class="proj" data-cat="software">
+        <div class="thumb t6">App</div>
+        <div class="pbody">
+          <h3>Staff management app</h3>
+          <p>Attendance, tasks and team management in one interface.</p>
+          <div class="result">Example capability: business software</div>
+          <span class="tag">Software</span>
+        </div>
+      </article>
 
-<p class="note">Portfolio examples are illustrative. Replace them with verified client projects as they become available.</p>
-</div>
+    </div>
+
+    <p class="note">Portfolio examples are illustrative. Replace them with verified client projects as they become available.</p>
+  </div>
 </section>
+
+<!-- PROCESS -->
 
 <section id="process">
-<div class="wrap">
-<h2>How we work</h2>
-<p class="sub">Simple, clear and fast. You always know what happens next.</p>
+  <div class="wrap">
+    <h2>How we work</h2>
+    <p class="sub">Simple, clear and fast. You always know what happens next.</p>
 
-<div class="steps">
-<div class="step"><h3>Discover</h3><p>We listen to your goals and study your process.</p></div>
-<div class="step"><h3>Design</h3><p>We plan the solution and share a clear price and timeline.</p></div>
-<div class="step"><h3>Build</h3><p>We build in small steps and show you progress every week.</p></div>
-<div class="step"><h3>Launch and support</h3><p>We go live, train your team and keep improving.</p></div>
-</div>
-</div>
+    <div class="steps">
+      <div class="step">
+        <h3>Discover</h3>
+        <p>We listen to your goals and understand your requirements.</p>
+      </div>
+
+      <div class="step">
+        <h3>Design</h3>
+        <p>We plan the solution and share the estimated price.</p>
+      </div>
+
+      <div class="step">
+        <h3>Build</h3>
+        <p>We develop your solution and share progress.</p>
+      </div>
+
+      <div class="step">
+        <h3>Launch and support</h3>
+        <p>We launch, help you get started and improve the solution.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- WHY ORVIX -->
 
 <section id="trust" class="navy">
-<div class="wrap">
-<h2>Why businesses choose ORVIX</h2>
-<p class="sub">Small team, direct access to the founder, and a focus on practical solutions.</p>
+  <div class="wrap">
+    <h2>Why businesses choose ORVIX</h2>
+    <p class="sub">Direct communication, practical technology and a focus on useful solutions.</p>
 
-<div class="cards">
-<div class="card"><div class="ico">🤝</div><h3>Founder-led</h3><p>You speak directly with Ayush Kumar, not a call centre.</p></div>
-<div class="card"><div class="ico">🔒</div><h3>Data awareness</h3><p>We aim to handle business information responsibly and explain how solutions use data.</p></div>
-<div class="card"><div class="ico">💰</div><h3>Clear pricing</h3><p>A clear estimate before work starts, with scope discussed in advance.</p></div>
-<div class="card"><div class="ico">🛠️</div><h3>Support after launch</h3><p>We can help maintain and improve the solutions we build.</p></div>
-</div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🤝</div>
+        <h3>Founder-led</h3>
+        <p>You communicate directly with Ayush Kumar.</p>
+      </div>
 
-<div class="reviews">
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>Client feedback will be displayed here once a verified review is available.</p>
-<b>Client feedback</b>
-<span>Reviews coming soon</span>
-</div>
+      <div class="card">
+        <div class="ico">🔒</div>
+        <h3>Data awareness</h3>
+        <p>We aim to handle business information responsibly.</p>
+      </div>
 
-<div class="review">
-<div class="stars">★★★★★</div>
-<p>We value clear communication, practical solutions and long-term client relationships.</p>
-<b>ORVIX Technology</b>
-<span>Company statement</span>
-</div>
-</div>
-</div>
+      <div class="card">
+        <div class="ico">💰</div>
+        <h3>Clear pricing</h3>
+        <p>Project scope and estimates are discussed before work starts.</p>
+      </div>
+
+      <div class="card">
+        <div class="ico">🛠️</div>
+        <h3>Ongoing support</h3>
+        <p>We can help maintain and improve solutions after launch.</p>
+      </div>
+    </div>
+
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>Client feedback will be displayed here when a verified review is available.</p>
+        <b>Client feedback</b>
+        <span>Reviews coming soon</span>
+      </div>
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>We value clear communication and practical solutions.</p>
+        <b>ORVIX Technology</b>
+        <span>Company statement</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- AI ASSISTANT -->
+<!-- AI CHAT -->
 
 <section id="demo">
-<div class="wrap">
-<h2>Talk to ORVIX AI</h2>
-<p class="sub">Ask me anything. This assistant is powered by AI, the same kind of assistant we build for businesses.</p>
+  <div class="wrap">
 
-<div class="chat">
-<div class="chat-head"><i></i>ORVIX assistant</div>
+    <h2>Talk to ORVIX AI</h2>
+    <p class="sub">Ask me anything. Try the ORVIX AI assistant.</p>
 
-<div id="log" aria-live="polite"></div>
+    <div class="chat">
 
-<div class="quick" id="quick">
-<button type="button">What do you do?</button>
-<button type="button">Who is the founder?</button>
-<button type="button">How do I contact you?</button>
-</div>
+      <div class="chat-head">
+        <i></i>
+        ORVIX AI Assistant
+      </div>
 
-<form id="chatForm">
-<input id="chatIn" placeholder="Type your question" aria-label="Your question" autocomplete="off">
-<button class="btn primary" id="sendBtn" type="submit">Send</button>
-</form>
-</div>
-</div>
+      <div id="log" aria-live="polite"></div>
+
+      <div class="quick">
+        <button type="button">What do you do?</button>
+        <button type="button">Who is the founder?</button>
+        <button type="button">How do I contact you?</button>
+      </div>
+
+      <form id="chatForm">
+        <input id="chatIn" placeholder="Message ORVIX AI..." aria-label="Your message" autocomplete="off">
+        <button class="btn primary" id="sendBtn" type="submit">Send</button>
+      </form>
+
+    </div>
+  </div>
 </section>
+
+<!-- FOUNDER -->
 
 <section id="team">
-<div class="wrap">
-<h2>Leadership</h2>
-<p class="sub">ORVIX is founder-led, so you work directly with the person making decisions.</p>
+  <div class="wrap">
 
-<div class="people">
-<div class="avatar" aria-hidden="true">AK</div>
-<div>
-<h3>Ayush Kumar</h3>
-<div class="role">Founder and CEO</div>
-<p>Ayush started ORVIX Technology to make AI simple and useful for every business. He leads strategy, clients and delivery.</p>
-</div>
-</div>
-</div>
+    <h2>Leadership</h2>
+    <p class="sub">ORVIX is founder-led, so you work directly with the person making decisions.</p>
+
+    <div class="people">
+      <div class="avatar">AK</div>
+
+      <div>
+        <h3>Ayush Kumar</h3>
+        <div class="role">Founder and CEO</div>
+        <p>Ayush started ORVIX Technology to make AI simple and useful for businesses. He leads strategy, client communication and delivery.</p>
+      </div>
+    </div>
+
+  </div>
 </section>
+
+<!-- FAQ -->
 
 <section id="faq">
-<div class="wrap">
-<h2>Questions we hear often</h2>
+  <div class="wrap">
 
-<details><summary>How long does a project take?</summary><p>Project timelines depend on the requirements. We share a clear timeline after discussing your needs.</p></details>
-<details><summary>Do I need my own data?</summary><p>Not always. We can discuss your documents, website or business records and identify a suitable starting point.</p></details>
-<details><summary>Do you provide support after launch?</summary><p>Support and maintenance options can be discussed before the project begins.</p></details>
-<details><summary>How do I get a price?</summary><p>Send us a short message below. We will review your requirements and respond.</p></details>
-</div>
+    <h2>Frequently asked questions</h2>
+
+    <details>
+      <summary>How long does a project take?</summary>
+      <p>Project timelines depend on the requirements. We share an estimated timeline after discussing your needs.</p>
+    </details>
+
+    <details>
+      <summary>Do I need my own data?</summary>
+      <p>Not always. We can discuss your documents, website or business records.</p>
+    </details>
+
+    <details>
+      <summary>Do you provide support after launch?</summary>
+      <p>Support and maintenance options can be discussed before the project begins.</p>
+    </details>
+
+    <details>
+      <summary>How can I get a price?</summary>
+      <p>Send us a message through the contact form below.</p>
+    </details>
+
+  </div>
 </section>
 
+<!-- CONTACT -->
+
 <section id="contact">
-<div class="wrap">
-<h2>Let's build something</h2>
-<p class="sub">Tell us about your idea. We'd love to hear from you.</p>
+  <div class="wrap">
 
-<div class="cgrid">
+    <h2>Let's build something</h2>
+    <p class="sub">Tell us about your idea. We'd love to hear from you.</p>
 
-<form class="contact" id="cform" novalidate>
-<label>Name<input id="cn" autocomplete="name"><span class="err" id="en"></span></label>
-<label>Email<input id="ce" type="email" autocomplete="email"><span class="err" id="ee"></span></label>
-<label>Message<textarea id="cm"></textarea><span class="err" id="em"></span></label>
-<button class="btn primary" type="submit">Send message</button>
-<div id="thanks" role="status"></div>
-</form>
+    <div class="cgrid">
 
-<div class="info">
-<p><b>Email</b><br><a href="mailto:hello.orvix.69@gmail.com">hello.orvix.69@gmail.com</a></p>
-<p><b>Website</b><br><a href="https://helloorvix69-eng.github.io/ORVIX/" target="_blank" rel="noopener noreferrer">ORVIX Official Website</a></p>
-<p><b>GitHub</b><br><a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener noreferrer">ORVIX Repository</a></p>
-<p><b>Founder and CEO</b><br>Ayush Kumar</p>
-</div>
+      <form class="contact" id="cform" novalidate>
 
-</div>
-</div>
+        <label>
+          Name
+          <input id="cn" autocomplete="name">
+          <span class="err" id="en"></span>
+        </label>
+
+        <label>
+          Email
+          <input id="ce" type="email" autocomplete="email">
+          <span class="err" id="ee"></span>
+        </label>
+
+        <label>
+          Message
+          <textarea id="cm"></textarea>
+          <span class="err" id="em"></span>
+        </label>
+
+        <button class="btn primary" type="submit">Send message</button>
+
+        <div id="thanks" role="status"></div>
+
+      </form>
+
+      <div class="info">
+        <p><b>Email</b><br>
+          <a href="mailto:hello.orvix.69@gmail.com">hello.orvix.69@gmail.com</a>
+        </p>
+
+        <p><b>Website</b><br>
+          <a href="https://helloorvix69-eng.github.io/ORVIX/" target="_blank" rel="noopener noreferrer">ORVIX Official Website</a>
+        </p>
+
+        <p><b>GitHub</b><br>
+          <a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener noreferrer">ORVIX Repository</a>
+        </p>
+
+        <p><b>Founder and CEO</b><br>Ayush Kumar</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 </main>
 
 <footer>
-<div class="wrap">
-<span>© 2026 ORVIX Technology. All rights reserved.</span>
-<span>Founder and CEO: Ayush Kumar</span>
-</div>
+  <div class="wrap">
+    <span>© 2026 ORVIX Technology. All rights reserved.</span>
+    <span>Founder and CEO: Ayush Kumar</span>
+  </div>
 </footer>
 
 <button class="icon-btn" id="toTop" aria-label="Back to top">↑</button>
 
 <script>
-
 const EMAIL = "hello.orvix.69@gmail.com";
 const WORKER_URL = "https://orvix-ai.hello-orvix-69.workers.dev";
 
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-
-const root = document.documentElement;
-
-/* THEME */
-
-function setTheme(t){
-root.dataset.theme = t;
-$("#themeBtn").textContent = t === "dark" ? "☀️" : "🌙";
-
-try{
-localStorage.setItem("orvix-theme2",t);
-}catch(e){}
-}
-
-let saved = null;
-
-try{
-saved = localStorage.getItem("orvix-theme2");
-}catch(e){}
-
-setTheme(saved || "dark");
-
-$("#themeBtn").onclick = () => {
-setTheme(root.dataset.theme === "dark" ? "light" : "dark");
-};
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
 
 /* MOBILE MENU */
 
 $("#menuBtn").onclick = () => {
-const open = $("#nav").classList.toggle("open");
-$("#menuBtn").setAttribute("aria-expanded",open);
+  $("#nav").classList.toggle("open");
 };
 
-$$("#nav a").forEach(a => {
-a.onclick = () => {
-$("#nav").classList.remove("open");
-$("#menuBtn").setAttribute("aria-expanded","false");
-};
+$$('#nav a').forEach(link => {
+  link.onclick = () => $("#nav").classList.remove("open");
 });
 
-/* HERO TYPING ANIMATION */
+/* HERO TYPING EFFECT */
 
 const words = [
-"automates your work.",
-"answers your customers.",
-"reads your data.",
-"grows your business."
+  "automates your work.",
+  "answers your customers.",
+  "reads your data.",
+  "grows your business."
 ];
 
-let wi=0,ci=0,del=false;
+let wi = 0;
+let ci = 0;
+let deleting = false;
 
-const typed = $("#typed");
-const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function typeEffect() {
+  const word = words[wi];
+  $("#typed").textContent = word.slice(0,ci);
 
-function tick(){
+  if (!deleting && ci === word.length) {
+    deleting = true;
+    setTimeout(typeEffect,1500);
+    return;
+  }
 
-const w = words[wi];
+  if (deleting && ci === 0) {
+    deleting = false;
+    wi = (wi + 1) % words.length;
+  }
 
-if(still){
-typed.textContent = w;
-return;
+  ci += deleting ? -1 : 1;
+
+  setTimeout(typeEffect,deleting ? 30 : 65);
 }
 
-typed.textContent = w.slice(0,ci);
-
-if(!del && ci===w.length){
-del=true;
-return setTimeout(tick,1600);
-}
-
-if(del && ci===0){
-del=false;
-wi=(wi+1)%words.length;
-}
-
-ci += del ? -1 : 1;
-
-setTimeout(tick,del ? 30 : 65);
-}
-
-tick();
+typeEffect();
 
 /* PORTFOLIO FILTERS */
 
-$$(".chip").forEach(c => {
+$$(".chip").forEach(button => {
+  button.onclick = () => {
+    $$(".chip").forEach(item => {
+      item.setAttribute("aria-pressed",item === button);
+    });
 
-c.onclick = () => {
-
-$$(".chip").forEach(x => {
-x.setAttribute("aria-pressed",x===c);
+    $$(".proj").forEach(project => {
+      project.hidden = !(
+        button.dataset.f === "all" ||
+        project.dataset.cat === button.dataset.f
+      );
+    });
+  };
 });
 
-$$(".proj").forEach(p => {
-p.hidden = !(c.dataset.f==="all" || p.dataset.cat===c.dataset.f);
-});
-
-};
-
-});
-
-/* AI ASSISTANT - ORIGINAL WORKER CONNECTION PRESERVED */
+/* AI ASSISTANT */
 
 const log = $("#log");
 const history = [];
 let busy = false;
 
-function add(text,who){
+function addMessage(text,type) {
+  const message = document.createElement("div");
+  message.className = "msg " + type;
+  message.textContent = text;
 
-const d = document.createElement("div");
+  log.appendChild(message);
+  log.scrollTop = log.scrollHeight;
 
-d.className = "msg " + who;
-d.textContent = text;
-
-log.appendChild(d);
-log.scrollTop = log.scrollHeight;
-
-return d;
+  return message;
 }
 
-function fallback(q){
+function fallback(question) {
+  question = question.toLowerCase();
 
-q = q.toLowerCase();
+  if (/founder|ceo|ayush|owner/.test(question)) {
+    return "ORVIX was founded by Ayush Kumar, who is also the CEO.";
+  }
 
-if(/founder|ceo|ayush|owner/.test(q))
-return "ORVIX was founded by Ayush Kumar, who is also the CEO.";
+  if (/contact|email|mail|reach/.test(question)) {
+    return "You can contact ORVIX at " + EMAIL;
+  }
 
-if(/contact|email|mail|reach|call/.test(q))
-return "Write to "+EMAIL+" or use the contact form below.";
-
-return "Sorry, the AI is busy right now. Please try again in a moment or email "+EMAIL+".";
+  return "Sorry, the AI is busy right now. Please try again or email " + EMAIL;
 }
 
-add("Hi, I’m the ORVIX assistant. Ask me anything!","bot");
+addMessage("Hi! Welcome to ORVIX. I'm your AI assistant. How can I help you?","bot");
 
-async function ask(q){
+async function askAI(question) {
+  question = question.trim();
 
-q = q.trim();
+  if (!question || busy) return;
 
-if(!q || busy)return;
+  busy = true;
+  $("#sendBtn").disabled = true;
 
-busy = true;
-$("#sendBtn").disabled = true;
+  addMessage(question,"me");
 
-add(q,"me");
+  history.push({
+    role:"user",
+    text:question
+  });
 
-history.push({
-role:"user",
-text:q
-});
+  const waiting = addMessage("Thinking...","bot");
+  waiting.classList.add("wait");
 
-const wait = add("Thinking...","bot");
-wait.classList.add("wait");
+  let answer;
 
-let answer;
+  try {
+    const response = await fetch(WORKER_URL,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        messages:history
+      })
+    });
 
-try{
+    const data = await response.json();
 
-const r = await fetch(WORKER_URL,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({messages:history})
-});
+    answer = data.reply || fallback(question);
 
-const d = await r.json();
+  } catch(error) {
+    answer = fallback(question);
+  }
 
-answer = d.reply || fallback(q);
+  waiting.classList.remove("wait");
+  waiting.textContent = answer;
 
-}catch(e){
+  history.push({
+    role:"bot",
+    text:answer
+  });
 
-answer = fallback(q);
+  log.scrollTop = log.scrollHeight;
 
+  busy = false;
+  $("#sendBtn").disabled = false;
 }
 
-wait.classList.remove("wait");
-wait.textContent = answer;
+$("#chatForm").onsubmit = event => {
+  event.preventDefault();
 
-history.push({
-role:"bot",
-text:answer
-});
+  const input = $("#chatIn");
+  const question = input.value;
 
-log.scrollTop = log.scrollHeight;
-
-busy = false;
-$("#sendBtn").disabled = false;
-
-}
-
-/* CHAT FORM */
-
-$("#chatForm").onsubmit = e => {
-
-e.preventDefault();
-
-const v = $("#chatIn").value;
-
-$("#chatIn").value = "";
-
-ask(v);
-
+  input.value = "";
+  askAI(question);
 };
 
-$$("#quick button").forEach(b => {
-b.onclick = () => ask(b.textContent);
+$$(".quick button").forEach(button => {
+  button.onclick = () => askAI(button.textContent);
 });
 
 /* CONTACT FORM */
 
-$("#cform").onsubmit = e => {
+$("#cform").onsubmit = event => {
+  event.preventDefault();
 
-e.preventDefault();
+  const name = $("#cn").value.trim();
+  const email = $("#ce").value.trim();
+  const message = $("#cm").value.trim();
 
-const n = $("#cn").value.trim();
-const m = $("#ce").value.trim();
-const t = $("#cm").value.trim();
+  const validEmail = /^\S+@\S+\.\S+$/.test(email);
 
-const okM = /^\S+@\S+\.\S+$/.test(m);
+  $("#en").textContent = name ? "" : "Please enter your name.";
+  $("#ee").textContent = validEmail ? "" : "Enter a valid email.";
+  $("#em").textContent = message.length >= 10 ? "" : "Write at least 10 characters.";
 
-$("#en").textContent = n ? "" : "Please enter your name.";
-$("#ee").textContent = okM ? "" : "Please enter a valid email.";
-$("#em").textContent = t.length>=10 ? "" : "Please write at least 10 characters.";
+  if (!name || !validEmail || message.length < 10) {
+    return;
+  }
 
-if(!n || !okM || t.length<10)return;
+  const body = encodeURIComponent(
+    message + "\n\nFrom: " + name + " (" + email + ")"
+  );
 
-const body = encodeURIComponent(t+"\n\nFrom: "+n+" ("+m+")");
+  location.href =
+    "mailto:" + EMAIL +
+    "?subject=" + encodeURIComponent("Project enquiry from " + name) +
+    "&body=" + body;
 
-location.href =
-"mailto:"+EMAIL+
-"?subject="+encodeURIComponent("Project enquiry from "+n)+
-"&body="+body;
-
-$("#thanks").textContent = "Thanks! Your email app should open now.";
-
+  $("#thanks").textContent = "Thanks! Your email app should open now.";
 };
 
-/* SCROLL PROGRESS AND BACK TO TOP */
+/* SCROLL PROGRESS */
 
 addEventListener("scroll",() => {
+  const page = document.documentElement;
+  const max = page.scrollHeight - page.clientHeight;
 
-const h = document.documentElement;
-const max = h.scrollHeight-h.clientHeight;
+  $("#progress").style.width =
+    (max > 0 ? page.scrollTop / max * 100 : 0) + "%";
 
-$("#progress").style.width =
-(max>0 ? h.scrollTop/max*100 : 0)+"%";
-
-$("#toTop").classList.toggle("show",h.scrollTop>600);
-
+  $("#toTop").classList.toggle("show",page.scrollTop > 600);
 },{passive:true});
 
-$("#toTop").onclick = () => {
-scrollTo({top:0,behavior:"smooth"});
-};
+/* BACK TO TOP */
 
+$("#toTop").onclick = () => {
+  scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+};
 </script>
 
 </body>
-  </html>
+    </html>
