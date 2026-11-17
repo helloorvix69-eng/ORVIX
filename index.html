@@ -1,2293 +1,332 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08051c">
+<meta name="description" content="ORVIX builds AI assistants, business automation, modern websites and custom digital solutions.">
 <title>ORVIX — AI-Powered Business Solutions</title>
-<meta name="description" content="ORVIX builds intelligent AI assistants, business automation and modern websites.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#08051c;
-  --bg2:#0d0926;
-  --panel:#11102b;
-  --panel2:#171435;
-  --text:#f5f3ff;
-  --muted:#a5a1c2;
-  --line:rgba(178,160,255,.16);
-  --blue:#3987ff;
-  --purple:#925cff;
-  --cyan:#36d9f5;
-  --pink:#d56bff;
-  --green:#55e6b5;
-  --radius:20px;
-  --font:"DM Sans",sans-serif;
-  --display:"Space Grotesk",sans-serif;
-}
-
-* {box-sizing:border-box;margin:0;padding:0}
-
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:85px;
-}
-
-body {
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font);
-  line-height:1.65;
-  overflow-x:hidden;
-}
-
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse at 15% 5%,rgba(112,52,255,.15),transparent 35%),
-    radial-gradient(ellipse at 90% 35%,rgba(28,111,255,.10),transparent 35%),
-    radial-gradient(ellipse at 50% 95%,rgba(196,67,255,.08),transparent 40%);
-}
-
-a {color:inherit;text-decoration:none}
-button,input,textarea {font:inherit}
-button {color:inherit}
-
-.wrap {
-  width:min(1160px,calc(100% - 40px));
-  margin:auto;
-}
-
-#progress {
-  position:fixed;
-  top:0;
-  left:0;
-  height:3px;
-  width:0;
-  z-index:200;
-  background:linear-gradient(90deg,var(--blue),var(--purple),var(--cyan));
-}
-
-/* NAVIGATION */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(8,5,28,.86);
-  backdrop-filter:blur(22px);
-  border-bottom:1px solid var(--line);
-}
-
-.navbar {
-  height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.logo {
-  font:700 28px var(--display);
-  letter-spacing:3px;
-  background:linear-gradient(90deg,#fff,#9e8aff,#58d9ff);
-  color:transparent;
-  background-clip:text;
-  -webkit-background-clip:text;
-}
-
-.navlinks {
-  display:flex;
-  align-items:center;
-  gap:23px;
-  font-size:13px;
-  color:#c5c0e0;
-}
-
-.navlinks a:hover {color:white}
-
-.nav-actions {
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.small-btn {
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  padding:9px 14px;
-  border-radius:11px;
-  cursor:pointer;
-}
-
-.primary {
-  background:linear-gradient(110deg,#387cff,#7652f5);
-  border:1px solid rgba(255,255,255,.15);
-  color:white;
-  box-shadow:0 5px 25px rgba(104,77,255,.25);
-}
-
-.menu-btn {display:none}
-
-@media(max-width:900px) {
-  .menu-btn {display:block}
-  .navlinks {
-    display:none;
-    position:absolute;
-    top:76px;
-    left:0;
-    right:0;
-    padding:22px;
-    background:#0d0926;
-    border-bottom:1px solid var(--line);
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .navlinks.open {display:flex}
-}
-
-/* COMMON */
-
-section {padding:95px 0}
-
-.section-label {
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  color:#b9a9ff;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:15px;
-}
-
-.section-label::before {
-  content:"";
-  width:22px;
-  height:1px;
-  background:var(--purple);
-}
-
-h2 {
-  font:700 clamp(30px,5vw,46px)/1.12 var(--display);
-  letter-spacing:-1.5px;
-  margin-bottom:15px;
-}
-
-.section-desc {
-  max-width:650px;
-  color:var(--muted);
-  margin-bottom:38px;
-}
-
-.gradient-text {
-  background:linear-gradient(90deg,#83baff,#ae83ff,#50e1f5);
-  color:transparent;
-  background-clip:text;
-  -webkit-background-clip:text;
-}
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  padding:13px 21px;
-  border-radius:12px;
-  font-weight:700;
-  font-size:14px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.045);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.btn:hover {
-  transform:translateY(-3px);
-  border-color:rgba(174,131,255,.6);
-}
-
-.btn-main {
-  background:linear-gradient(110deg,#397fff,#7851f3);
-  border:0;
-  box-shadow:0 8px 30px rgba(104,77,255,.3);
-}
-
-.muted {color:var(--muted)}
-
-/* HERO */
-
-.hero {
-  min-height:650px;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-  isolation:isolate;
-  background:
-    radial-gradient(ellipse at 50% 42%,rgba(103,61,255,.22),transparent 43%),
-    linear-gradient(180deg,#08051c 0%,#10072f 60%,#08051c 100%);
-}
-
-.hero::before {
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:-1;
-  opacity:.35;
-  background-image:
-    radial-gradient(1px 1px at 10% 20%,#fff 50%,transparent),
-    radial-gradient(2px 2px at 80% 18%,#a99aff 50%,transparent),
-    radial-gradient(1px 1px at 65% 40%,#fff 50%,transparent),
-    radial-gradient(2px 2px at 25% 55%,#8e7aff 50%,transparent),
-    radial-gradient(1px 1px at 90% 65%,#fff 50%,transparent),
-    radial-gradient(1px 1px at 45% 15%,#fff 50%,transparent);
-  background-size:260px 220px;
-}
-
-.hero-content {
-  position:relative;
-  z-index:2;
-  max-width:850px;
-  padding:100px 0 170px;
-}
-
-.hero-badge {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  border:1px solid rgba(174,131,255,.32);
-  background:rgba(121,75,255,.12);
-  border-radius:40px;
-  padding:8px 15px;
-  color:#d4c8ff;
-  font-size:12px;
-  margin-bottom:26px;
-}
-
-.live-dot {
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 12px var(--green);
-}
-
-.hero h1 {
-  font:700 clamp(42px,7vw,75px)/1.05 var(--display);
-  letter-spacing:-3px;
-  margin-bottom:22px;
-}
-
-.hero p {
-  max-width:620px;
-  margin:0 auto 30px;
-  color:#bdb6dc;
-  font-size:17px;
-}
-
-.hero-buttons {
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.hero-tags {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  color:#b9b2d4;
-  font-size:12px;
-  margin-top:25px;
-}
-
-/* PURPLE WAVE */
-
-.wave-area {
-  position:absolute;
-  bottom:-4px;
-  left:0;
-  width:100%;
-  height:230px;
-  overflow:hidden;
-  z-index:1;
-  pointer-events:none;
-}
-
-.wave-area svg {
-  width:100%;
-  height:100%;
-}
-
-.wave-line {
-  fill:none;
-  stroke:url(#waveGradient);
-  stroke-width:2;
-  opacity:.7;
-  filter:drop-shadow(0 0 9px #8654ff);
-}
-
-.wave-line:nth-child(2) {opacity:.35;stroke-width:3}
-.wave-line:nth-child(3) {opacity:.25;stroke-width:1}
-.wave-line:nth-child(4) {opacity:.4;stroke-width:1.5}
-
-@media(max-width:650px) {
-  .hero {min-height:590px}
-  .hero-content {padding:75px 0 155px}
-  .hero h1 {letter-spacing:-1.5px}
-  .hero p {font-size:15px}
-  .wave-area {height:175px}
-}
-
-/* TRUST STRIP */
-
-.trust-strip {
-  padding:27px 0;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.018);
-}
-
-.trust-inner {
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:18px;
-  color:#aaa4ca;
-  font-size:13px;
-}
-
-.trust-inner span {
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-/* SERVICES */
-
-.grid-3 {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.feature-card {
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(145deg,rgba(26,22,60,.9),rgba(13,12,36,.95));
-  border:1px solid var(--line);
-  border-radius:19px;
-  padding:26px;
-  transition:.25s;
-}
-
-.feature-card:hover {
-  transform:translateY(-5px);
-  border-color:rgba(146,92,255,.55);
-  box-shadow:0 18px 45px rgba(66,40,150,.18);
-}
-
-.feature-icon {
-  width:49px;
-  height:49px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  background:linear-gradient(135deg,rgba(57,135,255,.25),rgba(146,92,255,.28));
-  border:1px solid rgba(165,143,255,.2);
-  font-size:23px;
-  margin-bottom:19px;
-}
-
-.feature-card h3 {
-  font:600 20px var(--display);
-  margin-bottom:9px;
-}
-
-.feature-card p {
-  font-size:14px;
-  color:var(--muted);
-}
-
-.feature-card .more {
-  display:inline-block;
-  color:#a994ff;
-  font-size:13px;
-  font-weight:700;
-  margin-top:18px;
-}
-
-/* DASHBOARD */
-
-.dashboard-section {
-  background:linear-gradient(180deg,transparent,rgba(48,31,112,.13),transparent);
-}
-
-.dashboard {
-  background:#0b0d22;
-  border:1px solid rgba(158,143,255,.28);
-  border-radius:22px;
-  padding:13px;
-  box-shadow:0 25px 80px rgba(0,0,0,.35),0 0 50px rgba(110,73,255,.12);
-}
-
-.dash-top {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 15px 18px;
-  border-bottom:1px solid var(--line);
-}
-
-.dash-brand {
-  font:700 18px var(--display);
-}
-
-.dash-brand span {color:#9d83ff}
-
-.dash-status {
-  color:var(--green);
-  font-size:11px;
-}
-
-.dash-body {
-  display:grid;
-  grid-template-columns:165px 1fr;
-  min-height:330px;
-}
-
-.dash-side {
-  padding:18px 12px;
-  border-right:1px solid var(--line);
-}
-
-.dash-side div {
-  padding:9px 10px;
-  color:#9894b8;
-  font-size:12px;
-  border-radius:8px;
-  margin-bottom:6px;
-}
-
-.dash-side .active {
-  background:rgba(115,91,255,.18);
-  color:white;
-}
-
-.dash-main {padding:20px}
-
-.dash-main h3 {
-  font:600 20px var(--display);
-  margin-bottom:5px;
-}
-
-.dash-main > p {
-  color:var(--muted);
-  font-size:12px;
-  margin-bottom:17px;
-}
-
-.metrics {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-}
-
-.metric {
-  background:#141630;
-  border:1px solid var(--line);
-  border-radius:11px;
-  padding:13px;
-}
-
-.metric span {
-  display:block;
-  color:#a6a2c4;
-  font-size:10px;
-}
-
-.metric b {
-  display:block;
-  font:600 20px var(--display);
-  margin-top:5px;
-}
-
-.metric small {
-  color:var(--green);
-  font-size:10px;
-}
-
-.dash-lower {
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:12px;
-  margin-top:13px;
-}
-
-.chart-box,.activity-box {
-  background:#141630;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:15px;
-}
-
-.chart-box h4,.activity-box h4 {
-  font-size:12px;
-  margin-bottom:15px;
-}
-
-.chart {
-  height:115px;
-  display:flex;
-  align-items:flex-end;
-  gap:9px;
-  border-bottom:1px solid var(--line);
-  background:repeating-linear-gradient(to bottom,transparent 0 27px,rgba(255,255,255,.05) 28px);
-}
-
-.bar {
-  flex:1;
-  min-width:5px;
-  border-radius:5px 5px 0 0;
-  background:linear-gradient(180deg,#aa7aff,#397fff);
-}
-
-.activity {
-  font-size:10px;
-  color:#aaa5c7;
-  padding:8px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.activity b {color:#e9e5ff}
-
-.dash-foot {
-  color:#777391;
-  font-size:10px;
-  padding:12px 5px 0;
-}
-
-@media(max-width:720px) {
-  .grid-3 {grid-template-columns:1fr}
-  .dash-body {grid-template-columns:1fr}
-  .dash-side {display:none}
-  .metrics {grid-template-columns:repeat(2,1fr)}
-  .dash-lower {grid-template-columns:1fr}
-}
-
-/* PORTFOLIO */
-
-.filters {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:22px;
-}
-
-.filter-btn {
-  border:1px solid var(--line);
-  background:#11102b;
-  padding:8px 15px;
-  border-radius:30px;
-  color:#b3adcf;
-  cursor:pointer;
-}
-
-.filter-btn.active {
-  background:linear-gradient(100deg,#3d7cff,#8155f3);
-  color:white;
-  border-color:transparent;
-}
-
-.projects {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:17px;
-}
-
-.project {
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:17px;
-  background:#11102b;
-}
-
-.project[hidden] {display:none}
-
-.project-art {
-  height:145px;
-  display:grid;
-  place-items:center;
-  font:700 29px var(--display);
-  letter-spacing:1px;
-  color:white;
-}
-
-.art1 {background:radial-gradient(circle at 50%,#5839a4,#101331 70%)}
-.art2 {background:linear-gradient(130deg,#092f54,#245f9d,#3e286f)}
-.art3 {background:linear-gradient(130deg,#1b1550,#5540a5,#126a83)}
-.art4 {background:linear-gradient(130deg,#0a3b4b,#176f8b,#29205d)}
-.art5 {background:linear-gradient(130deg,#1c2459,#4c4d9b,#17162e)}
-.art6 {background:linear-gradient(130deg,#33205e,#7546a7,#143c6b)}
-
-.project-content {padding:18px}
-.project-content h3 {
-  font:600 19px var(--display);
-  margin-bottom:7px;
-}
-
-.project-content p {
-  color:var(--muted);
-  font-size:13px;
-}
-
-.project-tag {
-  display:inline-block;
-  margin-top:13px;
-  border:1px solid var(--line);
-  padding:4px 10px;
-  border-radius:30px;
-  color:#b6a8ff;
-  font-size:11px;
-}
-
-@media(max-width:800px) {
-  .projects {grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:550px) {
-  .projects {grid-template-columns:1fr}
-}
-
-/* PROCESS */
-
-.process-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-}
-
-.process-item {
-  border-top:1px solid rgba(164,136,255,.4);
-  padding:20px 15px;
-}
-
-.process-number {
-  font:700 32px var(--display);
-  color:#a589ff;
-  margin-bottom:14px;
-}
-
-.process-item h3 {
-  font:600 18px var(--display);
-  margin-bottom:7px;
-}
-
-.process-item p {
-  color:var(--muted);
-  font-size:13px;
-}
-
-@media(max-width:700px) {
-  .process-grid {grid-template-columns:repeat(2,1fr)}
-}
-
-/* WHY ORVIX */
-
-.why-section {
-  background:radial-gradient(ellipse at 50% 50%,rgba(89,53,185,.14),transparent 65%);
-}
-
-.stats {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-top:30px;
-}
-
-.stat {
-  background:rgba(255,255,255,.035);
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:20px;
-}
-
-.stat b {
-  display:block;
-  font:700 32px var(--display);
-  color:#a68bff;
-}
-
-.stat span {
-  color:var(--muted);
-  font-size:12px;
-}
-
-@media(max-width:650px) {
-  .stats {grid-template-columns:repeat(2,1fr)}
-}
-
-/* AI ASSISTANT WORKSPACE */
-
-#assistant {
-  padding:90px 0 100px;
-  background:
-    radial-gradient(ellipse at 50% 25%,rgba(119,66,255,.15),transparent 55%),
-    #08071a;
-}
-
-.ai-heading {
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.ai-heading p {
-  color:var(--muted);
-  max-width:620px;
-  margin:0 auto;
-}
-
-.ai-workspace {
-  width:100%;
-  min-height:590px;
-  display:grid;
-  grid-template-columns:225px 1fr;
-  background:#10101d;
-  border:1px solid rgba(171,151,255,.23);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 30px 90px rgba(0,0,0,.35),0 0 55px rgba(118,75,255,.09);
-}
-
-/* AI SIDEBAR */
-
-.ai-sidebar {
-  background:#0c0c18;
-  border-right:1px solid rgba(255,255,255,.08);
-  padding:17px 13px;
-  display:flex;
-  flex-direction:column;
-  gap:17px;
-}
-
-.ai-brand {
-  font:700 20px var(--display);
-  padding:4px 7px;
-}
-
-.ai-brand span {color:#a48aff}
-
-.new-chat {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:1px solid rgba(171,151,255,.28);
-  background:rgba(129,91,255,.12);
-  padding:11px;
-  border-radius:10px;
-  font-weight:600;
-  font-size:13px;
-  cursor:pointer;
-}
-
-.new-chat:hover {background:rgba(129,91,255,.23)}
-
-.side-label {
-  color:#77758f;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  padding:0 7px;
-}
-
-.side-history {
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  overflow:auto;
-}
-
-.history-item {
-  text-align:left;
-  padding:9px 8px;
-  background:transparent;
-  border:0;
-  border-radius:8px;
-  color:#aaa7c0;
-  font-size:12px;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-  cursor:pointer;
-}
-
-.history-item:hover {background:rgba(255,255,255,.07);color:white}
-
-.sidebar-bottom {
-  margin-top:auto;
-  border-top:1px solid rgba(255,255,255,.08);
-  padding-top:14px;
-}
-
-.sidebar-bottom div {
-  color:#a9a5c0;
-  font-size:11px;
-  padding:7px;
-}
-
-/* AI MAIN */
-
-.ai-main {
-  min-width:0;
-  min-height:590px;
-  display:flex;
-  flex-direction:column;
-  background:
-    radial-gradient(ellipse at 85% 0%,rgba(144,88,255,.13),transparent 35%),
-    #11111f;
-}
-
-.ai-topbar {
-  height:56px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 21px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  color:#c4c0d8;
-  font-size:12px;
-}
-
-.ai-model {
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.model-dot {
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 10px var(--green);
-}
-
-.ai-content {
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  min-height:0;
-}
-
-.ai-welcome {
-  text-align:center;
-  margin:auto;
-  padding:40px 25px 25px;
-  max-width:750px;
-  width:100%;
-}
-
-.ai-orb {
-  width:58px;
-  height:58px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 17px;
-  border-radius:20px;
-  background:linear-gradient(135deg,#8d55ff,#315eff,#36d9f5);
-  box-shadow:0 0 35px rgba(130,81,255,.4);
-  font-size:27px;
-}
-
-.ai-welcome h3 {
-  font:600 clamp(25px,4vw,34px) var(--display);
-  margin-bottom:8px;
-}
-
-.ai-welcome p {
-  color:#9996b2;
-  font-size:13px;
-  margin-bottom:26px;
-}
-
-.prompt-grid {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  text-align:left;
-}
-
-.prompt-card {
-  background:rgba(255,255,255,.035);
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:12px;
-  padding:13px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.prompt-card:hover {
-  border-color:rgba(159,123,255,.5);
-  background:rgba(126,85,255,.09);
-}
-
-.prompt-card b {
-  display:block;
-  font-size:12px;
-  margin-bottom:4px;
-}
-
-.prompt-card span {
-  display:block;
-  color:#8f8ba9;
-  font-size:11px;
-}
-
-/* MESSAGES */
-
-#aiMessages {
-  display:none;
-  flex:1;
-  overflow-y:auto;
-  padding:24px clamp(15px,5vw,65px);
-  flex-direction:column;
-  gap:20px;
-  scroll-behavior:smooth;
-}
-
-.ai-message {
-  display:flex;
-  gap:11px;
-  max-width:850px;
-  width:100%;
-  margin:0 auto;
-}
-
-.ai-avatar {
-  flex:0 0 30px;
-  height:30px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  background:linear-gradient(135deg,#7654ff,#317eff);
-  font-size:13px;
-}
-
-.ai-message.user .ai-avatar {
-  background:#2a2940;
-}
-
-.ai-message-text {
-  min-width:0;
-  padding-top:3px;
-  color:#e6e3f2;
-  font-size:14px;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  line-height:1.75;
-}
-
-.ai-message.user .ai-message-text {color:#c7c1e2}
-
-.typing {color:#a58cff}
-
-/* COMPOSER */
-
-.composer-wrap {
-  padding:15px clamp(12px,4vw,45px) 18px;
-}
-
-.composer {
-  max-width:850px;
-  margin:auto;
-  display:flex;
-  align-items:flex-end;
-  gap:10px;
-  padding:10px 11px 10px 16px;
-  background:#19182a;
-  border:1px solid rgba(168,146,255,.28);
-  border-radius:16px;
-  box-shadow:0 0 25px rgba(126,83,255,.08);
-}
-
-.composer:focus-within {
-  border-color:rgba(161,129,255,.7);
-  box-shadow:0 0 28px rgba(126,83,255,.15);
-}
-
-.composer textarea {
-  flex:1;
-  min-width:0;
-  max-height:150px;
-  min-height:32px;
-  resize:none;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:white;
-  padding:5px 0;
-  font-size:14px;
-}
-
-.composer textarea::placeholder {color:#8d89a4}
-
-.send-btn {
-  flex:0 0 37px;
-  height:37px;
-  border:0;
-  border-radius:11px;
-  background:linear-gradient(135deg,#477fff,#965bff);
-  color:white;
-  cursor:pointer;
-  font-size:18px;
-}
-
-.send-btn:disabled {opacity:.45;cursor:not-allowed}
-
-.ai-disclaimer {
-  text-align:center;
-  color:#6e6a85;
-  font-size:10px;
-  margin-top:9px;
-}
-
-.mobile-ai-menu {display:none}
-
-@media(max-width:760px) {
-  .ai-workspace {
-    grid-template-columns:1fr;
-    min-height:620px;
-  }
-
-  .ai-sidebar {display:none}
-  .ai-main {min-height:620px}
-  .ai-topbar {padding:0 14px}
-  .ai-welcome {padding:35px 15px 20px}
-  .prompt-grid {grid-template-columns:1fr}
-  .prompt-card {padding:11px}
-  #aiMessages {padding:18px 13px}
-  .ai-message-text {font-size:13px}
-  .mobile-ai-menu {display:inline}
-}
-
-@media(max-width:420px) {
-  .ai-workspace {border-radius:14px}
-  .ai-main {min-height:650px}
-  .ai-welcome h3 {font-size:25px}
-}
-
-/* FOUNDER */
-
-.founder-card {
-  display:flex;
-  align-items:center;
-  gap:22px;
-  padding:25px;
-  border:1px solid var(--line);
-  background:linear-gradient(120deg,#171333,#10142a);
-  border-radius:19px;
-}
-
-.founder-avatar {
-  width:85px;
-  height:85px;
-  flex:0 0 85px;
-  display:grid;
-  place-items:center;
-  border-radius:25px;
-  background:linear-gradient(135deg,#4288ff,#925cff);
-  font:700 28px var(--display);
-}
-
-.founder-card h3 {
-  font:600 23px var(--display);
-}
-
-.founder-role {
-  color:#a88aff;
-  font-size:13px;
-  font-weight:700;
-}
-
-.founder-card p {
-  color:var(--muted);
-  font-size:13px;
-  margin-top:8px;
-}
-
-/* FAQ */
-
-.faq-item {
-  padding:19px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.faq-item summary {
-  cursor:pointer;
-  font-weight:600;
-}
-
-.faq-item p {
-  color:var(--muted);
-  margin-top:10px;
-  font-size:14px;
-}
-
-/* CONTACT */
-
-.contact-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-}
-
-.contact-form {
-  display:grid;
-  gap:13px;
-}
-
-.contact-form label {
-  display:grid;
-  gap:6px;
-  font-size:13px;
-  font-weight:600;
-}
-
-.contact-form input,.contact-form textarea {
-  width:100%;
-  padding:13px;
-  background:#11102b;
-  border:1px solid var(--line);
-  border-radius:11px;
-  color:white;
-  outline:0;
-}
-
-.contact-form input:focus,.contact-form textarea:focus {
-  border-color:#9874ff;
-}
-
-.contact-form textarea {min-height:125px;resize:vertical}
-
-.error {
-  color:#ff8181;
-  font-size:11px;
-  font-weight:400;
-}
-
-.contact-info {
-  border:1px solid var(--line);
-  background:#11102b;
-  border-radius:17px;
-  padding:24px;
-}
-
-.contact-info h3 {
-  font:600 22px var(--display);
-  margin-bottom:15px;
-}
-
-.contact-info p {
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:15px;
-}
-
-.contact-info a {color:#9e8bff}
-
-#contactStatus {color:var(--green);font-size:13px}
-
-/* FOOTER */
-
-footer {
-  border-top:1px solid var(--line);
-  background:#070516;
-  padding:35px 0;
-}
-
-.footer-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.footer-logo {
-  font:700 23px var(--display);
-  letter-spacing:3px;
-}
-
-.footer-inner p {
-  color:#8985a5;
-  font-size:12px;
-}
-
-#topButton {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:80;
-  width:43px;
-  height:43px;
-  border-radius:13px;
-  background:#292044;
-  border:1px solid var(--line);
-  cursor:pointer;
-  opacity:0;
-  pointer-events:none;
-  transition:.2s;
-}
-
-#topButton.visible {opacity:1;pointer-events:auto}
-
-@media(max-width:650px) {
-  section {padding:65px 0}
-  .wrap {width:calc(100% - 30px)}
-  .contact-grid {grid-template-columns:1fr}
-  .founder-card {align-items:flex-start}
-  .founder-avatar {width:65px;height:65px;flex-basis:65px}
-}
+:root{
+--bg:#08051c;--bg2:#0d0926;--panel:#11102b;
+--text:#f5f3ff;--muted:#a5a1c2;
+--line:rgba(178,160,255,.16);
+--blue:#3987ff;--purple:#925cff;--cyan:#36d9f5;
+--green:#55e6b5;--radius:20px;
+--font:"DM Sans",sans-serif;--display:"Space Grotesk",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 15% 5%,rgba(112,52,255,.15),transparent 35%),radial-gradient(ellipse at 90% 35%,rgba(28,111,255,.10),transparent 35%)}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+button{color:inherit}
+.wrap{width:min(1160px,calc(100% - 40px));margin:auto}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,var(--blue),var(--purple),var(--cyan))}
+header{position:sticky;top:0;z-index:100;background:rgba(8,5,28,.92);backdrop-filter:blur(22px);border-bottom:1px solid var(--line)}
+.navbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo,.footer-logo{font:700 28px var(--display);letter-spacing:3px;background:linear-gradient(90deg,#fff,#9e8aff,#58d9ff);color:transparent;background-clip:text;-webkit-background-clip:text}
+.navlinks{display:flex;align-items:center;gap:19px;font-size:12px;color:#c5c0e0}
+.navlinks a:hover{color:white}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.small-btn{border:1px solid var(--line);background:rgba(255,255,255,.05);padding:9px 14px;border-radius:11px;cursor:pointer}
+.menu-btn{display:none}
+@media(max-width:950px){
+.menu-btn{display:block}
+.navlinks{display:none;position:absolute;top:76px;left:0;right:0;padding:22px;background:#0d0926;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+.navlinks.open{display:flex}
+}
+section{padding:85px 0}
+.section-label{display:inline-flex;align-items:center;gap:9px;color:#b9a9ff;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px}
+.section-label::before{content:"";width:22px;height:1px;background:var(--purple)}
+h2{font:700 clamp(30px,5vw,46px)/1.12 var(--display);letter-spacing:-1.5px;margin-bottom:15px}
+.section-desc{max-width:680px;color:var(--muted);margin-bottom:35px}
+.gradient-text{background:linear-gradient(90deg,#83baff,#ae83ff,#50e1f5);color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 21px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--line);background:rgba(255,255,255,.045);cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:rgba(174,131,255,.6)}
+.btn-main{background:linear-gradient(110deg,#397fff,#7851f3);border:0;box-shadow:0 8px 30px rgba(104,77,255,.3)}
+.muted{color:var(--muted)}
+.hero{min-height:640px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 42%,rgba(103,61,255,.22),transparent 43%),linear-gradient(180deg,#08051c,#10072f 60%,#08051c)}
+.hero-content{position:relative;z-index:2;max-width:850px;padding:100px 0 150px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(174,131,255,.32);background:rgba(121,75,255,.12);border-radius:40px;padding:8px 15px;color:#d4c8ff;font-size:12px;margin-bottom:26px}
+.live-dot,.model-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+.hero h1{font:700 clamp(42px,7vw,75px)/1.05 var(--display);letter-spacing:-3px;margin-bottom:22px}
+.hero p{max-width:620px;margin:0 auto 30px;color:#bdb6dc;font-size:17px}
+.hero-buttons,.hero-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.hero-tags{gap:20px;color:#b9b2d4;font-size:12px;margin-top:25px}
+.wave-area{position:absolute;bottom:-4px;left:0;width:100%;height:200px;overflow:hidden;z-index:1;pointer-events:none}
+.wave-area svg{width:100%;height:100%}
+.wave-line{fill:none;stroke:url(#waveGradient);stroke-width:2;opacity:.7;filter:drop-shadow(0 0 9px #8654ff)}
+@media(max-width:650px){.hero{min-height:580px}.hero-content{padding:75px 0 145px}.hero h1{letter-spacing:-1.5px}.hero p{font-size:15px}}
+.trust-strip{padding:25px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.018)}
+.trust-inner{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:18px;color:#aaa4ca;font-size:13px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature-card{background:linear-gradient(145deg,rgba(26,22,60,.9),rgba(13,12,36,.95));border:1px solid var(--line);border-radius:19px;padding:26px;transition:.25s}
+.feature-card:hover{transform:translateY(-5px);border-color:rgba(146,92,255,.55);box-shadow:0 18px 45px rgba(66,40,150,.18)}
+.feature-icon{width:49px;height:49px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,rgba(57,135,255,.25),rgba(146,92,255,.28));border:1px solid rgba(165,143,255,.2);font-size:23px;margin-bottom:19px}
+.feature-card h3{font:600 20px var(--display);margin-bottom:9px}
+.feature-card p{font-size:14px;color:var(--muted)}
+.feature-card .more{display:inline-block;color:#a994ff;font-size:13px;font-weight:700;margin-top:18px}
+.dashboard-section{background:linear-gradient(180deg,transparent,rgba(48,31,112,.13),transparent)}
+.dashboard{background:#0b0d22;border:1px solid rgba(158,143,255,.28);border-radius:22px;padding:13px;box-shadow:0 25px 80px rgba(0,0,0,.35)}
+.dash-top{display:flex;justify-content:space-between;align-items:center;padding:12px 15px 18px;border-bottom:1px solid var(--line)}
+.dash-brand{font:700 18px var(--display)}
+.dash-brand span{color:#9d83ff}
+.dash-status{color:var(--green);font-size:11px}
+.dash-body{display:grid;grid-template-columns:165px 1fr;min-height:330px}
+.dash-side{padding:18px 12px;border-right:1px solid var(--line)}
+.dash-side div{padding:9px 10px;color:#9894b8;font-size:12px;border-radius:8px;margin-bottom:6px}
+.dash-side .active{background:rgba(115,91,255,.18);color:white}
+.dash-main{padding:20px}
+.dash-main h3{font:600 20px var(--display)}
+.dash-main>p{color:var(--muted);font-size:12px;margin-bottom:17px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.metric,.chart-box,.activity-box{background:#141630;border:1px solid var(--line);border-radius:11px;padding:13px}
+.metric span{display:block;color:#a6a2c4;font-size:10px}
+.metric b{display:block;font:600 20px var(--display);margin-top:5px}
+.metric small{color:var(--green);font-size:10px}
+.dash-lower{display:grid;grid-template-columns:1.3fr .7fr;gap:12px;margin-top:13px}
+.chart{height:115px;display:flex;align-items:flex-end;gap:9px;border-bottom:1px solid var(--line)}
+.bar{flex:1;min-width:5px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#aa7aff,#397fff)}
+.activity{font-size:10px;color:#aaa5c7;padding:8px 0;border-bottom:1px solid var(--line)}
+.dash-foot{color:#777391;font-size:10px;padding:12px 5px 0}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
+.filter-btn{border:1px solid var(--line);background:#11102b;padding:8px 15px;border-radius:30px;color:#b3adcf;cursor:pointer}
+.filter-btn.active{background:linear-gradient(100deg,#3d7cff,#8155f3);color:white;border-color:transparent}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.project{overflow:hidden;border:1px solid var(--line);border-radius:17px;background:#11102b}
+.project[hidden]{display:none}
+.project-art{height:145px;display:grid;place-items:center;font:700 29px var(--display);letter-spacing:1px;color:white}
+.art1{background:radial-gradient(circle at 50%,#5839a4,#101331 70%)}
+.art2{background:linear-gradient(130deg,#092f54,#245f9d,#3e286f)}
+.art3{background:linear-gradient(130deg,#1b1550,#5540a5,#126a83)}
+.art4{background:linear-gradient(130deg,#0a3b4b,#176f8b,#29205d)}
+.art5{background:linear-gradient(130deg,#1c2459,#4c4d9b,#17162e)}
+.art6{background:linear-gradient(130deg,#33205e,#7546a7,#143c6b)}
+.project-content{padding:18px}
+.project-content h3{font:600 19px var(--display);margin-bottom:7px}
+.project-content p{color:var(--muted);font-size:13px}
+.project-tag{display:inline-block;margin-top:13px;border:1px solid var(--line);padding:4px 10px;border-radius:30px;color:#b6a8ff;font-size:11px}
+.project-details{margin-top:13px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:#aaa5c7}
+.project-details b{color:#e9e5ff}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.process-item{border-top:1px solid rgba(164,136,255,.4);padding:20px 15px}
+.process-number{font:700 32px var(--display);color:#a589ff;margin-bottom:14px}
+.process-item h3{font:600 18px var(--display);margin-bottom:7px}
+.process-item p{color:var(--muted);font-size:13px}
+.why-section{background:radial-gradient(ellipse at 50% 50%,rgba(89,53,185,.14),transparent 65%)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:30px}
+.stat{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:15px;padding:20px}
+.stat b{display:block;font:700 32px var(--display);color:#a68bff}
+.stat span{color:var(--muted);font-size:12px}
+
+/* NEW PROJECT TRUST SECTIONS */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.info-card{background:#11102b;border:1px solid var(--line);border-radius:16px;padding:22px}
+.info-card h3{font:600 18px var(--display);margin-bottom:8px}
+.info-card p,.info-card li{font-size:13px;color:var(--muted)}
+.info-card ul{padding-left:18px;margin-top:9px}
+.info-card li{margin:5px 0}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:25px}
+.timeline-item{padding:19px;background:#11102b;border:1px solid var(--line);border-radius:14px}
+.timeline-item b{display:block;color:#a88aff;font:600 18px var(--display);margin-bottom:7px}
+.timeline-item p{font-size:12px;color:var(--muted)}
+.review-note{padding:20px;border:1px dashed rgba(174,131,255,.4);border-radius:15px;color:var(--muted);font-size:13px;background:rgba(129,91,255,.05)}
+/* EXISTING AI STYLES */
+#assistant{padding:90px 0 100px;background:radial-gradient(ellipse at 50% 25%,rgba(119,66,255,.15),transparent 55%),#08071a}
+.ai-heading{text-align:center;margin-bottom:35px}
+.ai-heading p{color:var(--muted);max-width:620px;margin:0 auto}
+.ai-workspace{width:100%;min-height:590px;display:grid;grid-template-columns:225px 1fr;background:#10101d;border:1px solid rgba(171,151,255,.23);border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.ai-sidebar{background:#0c0c18;border-right:1px solid rgba(255,255,255,.08);padding:17px 13px;display:flex;flex-direction:column;gap:17px}
+.ai-brand{font:700 20px var(--display);padding:4px 7px}
+.ai-brand span{color:#a48aff}
+.new-chat{border:1px solid rgba(171,151,255,.28);background:rgba(129,91,255,.12);padding:11px;border-radius:10px;font-weight:600;font-size:13px;cursor:pointer}
+.side-label{color:#77758f;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:0 7px}
+.side-history{display:flex;flex-direction:column;gap:5px;overflow:auto}
+.history-item{text-align:left;padding:9px 8px;background:transparent;border:0;border-radius:8px;color:#aaa7c0;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.history-item:hover{background:rgba(255,255,255,.07);color:white}
+.sidebar-bottom{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
+.sidebar-bottom div{color:#a9a5c0;font-size:11px;padding:7px}
+.ai-main{min-width:0;min-height:590px;display:flex;flex-direction:column;background:radial-gradient(ellipse at 85% 0%,rgba(144,88,255,.13),transparent 35%),#11111f}
+.ai-topbar{height:56px;display:flex;justify-content:space-between;align-items:center;padding:0 21px;border-bottom:1px solid rgba(255,255,255,.07);color:#c4c0d8;font-size:12px}
+.ai-model{display:flex;align-items:center;gap:8px}
+.ai-content{flex:1;display:flex;flex-direction:column;min-height:0}
+.ai-welcome{text-align:center;margin:auto;padding:40px 25px 25px;max-width:750px;width:100%}
+.ai-orb{width:58px;height:58px;display:grid;place-items:center;margin:0 auto 17px;border-radius:20px;background:linear-gradient(135deg,#8d55ff,#315eff,#36d9f5);box-shadow:0 0 35px rgba(130,81,255,.4);font-size:27px}
+.ai-welcome h3{font:600 clamp(25px,4vw,34px) var(--display);margin-bottom:8px}
+.ai-welcome p{color:#9996b2;font-size:13px;margin-bottom:26px}
+.prompt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:left}
+.prompt-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:13px;cursor:pointer}
+.prompt-card:hover{border-color:rgba(159,123,255,.5);background:rgba(126,85,255,.09)}
+.prompt-card b{display:block;font-size:12px;margin-bottom:4px}
+.prompt-card span{display:block;color:#8f8ba9;font-size:11px}
+#aiMessages{display:none;flex:1;overflow-y:auto;padding:24px clamp(15px,5vw,65px);flex-direction:column;gap:20px;scroll-behavior:smooth}
+.ai-message{display:flex;gap:11px;max-width:850px;width:100%;margin:0 auto}
+.ai-avatar{flex:0 0 30px;height:30px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,#7654ff,#317eff);font-size:13px}
+.ai-message.user .ai-avatar{background:#2a2940}
+.ai-message-text{min-width:0;padding-top:3px;color:#e6e3f2;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75}
+.ai-message.user .ai-message-text{color:#c7c1e2}
+.typing{color:#a58cff}
+.composer-wrap{padding:15px clamp(12px,4vw,45px) 18px}
+.composer{max-width:850px;margin:auto;display:flex;align-items:flex-end;gap:10px;padding:10px 11px 10px 16px;background:#19182a;border:1px solid rgba(168,146,255,.28);border-radius:16px}
+.composer textarea{flex:1;min-width:0;max-height:150px;min-height:32px;resize:none;border:0;outline:0;background:transparent;color:white;padding:5px 0;font-size:14px}
+.send-btn{flex:0 0 37px;height:37px;border:0;border-radius:11px;background:linear-gradient(135deg,#477fff,#965bff);color:white;cursor:pointer;font-size:18px}
+.send-btn:disabled{opacity:.45;cursor:not-allowed}
+.ai-disclaimer{text-align:center;color:#6e6a85;font-size:10px;margin-top:9px}
+@media(max-width:760px){.ai-workspace{grid-template-columns:1fr;min-height:620px}.ai-sidebar{display:none}.ai-main{min-height:620px}.ai-topbar{padding:0 14px}.ai-welcome{padding:35px 15px 20px}.prompt-grid{grid-template-columns:1fr}#aiMessages{padding:18px 13px}.ai-message-text{font-size:13px}}
+/* FOUNDER + FAQ + CONTACT */
+.founder-card{display:flex;align-items:center;gap:22px;padding:25px;border:1px solid var(--line);background:linear-gradient(120deg,#171333,#10142a);border-radius:19px}
+.founder-avatar{width:85px;height:85px;flex:0 0 85px;display:grid;place-items:center;border-radius:25px;background:linear-gradient(135deg,#4288ff,#925cff);font:700 28px var(--display)}
+.founder-card h3{font:600 23px var(--display)}
+.founder-role{color:#a88aff;font-size:13px;font-weight:700}
+.founder-card p{color:var(--muted);font-size:13px;margin-top:8px}
+.faq-item{padding:19px 0;border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;font-weight:600}
+.faq-item p{color:var(--muted);margin-top:10px;font-size:14px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.contact-form{display:grid;gap:13px}
+.contact-form label{display:grid;gap:6px;font-size:13px;font-weight:600}
+.contact-form input,.contact-form textarea{width:100%;padding:13px;background:#11102b;border:1px solid var(--line);border-radius:11px;color:white;outline:0}
+.contact-form textarea{min-height:125px;resize:vertical}
+.error{color:#ff8181;font-size:11px;font-weight:400}
+.contact-info{border:1px solid var(--line);background:#11102b;border-radius:17px;padding:24px}
+.contact-info h3{font:600 22px var(--display);margin-bottom:15px}
+.contact-info p{color:var(--muted);font-size:14px;margin-bottom:15px}
+.contact-info a{color:#9e8bff}
+#contactStatus{color:var(--green);font-size:13px}
+footer{border-top:1px solid var(--line);background:#070516;padding:35px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-inner p{color:#8985a5;font-size:12px}
+#topButton{position:fixed;bottom:20px;right:20px;z-index:80;width:43px;height:43px;border-radius:13px;background:#292044;border:1px solid var(--line);cursor:pointer;opacity:0;pointer-events:none;transition:.2s}
+#topButton.visible{opacity:1;pointer-events:auto}
+@media(max-width:800px){.grid-3,.info-grid{grid-template-columns:repeat(2,1fr)}.projects{grid-template-columns:repeat(2,1fr)}.process-grid,.timeline{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.dash-body{grid-template-columns:1fr}.dash-side{display:none}.dash-lower{grid-template-columns:1fr}}
+@media(max-width:600px){section{padding:65px 0}.wrap{width:calc(100% - 30px)}.grid-3,.info-grid,.projects,.process-grid,.timeline,.contact-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.founder-card{align-items:flex-start}.founder-avatar{width:65px;height:65px;flex-basis:65px}.hero h1{font-size:43px}.footer-inner{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
-
 <body>
-
 <div id="progress"></div>
 
-<!-- HEADER -->
-
 <header>
-  <div class="wrap navbar">
-
-    <a href="#home" class="logo">ORVIX</a>
-
-    <nav class="navlinks" id="navLinks">
-      <a href="#services">Services</a>
-      <a href="#dashboard">Platform</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#process">Process</a>
-      <a href="#assistant">AI Assistant</a>
-      <a href="#founder">Founder</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a href="#contact" class="btn btn-main">Get Started ↗</a>
-      <button class="small-btn menu-btn" id="menuButton" aria-label="Open menu">☰</button>
-    </div>
-
-  </div>
+<div class="wrap navbar">
+<a href="#home" class="logo">ORVIX</a>
+<nav class="navlinks" id="navLinks">
+<a href="#services">Services</a><a href="#dashboard">Platform</a><a href="#portfolio">Portfolio</a><a href="#process">Process</a><a href="#assistant">AI Assistant</a><a href="#testimonials">Reviews</a><a href="#founder">Founder</a><a href="#contact">Contact</a>
+</nav>
+<div class="nav-actions">
+<a href="#contact" class="btn btn-main">Get Started ↗</a>
+<button class="small-btn menu-btn" id="menuButton" aria-label="Open menu">☰</button>
+</div>
+</div>
 </header>
 
 <main>
-
-<!-- HERO -->
-
 <section class="hero" id="home">
-
-  <div class="wrap hero-content">
-
-    <div class="hero-badge">
-      <span class="live-dot"></span>
-      Next-generation AI technology
-    </div>
-
-    <h1>
-      Empower Your Business<br>
-      with <span class="gradient-text">AI-Powered</span><br>
-      Solutions.
-    </h1>
-
-    <p>
-      Transform your ideas into intelligent digital experiences.
-      ORVIX builds AI assistants, business automation and modern websites
-      designed to help your business move forward.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#contact" class="btn btn-main">Get Started ↗</a>
-      <a href="#dashboard" class="btn">Explore Platform ↓</a>
-    </div>
-
-    <div class="hero-tags">
-      <span>✦ Intelligent automation</span>
-      <span>✦ Modern web experiences</span>
-      <span>✦ AI-powered solutions</span>
-    </div>
-
-  </div>
-
-  <div class="wave-area">
-    <svg viewBox="0 0 1440 260" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="waveGradient">
-          <stop stop-color="#343bff"/>
-          <stop offset=".45" stop-color="#bd64ff"/>
-          <stop offset="1" stop-color="#32caff"/>
-        </linearGradient>
-      </defs>
-
-      <path class="wave-line" d="M0 150 C180 70 250 220 430 135 S680 70 850 150 S1110 230 1440 90"/>
-      <path class="wave-line" d="M0 180 C190 90 280 230 450 150 S680 95 860 175 S1170 215 1440 115"/>
-      <path class="wave-line" d="M0 120 C220 200 300 70 510 145 S760 220 950 120 S1230 70 1440 160"/>
-      <path class="wave-line" d="M0 205 C210 120 320 230 510 170 S760 120 950 190 S1220 245 1440 140"/>
-    </svg>
-  </div>
-
-</section>
-
-<!-- TRUST STRIP -->
-
-<div class="trust-strip">
-  <div class="wrap trust-inner">
-    <span>✦ AI-powered experiences</span>
-    <span>✦ Business automation</span>
-    <span>✦ Responsive websites</span>
-    <span>✦ Smart digital solutions</span>
-  </div>
+<div class="wrap hero-content">
+<div class="hero-badge"><span class="live-dot"></span> Next-generation AI technology</div>
+<h1>Empower Your Business<br>with <span class="gradient-text">AI-Powered</span><br>Solutions.</h1>
+<p>Transform your ideas into intelligent digital experiences. ORVIX builds AI assistants, business automation and modern websites designed to help your business move forward.</p>
+<div class="hero-buttons"><a href="#contact" class="btn btn-main">Get Started ↗</a><a href="#dashboard" class="btn">Explore Platform ↓</a></div>
+<div class="hero-tags"><span>✦ Intelligent automation</span><span>✦ Modern web experiences</span><span>✦ AI-powered solutions</span></div>
 </div>
-
-<!-- SERVICES -->
-
-<section id="services">
-  <div class="wrap">
-
-    <div class="section-label">What we do</div>
-    <h2>Technology that works<br><span class="gradient-text">for your business.</span></h2>
-    <p class="section-desc">
-      We combine intelligent technology and thoughtful design
-      to create useful digital products.
-    </p>
-
-    <div class="grid-3">
-
-      <article class="feature-card">
-        <div class="feature-icon">✧</div>
-        <h3>AI Assistants</h3>
-        <p>AI-powered assistants that can answer questions, support customers and help users find information.</p>
-        <a href="#assistant" class="more">Explore AI assistant →</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">⌘</div>
-        <h3>Business Automation</h3>
-        <p>Reduce repetitive work with automated workflows, smart processes and connected tools.</p>
-        <a href="#contact" class="more">Explore automation →</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">▣</div>
-        <h3>Website Development</h3>
-        <p>Professional, responsive websites with modern layouts and user-friendly experiences.</p>
-        <a href="#portfolio" class="more">Explore websites →</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">◈</div>
-        <h3>Business Dashboards</h3>
-        <p>Organise important business information with clean, useful dashboard interfaces.</p>
-        <a href="#dashboard" class="more">Explore dashboard →</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">⌁</div>
-        <h3>Custom Software</h3>
-        <p>Digital tools designed around your workflow, project needs and business requirements.</p>
-        <a href="#contact" class="more">Discuss your idea →</a>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">◎</div>
-        <h3>Digital Experiences</h3>
-        <p>Modern interfaces that make complex technology easier to understand and use.</p>
-        <a href="#contact" class="more">Start a project →</a>
-      </article>
-
-    </div>
-  </div>
+<div class="wave-area"><svg viewBox="0 0 1440 260" preserveAspectRatio="none"><defs><linearGradient id="waveGradient"><stop stop-color="#343bff"/><stop offset=".45" stop-color="#bd64ff"/><stop offset="1" stop-color="#32caff"/></linearGradient></defs><path class="wave-line" d="M0 150 C180 70 250 220 430 135 S680 70 850 150 S1110 230 1440 90"/><path class="wave-line" d="M0 180 C190 90 280 230 450 150 S680 95 860 175 S1170 215 1440 115"/></svg></div>
 </section>
 
-<!-- DASHBOARD PREVIEW -->
-
-<section id="dashboard" class="dashboard-section">
-  <div class="wrap">
-
-    <div class="section-label">Platform preview</div>
-    <h2>One platform.<br><span class="gradient-text">A clearer business view.</span></h2>
-    <p class="section-desc">
-      A preview of the kind of analytics dashboard and management interface
-      ORVIX can design for businesses.
-    </p>
-
-    <div class="dashboard">
-
-      <div class="dash-top">
-        <div class="dash-brand">ORVIX <span>INSIGHTS</span></div>
-        <div class="dash-status">● Demo environment</div>
-      </div>
-
-      <div class="dash-body">
-
-        <aside class="dash-side">
-          <div class="active">▦ Overview</div>
-          <div>◈ Analytics</div>
-          <div>▤ Projects</div>
-          <div>◎ Customers</div>
-          <div>⌁ Automation</div>
-          <div>⚙ Settings</div>
-        </aside>
-
-        <div class="dash-main">
-
-          <h3>Business overview</h3>
-          <p>Illustrative dashboard · Sample data only</p>
-
-          <div class="metrics">
-            <div class="metric">
-              <span>Total projects</span>
-              <b>128</b>
-              <small>Demo value</small>
-            </div>
-
-            <div class="metric">
-              <span>Tasks completed</span>
-              <b>94%</b>
-              <small>Demo value</small>
-            </div>
-
-            <div class="metric">
-              <span>Active workflows</span>
-              <b>24</b>
-              <small>Demo value</small>
-            </div>
-
-            <div class="metric">
-              <span>AI activity</span>
-              <b>86%</b>
-              <small>Demo value</small>
-            </div>
-          </div>
-
-          <div class="dash-lower">
-
-            <div class="chart-box">
-              <h4>Activity overview · Sample</h4>
-              <div class="chart">
-                <div class="bar" style="height:35%"></div>
-                <div class="bar" style="height:55%"></div>
-                <div class="bar" style="height:42%"></div>
-                <div class="bar" style="height:75%"></div>
-                <div class="bar" style="height:60%"></div>
-                <div class="bar" style="height:88%"></div>
-                <div class="bar" style="height:72%"></div>
-                <div class="bar" style="height:100%"></div>
-              </div>
-            </div>
-
-            <div class="activity-box">
-              <h4>Recent activity</h4>
-              <div class="activity"><b>AI Assistant</b><br>Demo interaction</div>
-              <div class="activity"><b>Workflow</b><br>Sample task updated</div>
-              <div class="activity"><b>Dashboard</b><br>Preview refreshed</div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-      <div class="dash-foot">
-        ORVIX dashboard concept · All figures shown are illustrative
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio">
-  <div class="wrap">
-
-    <div class="section-label">Our work</div>
-    <h2>Ideas turned into<br><span class="gradient-text">digital experiences.</span></h2>
-    <p class="section-desc">
-      Explore example concepts showing the types of products ORVIX can develop.
-    </p>
-
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All projects</button>
-      <button class="filter-btn" data-filter="ai">AI</button>
-      <button class="filter-btn" data-filter="web">Websites</button>
-      <button class="filter-btn" data-filter="software">Software</button>
-      <button class="filter-btn" data-filter="automation">Automation</button>
-    </div>
-
-    <div class="projects">
-
-      <article class="project" data-category="ai">
-        <div class="project-art art1">AI ASSIST</div>
-        <div class="project-content">
-          <h3>AI Support Assistant</h3>
-          <p>A conversational assistant concept for customer support and enquiries.</p>
-          <span class="project-tag">Artificial Intelligence</span>
-        </div>
-      </article>
-
-      <article class="project" data-category="web">
-        <div class="project-art art2">WEB DESIGN</div>
-        <div class="project-content">
-          <h3>Business Website</h3>
-          <p>A modern website concept designed for a professional online presence.</p>
-          <span class="project-tag">Website</span>
-        </div>
-      </article>
-
-      <article class="project" data-category="software">
-        <div class="project-art art3">INSIGHTS</div>
-        <div class="project-content">
-          <h3>Analytics Dashboard</h3>
-          <p>A dashboard concept for organising information and business activity.</p>
-          <span class="project-tag">Software</span>
-        </div>
-      </article>
-
-      <article class="project" data-category="automation">
-        <div class="project-art art4">AUTOMATE</div>
-        <div class="project-content">
-          <h3>Workflow Automation</h3>
-          <p>A concept for reducing repetitive tasks with connected workflows.</p>
-          <span class="project-tag">Automation</span>
-        </div>
-      </article>
-
-      <article class="project" data-category="ai">
-        <div class="project-art art5">AI CORE</div>
-        <div class="project-content">
-          <h3>AI Knowledge Assistant</h3>
-          <p>A concept for finding useful information through natural language.</p>
-          <span class="project-tag">Artificial Intelligence</span>
-        </div>
-      </article>
-
-      <article class="project" data-category="software">
-        <div class="project-art art6">CONTROL</div>
-        <div class="project-content">
-          <h3>Management Interface</h3>
-          <p>A clean interface concept for managing tasks and projects.</p>
-          <span class="project-tag">Software</span>
-        </div>
-      </article>
-
-    </div>
-
-    <p class="muted" style="font-size:12px;margin-top:18px">
-      These are illustrative concepts, not claims of completed client projects.
-    </p>
-
-  </div>
-</section>
-
-<!-- PROCESS -->
-
-<section id="process">
-  <div class="wrap">
-
-    <div class="section-label">Our approach</div>
-    <h2>From your idea<br>to <span class="gradient-text">the final product.</span></h2>
-    <p class="section-desc">
-      A straightforward process designed around communication and clear expectations.
-    </p>
-
-    <div class="process-grid">
-
-      <div class="process-item">
-        <div class="process-number">01</div>
-        <h3>Discover</h3>
-        <p>Understand your goals, requirements and the problem to solve.</p>
-      </div>
-
-      <div class="process-item">
-        <div class="process-number">02</div>
-        <h3>Plan & Design</h3>
-        <p>Choose the right approach and plan the user experience.</p>
-      </div>
-
-      <div class="process-item">
-        <div class="process-number">03</div>
-        <h3>Develop</h3>
-        <p>Build, test and refine the solution with your feedback.</p>
-      </div>
-
-      <div class="process-item">
-        <div class="process-number">04</div>
-        <h3>Launch</h3>
-        <p>Publish the product and discuss ongoing support.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- WHY ORVIX -->
-
-<section id="why" class="why-section">
-  <div class="wrap">
-
-    <div class="section-label">Why ORVIX</div>
-    <h2>Built around your<br><span class="gradient-text">business needs.</span></h2>
-    <p class="section-desc">
-      We focus on useful technology, clear communication and designs
-      that are easy to use.
-    </p>
-
-    <div class="grid-3">
-
-      <div class="feature-card">
-        <div class="feature-icon">✦</div>
-        <h3>Modern technology</h3>
-        <p>Explore practical AI and software solutions for real business needs.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">◇</div>
-        <h3>Direct communication</h3>
-        <p>Discuss your requirements and project scope clearly.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⌘</div>
-        <h3>Purposeful design</h3>
-        <p>Interfaces designed to make your product clear and usable.</p>
-      </div>
-
-    </div>
-
-    <div class="stats">
-      <div class="stat">
-        <b>AI</b>
-        <span>Intelligent solutions</span>
-      </div>
-      <div class="stat">
-        <b>Web</b>
-        <span>Modern experiences</span>
-      </div>
-      <div class="stat">
-        <b>UX</b>
-        <span>User-focused design</span>
-      </div>
-      <div class="stat">
-        <b>∞</b>
-        <span>Ideas to explore</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- AI ASSISTANT -->
-
-<section id="assistant">
-
-  <div class="wrap">
-
-    <div class="ai-heading">
-      <div class="section-label">Meet your AI assistant</div>
-      <h2>How can I <span class="gradient-text">assist you?</span></h2>
-      <p>
-        Ask about ORVIX, explore services, discuss a website idea
-        or discover how AI can support your business.
-      </p>
-    </div>
-
-    <div class="ai-workspace">
-
-      <!-- SIDEBAR -->
-
-      <aside class="ai-sidebar">
-
-        <div class="ai-brand">ORVIX <span>AI</span></div>
-
-        <button class="new-chat" id="newChat">＋ New Chat</button>
-
-        <div class="side-label">Workspace</div>
-
-        <div class="side-history">
-          <button class="history-item" id="historyCurrent">✧ Current conversation</button>
-        </div>
-
-        <div class="sidebar-bottom">
-          <div>✦ ORVIX AI Workspace</div>
-          <div>◉ AI assistant</div>
-          <div>Version 1.0</div>
-        </div>
-
-      </aside>
-
-      <!-- MAIN CHAT -->
-
-      <div class="ai-main">
-
-        <div class="ai-topbar">
-          <div class="ai-model">
-            <span class="model-dot"></span>
-            ORVIX AI Assistant
-          </div>
-          <div>Powered by AI</div>
-        </div>
-
-        <div class="ai-content">
-
-          <!-- WELCOME SCREEN -->
-
-          <div class="ai-welcome" id="aiWelcome">
-
-            <div class="ai-orb">✧</div>
-
-            <h3>Welcome to ORVIX AI</h3>
-
-            <p>What would you like to explore today?</p>
-
-            <div class="prompt-grid">
-
-              <button class="prompt-card" data-prompt="What services does ORVIX provide?">
-                <b>✦ Explore ORVIX</b>
-                <span>Discover our services and solutions</span>
-              </button>
-
-              <button class="prompt-card" data-prompt="How can AI help my business?">
-                <b>◈ AI for business</b>
-                <span>Explore useful AI applications</span>
-              </button>
-
-              <button class="prompt-card" data-prompt="I want to build a professional website. How can ORVIX help?">
-                <b>▣ Build a website</b>
-                <span>Discuss a website project</span>
-              </button>
-
-              <button class="prompt-card" data-prompt="Who is the founder of ORVIX?">
-                <b>◎ Meet the founder</b>
-                <span>Learn about ORVIX leadership</span>
-              </button>
-
-            </div>
-          </div>
-
-          <!-- MESSAGE AREA -->
-
-          <div id="aiMessages" aria-live="polite"></div>
-
-        </div>
-
-        <!-- INPUT -->
-
-        <div class="composer-wrap">
-
-          <form class="composer" id="aiForm">
-
-            <textarea
-              id="aiInput"
-              rows="1"
-              maxlength="3000"
-              placeholder="Ask anything about ORVIX..."
-              aria-label="Write your message"
-            ></textarea>
-
-            <button class="send-btn" id="sendAI" type="submit" aria-label="Send message">↑</button>
-
-          </form>
-
-          <div class="ai-disclaimer">
-            AI can make mistakes. Verify important information before relying on it.
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- FOUNDER -->
-
-<section id="founder">
-  <div class="wrap">
-
-    <div class="section-label">Leadership</div>
-    <h2>Meet the person<br><span class="gradient-text">behind ORVIX.</span></h2>
-    <p class="section-desc">
-      Founder-led vision with a focus on useful digital solutions.
-    </p>
-
-    <div class="founder-card">
-      <div class="founder-avatar">AK</div>
-      <div>
-        <h3>Ayush Kumar</h3>
-        <div class="founder-role">Founder & CEO · ORVIX</div>
-        <p>
-          Leading the ORVIX vision to explore AI, modern web development
-          and digital solutions for businesses.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- FAQ -->
-
-<section id="faq">
-  <div class="wrap">
-
-    <div class="section-label">FAQ</div>
-    <h2>Questions? <span class="gradient-text">We've got answers.</span></h2>
-    <p class="section-desc">Some useful information before starting a project.</p>
-
-    <details class="faq-item">
-      <summary>What does ORVIX do?</summary>
-      <p>ORVIX focuses on AI assistants, business automation, websites, dashboards and custom digital solutions.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can ORVIX build a website for my business?</summary>
-      <p>Yes. You can discuss your website requirements, preferred design and features through the contact form.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can I request a custom AI assistant?</summary>
-      <p>You can share your use case and discuss the features, data requirements and integrations needed.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary>How much does a project cost?</summary>
-      <p>Pricing depends on the scope, features, integrations and complexity. Contact ORVIX for a project discussion.</p>
-    </details>
-
-    <details class="faq-item">
-      <summary>How do I contact ORVIX?</summary>
-      <p>Send an email to hello.orvix.69@gmail.com or use the contact form below.</p>
-    </details>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-  <div class="wrap">
-
-    <div class="section-label">Get in touch</div>
-    <h2>Let's create something<br><span class="gradient-text">meaningful.</span></h2>
-    <p class="section-desc">
-      Have a project idea? Tell us what you want to build.
-    </p>
-
-    <div class="contact-grid">
-
-      <form class="contact-form" id="contactForm" novalidate>
-
-        <label>
-          Your name
-          <input id="contactName" placeholder="Enter your name">
-          <span class="error" id="nameError"></span>
-        </label>
-
-        <label>
-          Email address
-          <input id="contactEmail" type="email" placeholder="you@example.com">
-          <span class="error" id="emailError"></span>
-        </label>
-
-        <label>
-          Tell us about your project
-          <textarea id="contactMessage" placeholder="Describe your idea..."></textarea>
-          <span class="error" id="messageError"></span>
-        </label>
-
-        <button class="btn btn-main" type="submit">Send enquiry ↗</button>
-
-        <div id="contactStatus" role="status"></div>
-
-      </form>
-
-      <div class="contact-info">
-        <h3>Contact ORVIX</h3>
-
-        <p>
-          <b>Email</b><br>
-          <a href="mailto:hello.orvix.69@gmail.com">hello.orvix.69@gmail.com</a>
-        </p>
-
-        <p>
-          <b>Official website</b><br>
-          <a href="https://helloorvix69-eng.github.io/ORVIX/" target="_blank" rel="noopener noreferrer">
-            helloorvix69-eng.github.io/ORVIX
-          </a>
-        </p>
-
-        <p>
-          <b>GitHub</b><br>
-          <a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener noreferrer">
-            ORVIX Repository
-          </a>
-        </p>
-
-        <p>
-          <b>Founder</b><br>
-          Ayush Kumar
-        </p>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-  <div class="wrap footer-inner">
-    <div class="footer-logo">ORVIX</div>
-    <p>© 2026 ORVIX Technology. All rights reserved.</p>
-    <p>Built for the future. ✦</p>
-  </div>
-</footer>
-
-<button id="topButton" aria-label="Back to top">↑</button>
-
-<script>
-/* CONFIGURATION */
-
-const WORKER_URL = "https://orvix-ai.hello-orvix-69.workers.dev";
-const CONTACT_EMAIL = "hello.orvix.69@gmail.com";
-
-/* MOBILE NAVIGATION */
-
-const navLinks = document.getElementById("navLinks");
-
-document.getElementById("menuButton").addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-  });
-});
-
-/* PORTFOLIO FILTERS */
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-const projects = document.querySelectorAll(".project");
-
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-
-    filterButtons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-
-    const filter = button.dataset.filter;
-
-    projects.forEach(project => {
-      project.hidden = !(
-        filter === "all" ||
-        project.dataset.category === filter
-      );
-    });
-
-  });
-});
-
-/* AI ASSISTANT */
-
-const aiForm = document.getElementById("aiForm");
-const aiInput = document.getElementById("aiInput");
-const aiMessages = document.getElementById("aiMessages");
-const aiWelcome = document.getElementById("aiWelcome");
-const sendAI = document.getElementById("sendAI");
-
-let conversation = [];
-let isSending = false;
-let chatSessions = [];
-
-function scrollMessages() {
-  aiMessages.scrollTop = aiMessages.scrollHeight;
-}
-
-function showChat() {
-  aiWelcome.style.display = "none";
-  aiMessages.style.display = "flex";
-}
-
-function addAIMessage(text, type) {
-
-  showChat();
-
-  const row = document.createElement("div");
-  row.className = "ai-message " + type;
-
-  const avatar = document.createElement("div");
-  avatar.className = "ai-avatar";
-  avatar.textContent = type === "user" ? "You" : "✧";
-
-  const content = document.createElement("div");
-  content.className = "ai-message-text";
-  content.textContent = text;
-
-  row.appendChild(avatar);
-  row.appendChild(content);
-
-  aiMessages.appendChild(row);
-  scrollMessages();
-
-  return content;
-}
-
-function resetChat() {
-
-  conversation = [];
-  aiMessages.innerHTML = "";
-
-  aiMessages.style.display = "none";
-  aiWelcome.style.display = "block";
-
-  aiInput.value = "";
-  aiInput.focus();
-
-}
-
-function updateHistory(question) {
-
-  const title = question.length > 28
-    ? question.slice(0,28) + "..."
-    : question;
-
-  const button = document.createElement("button");
-  button.className = "history-item";
-  button.textContent = "◦ " + title;
-
-  button.addEventListener("click", () => {
-    // Start a fresh conversation when selecting a history label.
-    resetChat();
-    aiInput.value = question;
-    aiInput.focus();
-  });
-
-  document.querySelector(".side-history").appendChild(button);
-}
-
-/* SEND MESSAGE */
-
-async function sendMessage(message) {
-
-  message = message.trim();
-
-  if (!message || isSending) return;
-
-  isSending = true;
-  sendAI.disabled = true;
-
-  addAIMessage(message,"user");
-
-  conversation.push({
-    role:"user",
-    text:message
-  });
-
-  updateHistory(message);
-
-  const loading = addAIMessage("Thinking...","assistant");
-  loading.classList.add("typing");
-
-  try {
-
-    const response = await fetch(WORKER_URL,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        messages:conversation
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error("AI service returned an error.");
-    }
-
-    const data = await response.json();
-
-    const answer = data.reply ||
-      data.response ||
-      "I couldn't generate a response. Please try again.";
-
-    loading.classList.remove("typing");
-    loading.textContent = answer;
-
-    conversation.push({
-      role:"bot",
-      text:answer
-    });
-
-  } catch(error) {
-
-    loading.classList.remove("typing");
-    loading.textContent =
-      "I'm having trouble connecting to the AI service right now. Please try again in a moment or contact ORVIX at " + CONTACT_EMAIL;
-
-  }
-
-  isSending = false;
-  sendAI.disabled = false;
-  aiInput.focus();
-  scrollMessages();
-
-}
-
-aiForm.addEventListener("submit",event => {
-
-  event.preventDefault();
-
-  const message = aiInput.value;
-
-  if (!message.trim()) return;
-
-  aiInput.value = "";
-  aiInput.style.height = "32px";
-
-  sendMessage(message);
-
-});
-
-/* ENTER TO SEND */
-
-aiInput.addEventListener("keydown",event => {
-
-  if (event.key === "Enter" && !event.shiftKey) {
-    event.preventDefault();
-    aiForm.requestSubmit();
-  }
-
-});
-
-/* AUTO-RESIZE INPUT */
-
-aiInput.addEventListener("input",() => {
-  aiInput.style.height = "32px";
-  aiInput.style.height = Math.min(aiInput.scrollHeight,150) + "px";
-});
-
-/* SUGGESTED PROMPTS */
-
-document.querySelectorAll(".prompt-card").forEach(button => {
-
-  button.addEventListener("click",() => {
-    sendMessage(button.dataset.prompt);
-  });
-
-});
-
-/* NEW CHAT */
-
-document.getElementById("newChat").addEventListener("click",() => {
-  if (isSending) return;
-  resetChat();
-});
-
-/* CURRENT CONVERSATION */
-
-document.getElementById("historyCurrent").addEventListener("click",() => {
-  resetChat();
-});
-
-/* CONTACT FORM */
-
-document.getElementById("contactForm").addEventListener("submit",event => {
-
-  event.preventDefault();
-
-  const name = document.getElementById("contactName").value.trim();
-  const email = document.getElementById("contactEmail").value.trim();
-  const message = document.getElementById("contactMessage").value.trim();
-
-  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  document.getElementById("nameError").textContent =
-    name ? "" : "Please enter your name.";
-
-  document.getElementById("emailError").textContent =
-    emailValid ? "" : "Please enter a valid email.";
-
-  document.getElementById("messageError").textContent =
-    message.length >= 10 ? "" : "Please enter at least 10 characters.";
-
-  if (!name || !emailValid || message.length < 10) return;
-
-  const subject = encodeURIComponent("ORVIX project enquiry from " + name);
-
-  const body = encodeURIComponent(
-    "Name: " + name +
-    "\nEmail: " + email +
-    "\n\nProject details:\n" + message
-  );
-
-  document.getElementById("contactStatus").textContent =
-    "Opening your email application...";
-
-  window.location.href =
-    "mailto:" + CONTACT_EMAIL +
-    "?subject=" + subject +
-    "&body=" + body;
-
-});
-
-/* SCROLL PROGRESS + BACK TO TOP */
-
-window.addEventListener("scroll",() => {
-
-  const page = document.documentElement;
-  const maxScroll = page.scrollHeight - page.clientHeight;
-
-  document.getElementById("progress").style.width =
-    (maxScroll > 0 ? page.scrollTop / maxScroll * 100 : 0) + "%";
-
-  document.getElementById("topButton").classList.toggle(
-    "visible",
-    page.scrollTop > 500
-  );
-
-},{passive:true});
-
-document.getElementById("topButton").addEventListener("click",() => {
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-});
-
-</script>
-
-</body>
-  </html>
+<div class="trust-strip"><div class="wrap trust-inner"><span>✦ AI-powered experiences</span><span>✦ Business automation</span><span>✦ Responsive websites</span><span>✦ Smart digital solutions</span></div></div>
+
+<section id="services"><div class="wrap">
+<div class="section-label">What we do</div><h2>Technology that works<br><span class="gradient-text">for your business.</span></h2>
+<p class="section-desc">We combine intelligent technology and thoughtful design to create useful digital products.</p>
+<div class="grid-3">
+<article class="feature-card"><div class="feature-icon">✧</div><h3>AI Assistants</h3><p>AI-powered assistants that answer questions, support customers and help users find information.</p><a href="#assistant" class="more">Explore AI assistant →</a></article>
+<article class="feature-card"><div class="feature-icon">⌘</div><h3>Business Automation</h3><p>Reduce repetitive work with automated workflows, smart processes and connected tools.</p><a href="#contact" class="more">Explore automation →</a></article>
+<article class="feature-card"><div class="feature-icon">▣</div><h3>Website Development</h3><p>Professional, responsive websites with modern layouts and user-friendly experiences.</p><a href="#portfolio" class="more">Explore websites →</a></article>
+<article class="feature-card"><div class="feature-icon">◈</div><h3>Business Dashboards</h3><p>Organise important business information with clean, useful dashboard interfaces.</p><a href="#dashboard" class="more">Explore dashboard →</a></article>
+<article class="feature-card"><div class="feature-icon">⌁</div><h3>Custom Software</h3><p>Digital tools designed around your workflow, project needs and business requirements.</p><a href="#contact" class="more">Discuss your idea →</a></article>
+<article class="feature-card"><div class="feature-icon">◎</div><h3>Digital Experiences</h3><p>Modern interfaces that make complex technology easier to understand and use.</p><a href="#contact" class="more">Start a project →</a></article>
+</div></div></section>
+
+<section id="dashboard" class="dashboard-section"><div class="wrap">
+<div class="section-label">Platform preview</div><h2>One platform.<br><span class="gradient-text">A clearer business view.</span></h2>
+<p class="section-desc">A preview of the kind of analytics dashboard and management interface ORVIX can design for businesses.</p>
+<div class="dashboard"><div class="dash-top"><div class="dash-brand">ORVIX <span>INSIGHTS</span></div><div class="dash-status">● Demo environment</div></div>
+<div class="dash-body"><aside class="dash-side"><div class="active">▦ Overview</div><div>◈ Analytics</div><div>▤ Projects</div><div>◎ Customers</div><div>⌁ Automation</div><div>⚙ Settings</div></aside>
+<div class="dash-main"><h3>Business overview</h3><p>Illustrative dashboard · Sample data only</p>
+<div class="metrics"><div class="metric"><span>Total projects</span><b>128</b><small>Demo value</small></div><div class="metric"><span>Tasks completed</span><b>94%</b><small>Demo value</small></div><div class="metric"><span>Active workflows</span><b>24</b><small>Demo value</small></div><div class="metric"><span>AI activity</span><b>86%</b><small>Demo value</small></div></div>
+<div class="dash-lower"><div class="chart-box"><h4>Activity overview · Sample</h4><div class="chart"><div class="bar" style="height:35%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:42%"></div><div class="bar" style="height:75%"></div><div class="bar" style="height:60%"></div><div class="bar" style="height:88%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:100%"></div></div></div>
+<div class="activity-box"><h4>Recent activity</h4><div class="activity"><b>AI Assistant</b><br>Demo interaction</div><div class="activity"><b>Workflow</b><br>Sample task updated</div><div class="activity"><b>Dashboard</b><br>Preview refreshed</div></div></div></div></div>
+<div class="dash-foot">ORVIX dashboard concept · All figures shown are illustrative</div></div>
+</div></section>
+
+<section id="portfolio"><div class="wrap">
+<div class="section-label">Our work</div><h2>Ideas turned into<br><span class="gradient-text">digital experiences.</span></h2>
+<p class="section-desc">Explore example concepts showing the types of products ORVIX can develop.</p>
+<div class="filters"><button class="filter-btn active" data-filter="all">All projects</button><button class="filter-btn" data-filter="ai">AI</button><button class="filter-btn" data-filter="web">Websites</button><button class="filter-btn" data-filter="software">Software</button><button class="filter-btn" data-filter="automation">Automation</button></div>
+<div class="projects">
+<article class="project" data-category="ai"><div class="project-art art1">AI ASSIST</div><div class="project-content"><h3>AI Support Assistant</h3><p>A conversational assistant concept for customer support and enquiries.</p><span class="project-tag">Artificial Intelligence</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> HTML, CSS, JavaScript<br><b>Status:</b> Demo concept</div></div></article>
+<article class="project" data-category="web"><div class="project-art art2">WEB DESIGN</div><div class="project-content"><h3>Business Website</h3><p>A modern website concept designed for a professional online presence.</p><span class="project-tag">Website</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> HTML, CSS, JavaScript<br><b>Status:</b> Demo concept</div></div></article>
+<article class="project" data-category="software"><div class="project-art art3">INSIGHTS</div><div class="project-content"><h3>Analytics Dashboard</h3><p>A dashboard concept for organising information and business activity.</p><span class="project-tag">Software</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> HTML, CSS, JavaScript<br><b>Status:</b> Demo concept</div></div></article>
+<article class="project" data-category="automation"><div class="project-art art4">AUTOMATE</div><div class="project-content"><h3>Workflow Automation</h3><p>A concept for reducing repetitive tasks with connected workflows.</p><span class="project-tag">Automation</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> Workflow design<br><b>Status:</b> Demo concept</div></div></article>
+<article class="project" data-category="ai"><div class="project-art art5">AI CORE</div><div class="project-content"><h3>AI Knowledge Assistant</h3><p>A concept for finding useful information through natural language.</p><span class="project-tag">Artificial Intelligence</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> AI integration concept<br><b>Status:</b> Demo concept</div></div></article>
+<article class="project" data-category="software"><div class="project-art art6">CONTROL</div><div class="project-content"><h3>Management Interface</h3><p>A clean interface concept for managing tasks and projects.</p><span class="project-tag">Software</span><div class="project-details"><b>Type:</b> Concept demonstration<br><b>Technologies:</b> UI design, JavaScript<br><b>Status:</b> Demo concept</div></div></article>
+</div>
+<p class="muted" style="font-size:12px;margin-top:18px">These are illustrative concepts, not claims of completed client projects. Replace these with real case studies as your client work grows.</p>
+</div></section>
+
+<section id="process"><div class="wrap">
+<div class="section-label">Our approach</div><h2>From your idea<br>to <span class="gradient-text">the final product.</span></h2>
+<p class="section-desc">A straightforward process designed around communication and clear expectations.</p>
+<div class="process-grid">
+<div class="process-item"><div class="process-number">01</div><h3>Discovery</h3><p>Understand your goals, audience, requirements and the problem to solve.</p></div>
+<div class="process-item"><div class="process-number">02</div><h3>Planning</h3><p>Define scope, features, deliverables, priorities and estimated timelines.</p></div>
+<div class="process-item"><div class="process-number">03</div><h3>Design</h3><p>Plan the layout, user experience and visual direction.</p></div>
+<div class="process-item"><div class="process-number">04</div><h3>Development</h3><p>Build the product using suitable technologies and agreed requirements.</p></div>
+<div class="process-item"><div class="process-number">05</div><h3>Testing</h3><p>Check functionality, responsiveness and important user journeys.</p></div>
+<div class="process-item"><div class="process-number">06</div><h3>Client Review</h3><p>Share progress and collect feedback within the agreed revision scope.</p></div>
+<div class="process-item"><div class="process-number">07</div><h3>Delivery</h3><p>Prepare the final files, handover details and launch assistance.</p></div>
+<div class="process-item"><div class="process-number">08</div><h3>Support</h3><p>Discuss maintenance and post-launch support according to the agreement.</p></div>
+</div></div></section>
+
+<section id="trust"><div class="wrap">
+<div class="section-label">Clear expectations</div><h2>Professional work.<br><span class="gradient-text">Transparent process.</span></h2>
+<p class="section-desc">Every project should start with a shared understanding of what will be built, when it will be delivered and what support is included.</p>
+<div class="info-grid">
+<div class="info-card"><div class="feature-icon">◷</div><h3>Project timelines</h3><p>Timeline depends on the agreed scope, complexity, feedback and required integrations. A project schedule is confirmed before development.</p></div>
+<div class="info-card"><div class="feature-icon">▤</div><h3>Clear deliverables</h3><p>Project deliverables are documented before work begins.</p><ul><li>Agreed pages and features</li><li>Responsive layout</li><li>Source files as agreed</li><li>Testing and handover</li></ul></div>
+<div class="info-card"><div class="feature-icon">✎</div><h3>Revision policy</h3><p>Feedback and revision rounds are agreed in the project proposal. Additional scope or major changes may require a revised estimate.</p></div>
+<div class="info-card"><div class="feature-icon">◎</div><h3>Communication</h3><p>Project updates, feedback and important decisions are shared through the communication channel agreed with the client.</p></div>
+<div class="info-card"><div class="feature-icon">⌘</div><h3>Testing & quality</h3><p>We aim to review layouts, links, forms, navigation and supported device sizes before delivery.</p></div>
+<div class="info-card"><div class="feature-icon">♡</div><h3>Post-launch support</h3><p>Maintenance, updates and technical support can be discussed and agreed separately for each project.</p></div>
+</div>
+<div class="timeline">
+<div class="timeline-item"><b>Step 01</b><p>Project discussion and requirements</p></div>
+<div class="timeline-item"><b>Step 02</b><p>Scope, pricing and schedule agreement</p></div>
+<div class="timeline-item"><b>Step 03</b><p>Development, reviews and testing</p></div>
+<div class="timeline-item"><b>Step 04</b><p>Final handover and support discussion</p></div>
+</div>
+</div></section>
+
+<section id="testimonials"><div class="wrap">
+<div class="section-label">Client feedback</div><h2>Trust is built<br><span class="gradient-text">through real experiences.</span></h2>
+<p class="section-desc">We believe testimonials should reflect genuine client experiences.</p>
+<div class="review-note">Client testimonials will appear here after ORVIX completes client projects and receives permission to publish their feedback. No invented reviews or ratings are displayed.</div>
+</div></section>
+
+<section id="why" class="why-section"><div class="wrap">
+<div class="section-label">Why ORVIX</div><h2>Built around your<br><span class="gradient-text">business needs.</span></h2>
+<p class="section-desc">We focus on useful technology, clear communication and designs that are easy to use.</p>
+<div class="grid-3">
+<div class="feature-card"><div class="feature-icon">✦</div><h3>Modern technology</h3><p>Explore practical AI and software solutions for real business needs.</p></div>
+<div class="feature-card"><div class="feature-icon">◇</div><h3>Direct communication</h3><p>Discuss your requirements and project scope clearly.</p></div>
+<div class="feature-card"><div class="feature-icon">⌘</div><h3>Purposeful design</h3><p>Interfaces designed to make your product clear and usable.</p></div>
+</div>
+<div class="stats"><div class="stat"><b>AI</b><span>Intelligent solutions</span></div><div class="stat"><b>Web</b><span>Modern experiences</span></div><div class="stat"><b>UX</b><span>User-focused design</span></div><div class="stat"><b>∞</b><span>Ideas to explore</span></div></div>
+</div></section>
+
+  
