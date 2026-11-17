@@ -4,18 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#08051c">
+<meta name="theme-color" content="#000000">
 <title>ORVIX — AI-Powered Business Solutions</title>
 <meta name="description" content="ORVIX builds intelligent AI assistants, business automation and modern websites.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#08051c;--p:#11102b;--p2:#171435;--t:#f5f3ff;--m:#a5a1c2;--l:rgba(178,160,255,.16);--hb:rgba(8,5,28,.88);--bl:#3987ff;--pu:#925cff;--g:#55e6b5;--f:"DM Sans",system-ui,sans-serif;--d:"Space Grotesk",system-ui,sans-serif;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
-[data-theme=light]{--bg:#f6f4ff;--p:#fff;--p2:#efecff;--t:#17132f;--m:#5d5883;--l:rgba(80,60,160,.18);--hb:rgba(246,244,255,.9)}
+:root{--bg:#000;--p:#09090b;--p2:#111114;--t:#fafafa;--m:#a1a1aa;--l:rgba(255,255,255,.12);--hb:rgba(0,0,0,.88);--bl:#60a5fa;--pu:#818cf8;--g:#86efac;--f:"DM Sans",system-ui,sans-serif;--d:"Space Grotesk",system-ui,sans-serif;box-sizing:border-box;padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:85px;height:auto}
 body{background:var(--bg);color:var(--t);font:400 16px/1.65 var(--f);overflow-x:hidden;transition:background .3s}
-a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
 .wrap{width:min(1160px,calc(100% - 30px));margin:auto}
 section{padding:80px 0}
 #prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:300;background:linear-gradient(90deg,var(--bl),var(--pu),#36d9f5)}
@@ -24,143 +25,233 @@ section{padding:80px 0}
 @keyframes pl{to{opacity:.3}}
 header{position:sticky;top:0;z-index:100;background:var(--hb);backdrop-filter:blur(20px);border-bottom:1px solid var(--l);padding-top:env(safe-area-inset-top,0px)}
 .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font:700 26px var(--d);letter-spacing:3px;background:linear-gradient(90deg,var(--t),#9e8aff,#58d9ff);color:transparent;-webkit-background-clip:text;background-clip:text}
-.links{display:flex;gap:20px;font-size:13px;color:var(--m)}.links a:hover{color:var(--t)}
+.logo{font:700 26px var(--d);letter-spacing:3px;color:#fff}
+.links{display:flex;gap:20px;font-size:13px;color:var(--m)}
+.links a:hover{color:#fff}
 .na{display:flex;gap:8px;align-items:center}
 .sb{border:1px solid var(--l);background:var(--p);padding:8px 12px;border-radius:10px;cursor:pointer}
 .mb{display:none}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--l);background:var(--p);cursor:pointer;transition:.25s}
-.btn:hover{transform:translateY(-3px);border-color:var(--pu)}
-.bm{background:linear-gradient(110deg,#397fff,#7851f3);border:0;color:#fff;box-shadow:0 8px 28px rgba(104,77,255,.3)}
-@media(max-width:900px){.mb{display:block}.links{display:none;position:absolute;top:70px;left:0;right:0;padding:20px;background:var(--bg);border-bottom:1px solid var(--l);flex-direction:column}.links.open{display:flex}}
-.lab{display:inline-flex;align-items:center;gap:9px;color:#a994ff;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-.lab:before{content:"";width:22px;height:1px;background:var(--pu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--l);background:var(--p);cursor:pointer;transition:.25s}
+.btn:hover{transform:translateY(-3px);border-color:#fff}
+.bm{background:#fafafa;border:1px solid #fafafa;color:#000;box-shadow:none}
+@media(max-width:900px){.mb{display:block}.links{display:none;position:absolute;top:70px;left:0;right:0;padding:20px;background:#050505;border-bottom:1px solid var(--l);flex-direction:column}.links.open{display:flex}}
+.lab{display:inline-flex;align-items:center;gap:9px;color:#d4d4d8;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.lab:before{content:"";width:22px;height:1px;background:#60a5fa}
 h2{font:700 clamp(28px,5vw,44px)/1.12 var(--d);letter-spacing:-1.5px;margin-bottom:14px}
-.gt{background:linear-gradient(90deg,#83baff,#ae83ff,#50e1f5);color:transparent;-webkit-background-clip:text;background-clip:text}
+.gt{background:linear-gradient(90deg,#fff,#a1a1aa);color:transparent;-webkit-background-clip:text;background-clip:text}
 .sd{max-width:640px;color:var(--m);margin-bottom:34px}
 .mu{color:var(--m)}
-.hero{min-height:620px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,rgba(103,61,255,.22),transparent 45%),var(--bg)}
+.hero{min-height:620px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 72% 42%,rgba(59,130,246,.12),transparent 38%),#000}
 .hc{max-width:850px;padding:90px 0 160px;position:relative;z-index:2}
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(174,131,255,.35);background:rgba(121,75,255,.12);border-radius:40px;padding:7px 14px;color:#a994ff;font-size:12px;margin-bottom:24px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.045);border-radius:40px;padding:7px 14px;color:#d4d4d8;font-size:12px;margin-bottom:24px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--g);box-shadow:0 0 12px var(--g)}
 .hero h1{font:700 clamp(40px,7vw,72px)/1.05 var(--d);letter-spacing:-2.5px;margin-bottom:20px}
 .hero p{max-width:620px;margin:0 auto 28px;color:var(--m);font-size:17px}
 .hb{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .tags{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;color:var(--m);font-size:12px;margin-top:24px}
 .wave{position:absolute;bottom:-4px;left:0;width:100%;height:200px;pointer-events:none}
-.wave svg{width:100%;height:100%}.wave path{fill:none;stroke:url(#wg);stroke-width:2;opacity:.6;filter:drop-shadow(0 0 8px #8654ff)}
-.strip{padding:24px 0;border-block:1px solid var(--l);background:var(--p)}
+.wave svg{width:100%;height:100%}
+.wave path{fill:none;stroke:url(#wg);stroke-width:2;opacity:.28;filter:drop-shadow(0 0 5px #fff)}
+.strip{padding:24px 0;border-block:1px solid var(--l);background:#050505}
 .strip .wrap{display:flex;justify-content:space-around;flex-wrap:wrap;gap:14px;color:var(--m);font-size:13px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--p);border:1px solid var(--l);border-radius:18px;padding:24px;transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:rgba(146,92,255,.55)}
-.ic{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:rgba(146,92,255,.2);font-size:22px;margin-bottom:16px}
-.card h3{font:600 20px var(--d);margin-bottom:8px}.card p{font-size:14px;color:var(--m)}
-.more{display:inline-block;color:#a994ff;font-size:13px;font-weight:700;margin-top:14px}
+.card{background:#09090b;border:1px solid var(--l);border-radius:18px;padding:24px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.34)}
+.ic{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#171717;font-size:22px;margin-bottom:16px}
+.card h3{font:600 20px var(--d);margin-bottom:8px}
+.card p{font-size:14px;color:var(--m)}
+.more{display:inline-block;color:#93c5fd;font-size:13px;font-weight:700;margin-top:14px}
 .sx{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.sx .card{text-align:center;padding:20px}.sx b{display:block;font:700 34px var(--d);color:#a68bff}.sx span{font-size:12px;color:var(--m)}
-.dash{background:var(--p);border:1px solid var(--l);border-radius:20px;padding:12px}
-.dt{display:flex;justify-content:space-between;padding:10px 14px 14px;border-bottom:1px solid var(--l);font:700 17px var(--d)}.dt small{color:var(--g);font:400 11px var(--f)}
+.sx .card{text-align:center;padding:20px}
+.sx b{display:block;font:700 34px var(--d);color:#fafafa}
+.sx span{font-size:12px;color:var(--m)}
+.dash{background:#09090b;border:1px solid var(--l);border-radius:20px;padding:12px}
+.dt{display:flex;justify-content:space-between;padding:10px 14px 14px;border-bottom:1px solid var(--l);font:700 17px var(--d)}
+.dt small{color:var(--g);font:400 11px var(--f)}
 .db{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 6px}
-.ds div{padding:8px 10px;font-size:12px;color:var(--m);border-radius:8px;margin-bottom:5px}.ds .a{background:rgba(115,91,255,.2);color:var(--t)}
+.ds div{padding:8px 10px;font-size:12px;color:var(--m);border-radius:8px;margin-bottom:5px}
+.ds .a{background:#27272a;color:#fff}
 .mt{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
-.mt div{background:var(--p2);border:1px solid var(--l);border-radius:11px;padding:12px;font-size:11px;color:var(--m)}.mt b{display:block;font:600 20px var(--d);color:var(--t)}
-.ch{height:100px;display:flex;align-items:flex-end;gap:8px;background:var(--p2);border-radius:11px;padding:12px}.ch i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#aa7aff,#397fff)}
+.mt div{background:#111114;border:1px solid var(--l);border-radius:11px;padding:12px;font-size:11px;color:var(--m)}
+.mt b{display:block;font:600 20px var(--d);color:#fff}
+.ch{height:100px;display:flex;align-items:flex-end;gap:8px;background:#111114;border-radius:11px;padding:12px}
+.ch i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#d4d4d8,#52525b)}
 .ft{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}
-.fb{border:1px solid var(--l);background:var(--p);padding:8px 15px;border-radius:30px;color:var(--m);cursor:pointer}.fb.on{background:linear-gradient(100deg,#3d7cff,#8155f3);color:#fff;border-color:transparent}
-.pj{overflow:hidden;padding:0}.pj[hidden]{display:none}
-.pa{height:130px;display:grid;place-items:center;font:700 26px var(--d);color:#fff;background:linear-gradient(130deg,#1b1550,#5540a5,#126a83)}
-.pj:nth-child(2n) .pa{background:linear-gradient(130deg,#092f54,#245f9d,#3e286f)}.pj:nth-child(3n) .pa{background:linear-gradient(130deg,#33205e,#7546a7,#143c6b)}
-.pc{padding:16px}.tag{display:inline-block;margin-top:10px;border:1px solid var(--l);padding:3px 10px;border-radius:30px;color:#a994ff;font-size:11px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.pr{border-top:1px solid rgba(164,136,255,.4);padding:18px 12px}.pr b{font:700 30px var(--d);color:#a589ff}.pr h3{font:600 18px var(--d)}.pr p{font-size:13px;color:var(--m)}
-.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{border:1px solid var(--l);background:var(--p);border-radius:30px;padding:9px 18px;font-size:14px;transition:.2s}.chip:hover{border-color:var(--pu);transform:translateY(-3px)}
-.price{position:relative}.price.pop{border:2px solid var(--pu)}.price .pp{font:700 30px var(--d);margin:6px 0}
-.price ul{list-style:none;margin:14px 0 18px}.price li{font-size:14px;color:var(--m);padding:3px 0}.price li:before{content:"✓ ";color:var(--g)}
-.pb{position:absolute;top:-12px;right:18px;background:var(--pu);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px}
+.fb{border:1px solid var(--l);background:#09090b;padding:8px 15px;border-radius:30px;color:var(--m);cursor:pointer}
+.fb.on{background:#fafafa;color:#000;border-color:#fafafa}
+.pj{overflow:hidden;padding:0}
+.pj[hidden]{display:none}
+.pa{height:130px;display:grid;place-items:center;font:700 26px var(--d);color:#f4f4f5;background:linear-gradient(135deg,#09090b,#18181b 58%,#172554)}
+.pj:nth-child(2n) .pa,.pj:nth-child(3n) .pa{background:linear-gradient(135deg,#09090b,#18181b 58%,#172554)}
+.pc{padding:16px}
+.tag{display:inline-block;margin-top:10px;border:1px solid rgba(147,197,253,.25);padding:3px 10px;border-radius:30px;color:#bfdbfe;font-size:11px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pr{border-top:1px solid rgba(255,255,255,.22);padding:18px 12px}
+.pr b{font:700 30px var(--d);color:#d4d4d8}
+.pr h3{font:600 18px var(--d)}
+.pr p{font-size:13px;color:var(--m)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--l);background:#09090b;border-radius:30px;padding:9px 18px;font-size:14px;transition:.2s}
+.chip:hover{border-color:#fff;transform:translateY(-3px)}
+.price{position:relative}
+.price.pop{border:2px solid #a1a1aa}
+.price .pp{font:700 30px var(--d);margin:6px 0}
+.price ul{list-style:none;margin:14px 0 18px}
+.price li{font-size:14px;color:var(--m);padding:3px 0}
+.price li:before{content:"✓ ";color:var(--g)}
+.pb{position:absolute;top:-12px;right:18px;background:#e5e5e5;color:#09090b;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px}
 .st{color:#f5c542;font-size:14px}
-#assistant{background:radial-gradient(ellipse at 50% 25%,rgba(119,66,255,.15),transparent 55%),var(--bg)}
-.ah{text-align:center;margin-bottom:30px}.ah p{color:var(--m);max-width:620px;margin:0 auto}
-.aw{min-height:560px;display:grid;grid-template-columns:225px 1fr;background:#10101d;border:1px solid rgba(171,151,255,.23);border-radius:20px;overflow:hidden;color:#f5f3ff}
-.as{background:#0c0c18;border-right:1px solid rgba(255,255,255,.08);padding:16px 12px;display:flex;flex-direction:column;gap:14px}
-.ab{font:700 20px var(--d);padding:4px 7px}.ab span{color:#a48aff}
-.nc{border:1px solid rgba(171,151,255,.28);background:rgba(129,91,255,.12);padding:10px;border-radius:10px;font-weight:600;font-size:13px;cursor:pointer}
-.sl{color:#77758f;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:0 7px}
+#assistant{background:radial-gradient(ellipse at 50% 15%,rgba(59,130,246,.08),transparent 50%),#000}
+.ah{text-align:center;margin-bottom:30px}
+.ah p{color:var(--m);max-width:620px;margin:0 auto}
+.aw{min-height:560px;display:grid;grid-template-columns:225px 1fr;background:#09090b;border:1px solid rgba(255,255,255,.13);border-radius:20px;overflow:hidden;color:#fafafa}
+.as{background:#050505;border-right:1px solid rgba(255,255,255,.10);padding:16px 12px;display:flex;flex-direction:column;gap:14px}
+.ab{font:700 20px var(--d);padding:4px 7px}
+.ab span{color:#93c5fd}
+.nc{border:1px solid rgba(255,255,255,.16);background:#111114;padding:10px;border-radius:10px;font-weight:600;font-size:13px;cursor:pointer}
+.sl{color:#777;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:0 7px}
 .sh{display:flex;flex-direction:column;gap:5px;overflow:auto}
-.hi{text-align:left;padding:9px 8px;background:0;border:0;border-radius:8px;color:#aaa7c0;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}.hi:hover{background:rgba(255,255,255,.07);color:#fff}
-.sbm{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;color:#a9a5c0;font-size:11px}.sbm div{padding:5px 7px}
-.am{min-width:0;min-height:560px;display:flex;flex-direction:column;background:#11111f}
-.at{height:54px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.07);color:#c4c0d8;font-size:12px}
+.hi{text-align:left;padding:9px 8px;background:0;border:0;border-radius:8px;color:#a1a1aa;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.hi:hover{background:#171717;color:#fff}
+.sbm{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:12px;color:#a1a1aa;font-size:11px}
+.sbm div{padding:5px 7px}
+.am{min-width:0;min-height:560px;display:flex;flex-direction:column;background:#09090b}
+.at{height:54px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.10);color:#d4d4d8;font-size:12px}
 .at .dot{display:inline-block;margin-right:8px}
 .ac{flex:1;display:flex;flex-direction:column;min-height:0}
 .aml{text-align:center;margin:auto;padding:36px 22px 22px;max-width:750px;width:100%}
-.orb{width:56px;height:56px;display:grid;place-items:center;margin:0 auto 16px;border-radius:20px;background:linear-gradient(135deg,#8d55ff,#315eff,#36d9f5);font-size:26px}
-.aml h3{font:600 clamp(24px,4vw,32px) var(--d);margin-bottom:8px}.aml>p{color:#9996b2;font-size:13px;margin-bottom:24px}
+.orb{width:56px;height:56px;display:grid;place-items:center;margin:0 auto 16px;border-radius:20px;background:linear-gradient(135deg,#27272a,#52525b,#1d4ed8);font-size:26px}
+.aml h3{font:600 clamp(24px,4vw,32px) var(--d);margin-bottom:8px}
+.aml>p{color:#a1a1aa;font-size:13px;margin-bottom:24px}
 .pg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;text-align:left}
-.pcard{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px;cursor:pointer;transition:.2s;color:#f5f3ff;text-align:left}.pcard:hover{border-color:rgba(159,123,255,.5);background:rgba(126,85,255,.09)}
-.pcard b{display:block;font-size:12px;margin-bottom:3px}.pcard span{color:#8f8ba9;font-size:11px}
+.pcard{background:#111114;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;cursor:pointer;transition:.2s;color:#fafafa;text-align:left}
+.pcard:hover{border-color:rgba(147,197,253,.45);background:#18181b}
+.pcard b{display:block;font-size:12px;margin-bottom:3px}
+.pcard span{color:#a1a1aa;font-size:11px}
 #msgs{display:none;flex:1;overflow-y:auto;padding:22px clamp(14px,5vw,60px);flex-direction:column;gap:18px;max-height:420px}
 .msg{display:flex;gap:11px;max-width:850px;width:100%;margin:auto}
-.av{flex:0 0 30px;height:30px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,#7654ff,#317eff);font-size:11px}.msg.user .av{background:#2a2940}
-.mx{min-width:0;padding-top:3px;color:#e6e3f2;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}.typing{color:#a58cff}
+.av{flex:0 0 30px;height:30px;display:grid;place-items:center;border-radius:10px;background:#27272a;font-size:11px}
+.msg.user .av{background:#3f3f46}
+.mx{min-width:0;padding-top:3px;color:#e4e4e7;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
+.typing{color:#93c5fd}
 .cw{padding:14px clamp(12px,4vw,44px) 16px}
-.cp{max-width:850px;margin:auto;display:flex;align-items:flex-end;gap:10px;padding:10px 11px 10px 16px;background:#19182a;border:1px solid rgba(168,146,255,.28);border-radius:16px}
+.cp{max-width:850px;margin:auto;display:flex;align-items:flex-end;gap:10px;padding:10px 11px 10px 16px;background:#111114;border:1px solid rgba(255,255,255,.16);border-radius:16px}
 .cp textarea{flex:1;min-width:0;max-height:150px;min-height:32px;resize:none;border:0;outline:0;background:0;color:#fff;padding:5px 0;font-size:14px}
-.snd{flex:0 0 37px;height:37px;border:0;border-radius:11px;background:linear-gradient(135deg,#477fff,#965bff);color:#fff;cursor:pointer;font-size:18px}.snd:disabled{opacity:.45}
-.dis{text-align:center;color:#6e6a85;font-size:10px;margin-top:8px}
+.snd{flex:0 0 37px;height:37px;border:0;border-radius:11px;background:#fafafa;color:#000;cursor:pointer;font-size:18px}
+.snd:disabled{opacity:.45}
+.dis{text-align:center;color:#777;font-size:10px;margin-top:8px}
 @media(max-width:760px){.aw{grid-template-columns:1fr}.as{display:none}.pg{grid-template-columns:1fr}}
-.fc{display:flex;align-items:center;gap:20px;padding:24px;border:1px solid var(--l);background:var(--p);border-radius:18px}
-.fa{width:85px;height:85px;flex:0 0 85px;display:grid;place-items:center;border-radius:25px;background:linear-gradient(135deg,#4288ff,#925cff);font:700 28px var(--d);color:#fff}
-.fc h3{font:600 23px var(--d)}.fr{color:#a88aff;font-size:13px;font-weight:700}.fc p{color:var(--m);font-size:13px;margin-top:6px}
-.soc{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.soc a{border:1px solid var(--l);border-radius:20px;padding:4px 12px;font-size:12px;color:#a994ff}
-details{padding:18px 0;border-bottom:1px solid var(--l)}summary{cursor:pointer;font-weight:600}details p{color:var(--m);margin-top:10px;font-size:14px}
+.fc{display:flex;align-items:center;gap:20px;padding:24px;border:1px solid var(--l);background:#09090b;border-radius:18px}
+.fa{width:85px;height:85px;flex:0 0 85px;display:grid;place-items:center;border-radius:25px;background:linear-gradient(135deg,#27272a,#52525b);font:700 28px var(--d);color:#fff}
+.fc h3{font:600 23px var(--d)}
+.fr{color:#d4d4d8;font-size:13px;font-weight:700}
+.fc p{color:var(--m);font-size:13px;margin-top:6px}
+.soc{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.soc a{border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:4px 12px;font-size:12px;color:#93c5fd}
+details{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--m);margin-top:10px;font-size:14px}
 .cg{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.cf{display:grid;gap:13px}.cf label{display:grid;gap:6px;font-size:13px;font-weight:600}
-.cf input,.cf textarea,.nl input{width:100%;padding:12px;background:var(--p);border:1px solid var(--l);border-radius:11px;outline:0}
-.cf input:focus,.cf textarea:focus,.nl input:focus{border-color:#9874ff}.cf textarea{min-height:120px;resize:vertical}
-.er{color:#ff8181;font-size:11px;font-weight:400}#cs,#ns{color:var(--g);font-size:13px}
-.ci{border:1px solid var(--l);background:var(--p);border-radius:17px;padding:22px}.ci h3{font:600 22px var(--d);margin-bottom:12px}.ci p{color:var(--m);font-size:14px;margin-bottom:12px}.ci a{color:#9e8bff}
-.nl{display:flex;gap:10px;max-width:520px;flex-wrap:wrap}.nl input{flex:1;min-width:200px}
-footer{border-top:1px solid var(--l);background:var(--p);padding:32px 0}
-.fi{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.fl{font:700 22px var(--d);letter-spacing:3px}.fk{display:flex;gap:16px;font-size:12px;color:var(--m)}.fk a:hover{color:var(--t)}
+.cf{display:grid;gap:13px}
+.cf label{display:grid;gap:6px;font-size:13px;font-weight:600}
+.cf input,.cf textarea,.nl input{width:100%;padding:12px;background:#09090b;border:1px solid rgba(255,255,255,.15);border-radius:11px;outline:0;color:#fafafa}
+.cf input:focus,.cf textarea:focus,.nl input:focus{border-color:#93c5fd}
+.cf textarea{min-height:120px;resize:vertical}
+.er{color:#ff8181;font-size:11px;font-weight:400}
+#cs,#ns{color:var(--g);font-size:13px}
+.ci{border:1px solid var(--l);background:#09090b;border-radius:17px;padding:22px}
+.ci h3{font:600 22px var(--d);margin-bottom:12px}
+.ci p{color:var(--m);font-size:14px;margin-bottom:12px}
+.ci a{color:#93c5fd}
+.nl{display:flex;gap:10px;max-width:520px;flex-wrap:wrap}
+.nl input{flex:1;min-width:200px}
+footer{border-top:1px solid rgba(255,255,255,.12);background:#050505;padding:32px 0}
+.fi{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.fl{font:700 22px var(--d);letter-spacing:3px}
+.fk{display:flex;gap:16px;font-size:12px;color:var(--m)}
+.fk a:hover{color:#fff}
 .fx{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
-.wa{width:52px;height:52px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:.2s}.wa:hover{transform:scale(1.08)}
-#top{width:42px;height:42px;border-radius:13px;background:var(--p2);border:1px solid var(--l);cursor:pointer;opacity:0;pointer-events:none;transition:.2s}#top.v{opacity:1;pointer-events:auto}
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.wa{width:52px;height:52px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:.2s}
+.wa:hover{transform:scale(1.08)}
+#top{width:42px;height:42px;border-radius:13px;background:#111114;border:1px solid rgba(255,255,255,.16);cursor:pointer;opacity:0;pointer-events:none;transition:.2s;color:#fff}
+#top.v{opacity:1;pointer-events:auto}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
 @media(max-width:800px){.g3{grid-template-columns:repeat(2,1fr)}.g4,.sx{grid-template-columns:repeat(2,1fr)}.db{grid-template-columns:1fr}.ds{display:none}}
 @media(max-width:600px){section{padding:60px 0}.g3,.cg{grid-template-columns:1fr}.mt{grid-template-columns:repeat(2,1fr)}.fa{width:62px;height:62px;flex-basis:62px}.fc{align-items:flex-start}}
 </style>
 </head>
+
 <body>
 <div id="loader"><b>ORVIX</b></div>
 <div id="prog"></div>
-<header><div class="wrap nav">
+
+<header>
+<div class="wrap nav">
 <a href="#home" class="logo">ORVIX</a>
 <nav class="links" id="nl">
-<a href="#services">Services</a><a href="#dashboard">Platform</a><a href="#portfolio">Portfolio</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#assistant">AI Assistant</a><a href="#founder">Founder</a><a href="#contact">Contact</a></nav>
-<div class="na"><button class="sb" id="theme" aria-label="Toggle theme">☾</button><a href="#contact" class="btn bm">Get Started ↗</a><button class="sb mb" id="mb" aria-label="Menu">☰</button></div>
-</div></header>
+<a href="#services">Services</a>
+<a href="#dashboard">Platform</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#pricing">Pricing</a>
+<a href="#process">Process</a>
+<a href="#assistant">AI Assistant</a>
+<a href="#founder">Founder</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="na">
+<button class="sb" id="theme" aria-label="Toggle theme">☾</button>
+<a href="#contact" class="btn bm">Get Started ↗</a>
+<button class="sb mb" id="mb" aria-label="Menu">☰</button>
+</div>
+</div>
+</header>
+
 <main>
 <section class="hero" id="home">
 <div class="wrap hc">
 <div class="badge"><span class="dot"></span>Next-generation AI technology</div>
 <h1>Empower Your Business<br>with <span class="gt">AI-Powered</span><br>Solutions.</h1>
 <p>Transform your ideas into intelligent digital experiences. ORVIX builds AI assistants, business automation and modern websites designed to help your business move forward.</p>
-<div class="hb"><a href="#contact" class="btn bm">Get Started ↗</a><a href="#dashboard" class="btn">Explore Platform ↓</a></div>
-<div class="tags"><span>✦ Intelligent automation</span><span>✦ Modern web experiences</span><span>✦ AI-powered solutions</span></div>
+<div class="hb">
+<a href="#contact" class="btn bm">Get Started ↗</a>
+<a href="#dashboard" class="btn">Explore Platform ↓</a>
 </div>
-<div class="wave"><svg viewBox="0 0 1440 260" preserveAspectRatio="none"><defs><linearGradient id="wg"><stop stop-color="#343bff"/><stop offset=".5" stop-color="#bd64ff"/><stop offset="1" stop-color="#32caff"/></linearGradient></defs><path d="M0 150 C180 70 250 220 430 135 S680 70 850 150 S1110 230 1440 90"/><path d="M0 180 C190 90 280 230 450 150 S680 95 860 175 S1170 215 1440 115"/><path d="M0 120 C220 200 300 70 510 145 S760 220 950 120 S1230 70 1440 160"/></svg></div>
+<div class="tags">
+<span>✦ Intelligent automation</span>
+<span>✦ Modern web experiences</span>
+<span>✦ AI-powered solutions</span>
+</div>
+</div>
+<div class="wave">
+<svg viewBox="0 0 1440 260" preserveAspectRatio="none">
+<defs><linearGradient id="wg"><stop stop-color="#343bff"/><stop offset=".5" stop-color="#bd64ff"/><stop offset="1" stop-color="#32caff"/></linearGradient></defs>
+<path d="M0 150 C180 70 250 220 430 135 S680 70 850 150 S1110 230 1440 90"/>
+<path d="M0 180 C190 90 280 230 450 150 S680 95 860 175 S1170 215 1440 115"/>
+<path d="M0 120 C220 200 300 70 510 145 S760 220 950 120 S1230 70 1440 160"/>
+</svg>
+</div>
 </section>
-<div class="strip"><div class="wrap"><span>✦ AI-powered experiences</span><span>✦ Business automation</span><span>✦ Responsive websites</span><span>✦ Smart digital solutions</span></div></div>
 
-<section style="padding:50px 0"><div class="wrap sx rv">
+<div class="strip"><div class="wrap">
+<span>✦ AI-powered experiences</span>
+<span>✦ Business automation</span>
+<span>✦ Responsive websites</span>
+<span>✦ Smart digital solutions</span>
+</div></div>
+
+<section style="padding:50px 0">
+<div class="wrap sx rv">
 <div class="card"><b data-n="12" data-s="+">0</b><span>Concepts designed</span></div>
 <div class="card"><b data-n="6">0</b><span>Technologies</span></div>
 <div class="card"><b data-n="24" data-s="h">0</b><span>Response time</span></div>
 <div class="card"><b data-n="100" data-s="%">0</b><span>Responsive</span></div>
-</div></section>
+</div>
+</section>
 
 <section id="services"><div class="wrap">
-<div class="lab">What we do</div><h2>Technology that works<br><span class="gt">for your business.</span></h2>
+<div class="lab">What we do</div>
+<h2>Technology that works<br><span class="gt">for your business.</span></h2>
 <p class="sd">We combine intelligent technology and thoughtful design to create useful digital products.</p>
 <div class="g3">
 <article class="card rv"><div class="ic">✧</div><h3>AI Assistants</h3><p>AI-powered assistants that can answer questions, support customers and help users find information.</p><a href="#assistant" class="more">Explore AI assistant →</a></article>
@@ -169,23 +260,45 @@ footer{border-top:1px solid var(--l);background:var(--p);padding:32px 0}
 <article class="card rv"><div class="ic">◈</div><h3>Business Dashboards</h3><p>Organise important business information with clean, useful dashboard interfaces.</p><a href="#dashboard" class="more">Explore dashboard →</a></article>
 <article class="card rv"><div class="ic">⌁</div><h3>Custom Software</h3><p>Digital tools designed around your workflow, project needs and business requirements.</p><a href="#contact" class="more">Discuss your idea →</a></article>
 <article class="card rv"><div class="ic">◎</div><h3>Digital Experiences</h3><p>Modern interfaces that make complex technology easier to understand and use.</p><a href="#contact" class="more">Start a project →</a></article>
-</div></div></section>
+</div>
+</div></section>
 
 <section id="dashboard"><div class="wrap">
-<div class="lab">Platform preview</div><h2>One platform.<br><span class="gt">A clearer business view.</span></h2>
+<div class="lab">Platform preview</div>
+<h2>One platform.<br><span class="gt">A clearer business view.</span></h2>
 <p class="sd">A preview of the kind of analytics dashboard and management interface ORVIX can design for businesses.</p>
-<div class="dash rv"><div class="dt"><span>ORVIX <span style="color:#9d83ff">INSIGHTS</span></span><small>● Demo environment</small></div>
-<div class="db"><aside class="ds"><div class="a">▦ Overview</div><div>◈ Analytics</div><div>▤ Projects</div><div>◎ Customers</div><div>⌁ Automation</div><div>⚙ Settings</div></aside>
-<div><h3 style="font:600 20px var(--d)">Business overview</h3><p class="mu" style="font-size:12px">Illustrative dashboard · Sample data only</p>
-<div class="mt"><div>Total projects<b>128</b></div><div>Tasks completed<b>94%</b></div><div>Active workflows<b>24</b></div><div>AI activity<b>86%</b></div></div>
-<div class="ch"><i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:75%"></i><i style="height:60%"></i><i style="height:88%"></i><i style="height:72%"></i><i style="height:100%"></i></div></div></div>
-<p class="mu" style="font-size:10px;padding:6px">ORVIX dashboard concept · All figures shown are illustrative</p></div>
+<div class="dash rv">
+<div class="dt"><span>ORVIX <span style="color:#9d83ff">INSIGHTS</span></span><small>● Demo environment</small></div>
+<div class="db">
+<aside class="ds">
+<div class="a">▦ Overview</div><div>◈ Analytics</div><div>▤ Projects</div><div>◎ Customers</div><div>⌁ Automation</div><div>⚙ Settings</div>
+</aside>
+<div>
+<h3 style="font:600 20px var(--d)">Business overview</h3>
+<p class="mu" style="font-size:12px">Illustrative dashboard · Sample data only</p>
+<div class="mt">
+<div>Total projects<b>128</b></div><div>Tasks completed<b>94%</b></div><div>Active workflows<b>24</b></div><div>AI activity<b>86%</b></div>
+</div>
+<div class="ch">
+<i style="height:35%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:75%"></i><i style="height:60%"></i><i style="height:88%"></i><i style="height:72%"></i><i style="height:100%"></i>
+</div>
+</div>
+</div>
+<p class="mu" style="font-size:10px;padding:6px">ORVIX dashboard concept · All figures shown are illustrative</p>
+</div>
 </div></section>
 
 <section id="portfolio"><div class="wrap">
-<div class="lab">Our work</div><h2>Ideas turned into<br><span class="gt">digital experiences.</span></h2>
+<div class="lab">Our work</div>
+<h2>Ideas turned into<br><span class="gt">digital experiences.</span></h2>
 <p class="sd">Explore example concepts showing the types of products ORVIX can develop.</p>
-<div class="ft"><button class="fb on" data-f="all">All projects</button><button class="fb" data-f="ai">AI</button><button class="fb" data-f="web">Websites</button><button class="fb" data-f="software">Software</button><button class="fb" data-f="automation">Automation</button></div>
+<div class="ft">
+<button class="fb on" data-f="all">All projects</button>
+<button class="fb" data-f="ai">AI</button>
+<button class="fb" data-f="web">Websites</button>
+<button class="fb" data-f="software">Software</button>
+<button class="fb" data-f="automation">Automation</button>
+</div>
 <div class="g3">
 <article class="card pj" data-c="ai"><div class="pa">AI ASSIST</div><div class="pc"><h3>AI Support Assistant</h3><p>A conversational assistant concept for customer support and enquiries.</p><span class="tag">Artificial Intelligence</span></div></article>
 <article class="card pj" data-c="web"><div class="pa">WEB DESIGN</div><div class="pc"><h3>Business Website</h3><p>A modern website concept designed for a professional online presence.</p><span class="tag">Website</span></div></article>
@@ -193,75 +306,128 @@ footer{border-top:1px solid var(--l);background:var(--p);padding:32px 0}
 <article class="card pj" data-c="automation"><div class="pa">AUTOMATE</div><div class="pc"><h3>Workflow Automation</h3><p>A concept for reducing repetitive tasks with connected workflows.</p><span class="tag">Automation</span></div></article>
 <article class="card pj" data-c="ai"><div class="pa">AI CORE</div><div class="pc"><h3>AI Knowledge Assistant</h3><p>A concept for finding useful information through natural language.</p><span class="tag">Artificial Intelligence</span></div></article>
 <article class="card pj" data-c="software"><div class="pa">CONTROL</div><div class="pc"><h3>Management Interface</h3><p>A clean interface concept for managing tasks and projects.</p><span class="tag">Software</span></div></article>
-</div><p class="mu" style="font-size:12px;margin-top:16px">These are illustrative concepts, not claims of completed client projects.</p></div></section>
+</div>
+<p class="mu" style="font-size:12px;margin-top:16px">These are illustrative concepts, not claims of completed client projects.</p>
+</div></section>
 
 <section id="process"><div class="wrap">
-<div class="lab">Our approach</div><h2>From your idea<br>to <span class="gt">the final product.</span></h2>
+<div class="lab">Our approach</div>
+<h2>From your idea<br>to <span class="gt">the final product.</span></h2>
 <p class="sd">A straightforward process designed around communication and clear expectations.</p>
 <div class="g4">
 <div class="pr rv"><b>01</b><h3>Discover</h3><p>Understand your goals, requirements and the problem to solve.</p></div>
 <div class="pr rv"><b>02</b><h3>Plan &amp; Design</h3><p>Choose the right approach and plan the user experience.</p></div>
 <div class="pr rv"><b>03</b><h3>Develop</h3><p>Build, test and refine the solution with your feedback.</p></div>
 <div class="pr rv"><b>04</b><h3>Launch</h3><p>Publish the product and discuss ongoing support.</p></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section id="why"><div class="wrap">
-<div class="lab">Why ORVIX</div><h2>Built around your<br><span class="gt">business needs.</span></h2>
+<div class="lab">Why ORVIX</div>
+<h2>Built around your<br><span class="gt">business needs.</span></h2>
 <p class="sd">We focus on useful technology, clear communication and designs that are easy to use.</p>
 <div class="g3">
 <div class="card rv"><div class="ic">✦</div><h3>Modern technology</h3><p>Explore practical AI and software solutions for real business needs.</p></div>
 <div class="card rv"><div class="ic">◇</div><h3>Direct communication</h3><p>Discuss your requirements and project scope clearly.</p></div>
 <div class="card rv"><div class="ic">⌘</div><h3>Purposeful design</h3><p>Interfaces designed to make your product clear and usable.</p></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section id="tech"><div class="wrap">
-<div class="lab">Tech stack</div><h2>Tools we <span class="gt">build with.</span></h2>
+<div class="lab">Tech stack</div>
+<h2>Tools we <span class="gt">build with.</span></h2>
 <p class="sd">Reliable, modern technology behind every project.</p>
-<div class="chips rv"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">AI APIs</span><span class="chip">Cloudflare Workers</span><span class="chip">GitHub</span><span class="chip">Responsive design</span></div>
+<div class="chips rv">
+<span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">AI APIs</span><span class="chip">Cloudflare Workers</span><span class="chip">GitHub</span><span class="chip">Responsive design</span>
+</div>
 </div></section>
 
 <section id="pricing"><div class="wrap">
-<div class="lab">Pricing</div><h2>Simple <span class="gt">packages.</span></h2>
+<div class="lab">Pricing</div>
+<h2>Simple <span class="gt">packages.</span></h2>
 <p class="sd">Starting prices for common projects. Every project is quoted after a short discussion.</p>
 <div class="g3">
 <div class="card price rv"><h3>Starter</h3><div class="pp">From ₹4,999</div><p>Single-page business website</p><ul><li>Responsive design</li><li>Contact form</li><li>Basic SEO</li></ul><a href="#contact" class="btn" style="width:100%">Choose Starter</a></div>
 <div class="card price pop rv"><span class="pb">Most popular</span><h3>Business</h3><div class="pp">From ₹14,999</div><p>Website plus AI assistant</p><ul><li>Multi-page website</li><li>AI chatbot setup</li><li>Dashboard preview</li><li>Priority support</li></ul><a href="#contact" class="btn bm" style="width:100%">Choose Business</a></div>
 <div class="card price rv"><h3>Custom</h3><div class="pp">Let’s talk</div><p>Automation and custom software</p><ul><li>Workflow automation</li><li>Custom tools</li><li>Integrations</li></ul><a href="#contact" class="btn" style="width:100%">Book free consultation</a></div>
-</div><p class="mu" style="font-size:12px;margin-top:14px">Sample prices. You can change them anytime.</p></div></section>
+</div>
+<p class="mu" style="font-size:12px;margin-top:14px">Sample prices. You can change them anytime.</p>
+</div></section>
 
 <section id="assistant"><div class="wrap">
-<div class="ah"><div class="lab">Meet your AI assistant</div><h2>How can I <span class="gt">assist you?</span></h2><p>Ask about ORVIX, explore services, discuss a website idea or discover how AI can support your business.</p></div>
+<div class="ah">
+<div class="lab">Meet your AI assistant</div>
+<h2>How can I <span class="gt">assist you?</span></h2>
+<p>Ask about ORVIX, explore services, discuss a website idea or discover how AI can support your business.</p>
+</div>
 <div class="aw">
-<aside class="as"><div class="ab">ORVIX <span>AI</span></div><button class="nc" id="nc">＋ New Chat</button><div class="sl">Workspace</div><div class="sh" id="sh"><button class="hi" id="hc">✧ Current conversation</button></div><div class="sbm"><div>✦ ORVIX AI Workspace</div><div>◉ AI assistant</div><div>Version 1.0</div></div></aside>
-<div class="am"><div class="at"><div><span class="dot"></span>ORVIX AI Assistant</div><div>Powered by AI</div></div>
-<div class="ac"><div class="aml" id="aw"><div class="orb">✧</div><h3>Welcome to ORVIX AI</h3><p>What would you like to explore today?</p>
+<aside class="as">
+<div class="ab">ORVIX <span>AI</span></div>
+<button class="nc" id="nc">＋ New Chat</button>
+<div class="sl">Workspace</div>
+<div class="sh" id="sh"><button class="hi" id="hc">✧ Current conversation</button></div>
+<div class="sbm"><div>✦ ORVIX AI Workspace</div><div>◉ AI assistant</div><div>Version 1.0</div></div>
+</aside>
+<div class="am">
+<div class="at"><div><span class="dot"></span>ORVIX AI Assistant</div><div>Powered by AI</div></div>
+<div class="ac">
+<div class="aml" id="aw">
+<div class="orb">✧</div>
+<h3>Welcome to ORVIX AI</h3>
+<p>What would you like to explore today?</p>
 <div class="pg">
 <button class="pcard" data-p="What services does ORVIX provide?"><b>✦ Explore ORVIX</b><span>Discover our services and solutions</span></button>
 <button class="pcard" data-p="How can AI help my business?"><b>◈ AI for business</b><span>Explore useful AI applications</span></button>
 <button class="pcard" data-p="I want to build a professional website. How can ORVIX help?"><b>▣ Build a website</b><span>Discuss a website project</span></button>
 <button class="pcard" data-p="Who is the founder of ORVIX?"><b>◎ Meet the founder</b><span>Learn about ORVIX leadership</span></button>
-</div></div><div id="msgs" aria-live="polite"></div></div>
-<div class="cw"><form class="cp" id="af"><textarea id="ai" rows="1" maxlength="3000" placeholder="Ask anything about ORVIX..." aria-label="Write your message"></textarea><button class="snd" id="snd" type="submit" aria-label="Send">↑</button></form><div class="dis">AI can make mistakes. Verify important information before relying on it.</div></div>
-</div></div></div></section>
+</div>
+</div>
+<div id="msgs" aria-live="polite"></div>
+</div>
+<div class="cw">
+<form class="cp" id="af">
+<textarea id="ai" rows="1" maxlength="3000" placeholder="Ask anything about ORVIX..." aria-label="Write your message"></textarea>
+<button class="snd" id="snd" type="submit" aria-label="Send">↑</button>
+</form>
+<div class="dis">AI can make mistakes. Verify important information before relying on it.</div>
+</div>
+</div>
+</div>
+</div></section>
 
 <section id="testimonials"><div class="wrap">
-<div class="lab">Feedback</div><h2>What people <span class="gt">say.</span></h2>
+<div class="lab">Feedback</div>
+<h2>What people <span class="gt">say.</span></h2>
 <p class="sd">Sample feedback shown below. Replace with real quotes as you collect them.</p>
 <div class="g3">
 <div class="card rv"><div class="st">★★★★★</div><p style="margin:8px 0;color:var(--t)">“Clean design and quick replies. Exactly what we needed.”</p><span class="mu" style="font-size:12px">Sample · Name, Business</span></div>
 <div class="card rv"><div class="st">★★★★★</div><p style="margin:8px 0;color:var(--t)">“The AI assistant made handling enquiries much easier.”</p><span class="mu" style="font-size:12px">Sample · Name, Business</span></div>
 <div class="card rv"><div class="st">★★★★★</div><p style="margin:8px 0;color:var(--t)">“Clear process and a site that works well on mobile.”</p><span class="mu" style="font-size:12px">Sample · Name, Business</span></div>
-</div></div></section>
+</div>
+</div></section>
 
 <section id="founder"><div class="wrap">
-<div class="lab">Leadership</div><h2>Meet the person<br><span class="gt">behind ORVIX.</span></h2>
+<div class="lab">Leadership</div>
+<h2>Meet the person<br><span class="gt">behind ORVIX.</span></h2>
 <p class="sd">Founder-led vision with a focus on useful digital solutions.</p>
-<div class="fc rv"><div class="fa">AK</div><div><h3>Ayush Kumar</h3><div class="fr">Founder &amp; CEO · ORVIX</div><p>Leading the ORVIX vision to explore AI, modern web development and digital solutions for businesses.</p>
-<div class="soc"><a href="https://github.com/helloorvix69-eng" target="_blank" rel="noopener">GitHub</a><a href="#contact">LinkedIn</a><a href="#contact">Instagram</a></div></div></div>
+<div class="fc rv">
+<div class="fa">AK</div>
+<div>
+<h3>Ayush Kumar</h3>
+<div class="fr">Founder &amp; CEO · ORVIX</div>
+<p>Leading the ORVIX vision to explore AI, modern web development and digital solutions for businesses.</p>
+<div class="soc">
+<a href="https://github.com/helloorvix69-eng" target="_blank" rel="noopener">GitHub</a>
+<a href="#contact">LinkedIn</a>
+<a href="#contact">Instagram</a>
+</div>
+</div>
+</div>
 </div></section>
 
 <section id="faq"><div class="wrap">
-<div class="lab">FAQ</div><h2>Questions? <span class="gt">We’ve got answers.</span></h2>
+<div class="lab">FAQ</div>
+<h2>Questions? <span class="gt">We’ve got answers.</span></h2>
 <p class="sd">Some useful information before starting a project.</p>
 <details><summary>What does ORVIX do?</summary><p>ORVIX focuses on AI assistants, business automation, websites, dashboards and custom digital solutions.</p></details>
 <details><summary>Can ORVIX build a website for my business?</summary><p>Yes. You can discuss your website requirements, preferred design and features through the contact form.</p></details>
@@ -271,71 +437,267 @@ footer{border-top:1px solid var(--l);background:var(--p);padding:32px 0}
 </div></section>
 
 <section id="contact"><div class="wrap">
-<div class="lab">Get in touch</div><h2>Let’s create something<br><span class="gt">meaningful.</span></h2>
+<div class="lab">Get in touch</div>
+<h2>Let’s create something<br><span class="gt">meaningful.</span></h2>
 <p class="sd">Have a project idea? Tell us what you want to build.</p>
 <div class="cg">
 <form class="cf" id="cf" novalidate>
 <label>Your name<input id="cn" placeholder="Enter your name"><span class="er" id="en"></span></label>
 <label>Email address<input id="ce" type="email" placeholder="you@example.com"><span class="er" id="ee"></span></label>
 <label>Tell us about your project<textarea id="cm" placeholder="Describe your idea..."></textarea><span class="er" id="em"></span></label>
-<button class="btn bm" type="submit">Send enquiry ↗</button><div id="cs" role="status"></div>
+<button class="btn bm" type="submit">Send enquiry ↗</button>
+<div id="cs" role="status"></div>
 </form>
-<div class="ci"><h3>Contact ORVIX</h3>
+<div class="ci">
+<h3>Contact ORVIX</h3>
 <p><b>Email</b><br><a href="mailto:hello.orvix.69@gmail.com">hello.orvix.69@gmail.com</a></p>
 <p><b>Book a call</b><br><a href="#contact">Free 20-minute consultation</a></p>
 <p><b>GitHub</b><br><a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener">ORVIX Repository</a></p>
-<p><b>Founder</b><br>Ayush Kumar</p></div>
-</div></div></section>
-
-<section style="padding:50px 0"><div class="wrap">
-<div class="lab">Newsletter</div><h2 style="font-size:30px">AI tips for your <span class="gt">business.</span></h2>
-<p class="sd" style="margin-bottom:18px">Short, useful ideas. No spam.</p>
-<form class="nl" id="nf" novalidate><input id="nm" type="email" placeholder="you@example.com" aria-label="Email"><button class="btn bm" type="submit">Subscribe</button></form><div id="ns" role="status" style="margin-top:8px"></div>
+<p><b>Founder</b><br>Ayush Kumar</p>
+</div>
+</div>
 </div></section>
+
+<section style="padding:50px 0">
+<div class="wrap">
+<div class="lab">Newsletter</div>
+<h2 style="font-size:30px">AI tips for your <span class="gt">business.</span></h2>
+<p class="sd" style="margin-bottom:18px">Short, useful ideas. No spam.</p>
+<form class="nl" id="nf" novalidate>
+<input id="nm" type="email" placeholder="you@example.com" aria-label="Email">
+<button class="btn bm" type="submit">Subscribe</button>
+</form>
+<div id="ns" role="status" style="margin-top:8px"></div>
+</div>
+</section>
 </main>
 
-<footer><div class="wrap fi"><div class="fl">ORVIX</div>
-<div class="fk"><a href="#home">Privacy Policy</a><a href="#home">Terms</a><a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener">GitHub</a></div>
-<p class="mu" style="font-size:12px">© 2026 ORVIX Technology. All rights reserved. Built for the future. ✦</p></div></footer>
+<footer>
+<div class="wrap fi">
+<div class="fl">ORVIX</div>
+<div class="fk">
+<a href="#home">Privacy Policy</a>
+<a href="#home">Terms</a>
+<a href="https://github.com/helloorvix69-eng/ORVIX" target="_blank" rel="noopener">GitHub</a>
+</div>
+<p class="mu" style="font-size:12px">© 2026 ORVIX Technology. All rights reserved. Built for the future. ✦</p>
+</div>
+</footer>
 
-<div class="fx"><button id="top" aria-label="Back to top">↑</button><a class="wa" id="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a></div>
+<div class="fx">
+<button id="top" aria-label="Back to top">↑</button>
+<a class="wa" id="wa" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">✆</a>
+</div>
 
 <script>
-const WORKER_URL="https://orvix-ai.hello-orvix-69.workers.dev",CE="hello.orvix.69@gmail.com",$=id=>document.getElementById(id);
-window.addEventListener("load",()=>{const l=$("loader");l.style.opacity=0;setTimeout(()=>l.remove(),500)});
-let th="dark";try{th=localStorage.getItem("orvix-theme")||"dark"}catch(e){}
-function setTh(v){th=v;document.documentElement.dataset.theme=v;$("theme").textContent=v==="dark"?"☾":"☀";try{localStorage.setItem("orvix-theme",v)}catch(e){}}
-setTh(th);$("theme").onclick=()=>setTh(th==="dark"?"light":"dark");
-const nl=$("nl");$("mb").onclick=()=>nl.classList.toggle("open");nl.querySelectorAll("a").forEach(a=>a.onclick=()=>nl.classList.remove("open"));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+const WORKER_URL="https://orvix-ai.hello-orvix-69.workers.dev";
+const CE="hello.orvix.69@gmail.com";
+const $=id=>document.getElementById(id);
+
+window.addEventListener("load",()=>{
+const l=$("loader");
+l.style.opacity=0;
+setTimeout(()=>l.remove(),500);
+});
+
+let th="dark";
+try{th=localStorage.getItem("orvix-theme")||"dark"}catch(e){}
+
+function setTh(v){
+th=v;
+document.documentElement.dataset.theme=v;
+$("theme").textContent=v==="dark"?"☾":"☀";
+try{localStorage.setItem("orvix-theme",v)}catch(e){}
+}
+
+setTh(th);
+$("theme").onclick=()=>setTh(th==="dark"?"light":"dark");
+
+const nl=$("nl");
+$("mb").onclick=()=>nl.classList.toggle("open");
+nl.querySelectorAll("a").forEach(a=>a.onclick=()=>nl.classList.remove("open"));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("in");
+io.unobserve(e.target);
+}
+}),{threshold:.12});
+
 document.querySelectorAll(".rv").forEach(e=>io.observe(e));
-const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,n=+el.dataset.n,s=el.dataset.s||"";let i=0;const t=setInterval(()=>{i++;el.textContent=Math.round(n*i/40)+s;if(i>=40)clearInterval(t)},30)}),{threshold:.5});
+
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+if(!e.isIntersecting)return;
+co.unobserve(e.target);
+const el=e.target,n=+el.dataset.n,s=el.dataset.s||"";
+let i=0;
+const t=setInterval(()=>{
+i++;
+el.textContent=Math.round(n*i/40)+s;
+if(i>=40)clearInterval(t);
+},30);
+}),{threshold:.5});
+
 document.querySelectorAll("[data-n]").forEach(e=>co.observe(e));
-const fb=document.querySelectorAll(".fb"),pj=document.querySelectorAll(".pj");
-fb.forEach(b=>b.onclick=()=>{fb.forEach(x=>x.classList.remove("on"));b.classList.add("on");pj.forEach(p=>p.hidden=!(b.dataset.f==="all"||p.dataset.c===b.dataset.f))});
-const af=$("af"),ai=$("ai"),ms=$("msgs"),aw=$("aw"),sn=$("snd");let conv=[],busy=false;
-function addM(t,type){aw.style.display="none";ms.style.display="flex";const r=document.createElement("div");r.className="msg "+type;const a=document.createElement("div");a.className="av";a.textContent=type==="user"?"You":"✧";const c=document.createElement("div");c.className="mx";c.textContent=t;r.append(a,c);ms.appendChild(r);ms.scrollTop=ms.scrollHeight;return c}
-function reset(){conv=[];ms.innerHTML="";ms.style.display="none";aw.style.display="block";ai.value="";ai.focus()}
-function hist(q){const b=document.createElement("button");b.className="hi";b.textContent="◦ "+(q.length>28?q.slice(0,28)+"...":q);b.onclick=()=>{reset();ai.value=q};$("sh").appendChild(b)}
-async function send(m){m=m.trim();if(!m||busy)return;busy=true;sn.disabled=true;addM(m,"user");conv.push({role:"user",text:m});hist(m);const ld=addM("Thinking...","assistant");ld.classList.add("typing");
-try{const r=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:conv})});if(!r.ok)throw 0;const d=await r.json();const a=d.reply||d.response||"I couldn’t generate a response. Please try again.";ld.classList.remove("typing");ld.textContent=a;conv.push({role:"bot",text:a})}
-catch(e){ld.classList.remove("typing");ld.textContent="I’m having trouble connecting to the AI service right now. Please try again in a moment or contact ORVIX at "+CE}
-busy=false;sn.disabled=false;ai.focus()}
-af.onsubmit=e=>{e.preventDefault();const m=ai.value;if(!m.trim())return;ai.value="";ai.style.height="32px";send(m)};
-ai.onkeydown=e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();af.requestSubmit()}};
-ai.oninput=()=>{ai.style.height="32px";ai.style.height=Math.min(ai.scrollHeight,150)+"px"};
+
+const fb=document.querySelectorAll(".fb");
+const pj=document.querySelectorAll(".pj");
+
+fb.forEach(b=>b.onclick=()=>{
+fb.forEach(x=>x.classList.remove("on"));
+b.classList.add("on");
+pj.forEach(p=>p.hidden=!(b.dataset.f==="all"||p.dataset.c===b.dataset.f));
+});
+
+const af=$("af"),ai=$("ai"),ms=$("msgs"),aw=$("aw"),sn=$("snd");
+let conv=[],busy=false;
+
+function addM(t,type){
+aw.style.display="none";
+ms.style.display="flex";
+const r=document.createElement("div");
+r.className="msg "+type;
+const a=document.createElement("div");
+a.className="av";
+a.textContent=type==="user"?"You":"✧";
+const c=document.createElement("div");
+c.className="mx";
+c.textContent=t;
+r.append(a,c);
+ms.appendChild(r);
+ms.scrollTop=ms.scrollHeight;
+return c;
+}
+
+function reset(){
+conv=[];
+ms.innerHTML="";
+ms.style.display="none";
+aw.style.display="block";
+ai.value="";
+ai.focus();
+}
+
+function hist(q){
+const b=document.createElement("button");
+b.className="hi";
+b.textContent="◦ "+(q.length>28?q.slice(0,28)+"...":q);
+b.onclick=()=>{reset();ai.value=q};
+$("sh").appendChild(b);
+}
+
+async function send(m){
+m=m.trim();
+if(!m||busy)return;
+busy=true;
+sn.disabled=true;
+addM(m,"user");
+conv.push({role:"user",text:m});
+hist(m);
+const ld=addM("Thinking...","assistant");
+ld.classList.add("typing");
+
+try{
+const r=await fetch(WORKER_URL,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({messages:conv})
+});
+if(!r.ok)throw 0;
+const d=await r.json();
+const a=d.reply||d.response||"I couldn’t generate a response. Please try again.";
+ld.classList.remove("typing");
+ld.textContent=a;
+conv.push({role:"bot",text:a});
+}
+catch(e){
+ld.classList.remove("typing");
+ld.textContent="I’m having trouble connecting to the AI service right now. Please try again in a moment or contact ORVIX at "+CE;
+}
+
+busy=false;
+sn.disabled=false;
+ai.focus();
+}
+
+af.onsubmit=e=>{
+e.preventDefault();
+const m=ai.value;
+if(!m.trim())return;
+ai.value="";
+ai.style.height="32px";
+send(m);
+};
+
+ai.onkeydown=e=>{
+if(e.key==="Enter"&&!e.shiftKey){
+e.preventDefault();
+af.requestSubmit();
+}
+};
+
+ai.oninput=()=>{
+ai.style.height="32px";
+ai.style.height=Math.min(ai.scrollHeight,150)+"px";
+};
+
 document.querySelectorAll(".pcard").forEach(b=>b.onclick=()=>send(b.dataset.p));
-$("nc").onclick=()=>{if(!busy)reset()};$("hc").onclick=reset;
+
+$("nc").onclick=()=>{if(!busy)reset()};
+$("hc").onclick=reset;
+
 const FORM_ENDPOINT="";
-$("cf").onsubmit=async e=>{e.preventDefault();const n=$("cn").value.trim(),m=$("ce").value.trim(),g=$("cm").value.trim(),ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m);
-$("en").textContent=n?"":"Enter your name.";$("ee").textContent=ok?"":"Enter a valid email.";$("em").textContent=g.length>=10?"":"Enter at least 10 characters.";
+
+$("cf").onsubmit=async e=>{
+e.preventDefault();
+const n=$("cn").value.trim();
+const m=$("ce").value.trim();
+const g=$("cm").value.trim();
+const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m);
+
+$("en").textContent=n?"":"Enter your name.";
+$("ee").textContent=ok?"":"Enter a valid email.";
+$("em").textContent=g.length>=10?"":"Enter at least 10 characters.";
+
 if(!n||!ok||g.length<10)return;
-if(FORM_ENDPOINT){try{const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:n,email:m,message:g})});if(!r.ok)throw 0;$("cs").textContent="Thanks, your enquiry is sent. We’ll reply soon.";$("cf").reset();return}catch(x){}}
-$("cs").textContent="Opening your email app...";location.href="mailto:"+CE+"?subject="+encodeURIComponent("ORVIX project enquiry from "+n)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+m+"\n\n"+g)};
-$("nf").onsubmit=e=>{e.preventDefault();const v=$("nm").value.trim();$("ns").textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)?"Subscribed. Thanks for joining.":"Enter a valid email.";};
-addEventListener("scroll",()=>{const p=document.documentElement,mx=p.scrollHeight-p.clientHeight;$("prog").style.width=(mx>0?p.scrollTop/mx*100:0)+"%";$("top").classList.toggle("v",p.scrollTop>500)},{passive:true});
+
+if(FORM_ENDPOINT){
+try{
+const r=await fetch(FORM_ENDPOINT,{
+method:"POST",
+headers:{"Content-Type":"application/json",Accept:"application/json"},
+body:JSON.stringify({name:n,email:m,message:g})
+});
+if(!r.ok)throw 0;
+$("cs").textContent="Thanks, your enquiry is sent. We’ll reply soon.";
+$("cf").reset();
+return;
+}catch(x){}
+}
+
+$("cs").textContent="Opening your email app...";
+location.href="mailto:"+CE+
+"?subject="+encodeURIComponent("ORVIX project enquiry from "+n)+
+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+m+"\n\n"+g);
+};
+
+$("nf").onsubmit=e=>{
+e.preventDefault();
+const v=$("nm").value.trim();
+$("ns").textContent=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+?"Subscribed. Thanks for joining."
+:"Enter a valid email.";
+};
+
+addEventListener("scroll",()=>{
+const p=document.documentElement;
+const mx=p.scrollHeight-p.clientHeight;
+$("prog").style.width=(mx>0?p.scrollTop/mx*100:0)+"%";
+$("top").classList.toggle("v",p.scrollTop>500);
+},{passive:true});
+
 $("top").onclick=()=>scrollTo({top:0,behavior:"smooth"});
 </script>
 </body>
-                                             </html>
-                                             
+                                                                                                            </html>
+  
